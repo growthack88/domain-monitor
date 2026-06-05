@@ -3,8 +3,9 @@
 Domain uptime + SSL monitor.
 
 For every domain in domains.txt it checks:
-  1. HTTP(S) reachability   -> UP / DEGRADED / DOWN
-  2. TLS certificate        -> valid?  days until expiry?  (catches the Lovable SSL problem)
+  1. HTTP(S) reachability + the actual page (catches "domain not connected" error
+     pages that still return a 2xx/421 status, e.g. Lovable / Vercel).
+  2. TLS certificate -> valid?  days until expiry?
 
 Alerting model:
   - SLACK: live. Posts on every run when a domain CHANGES state.
@@ -37,15 +38,14 @@ PUSHOVER_TOKEN = os.environ.get("PUSHOVER_TOKEN", "").strip()
 PUSHOVER_USER = os.environ.get("PUSHOVER_USER", "").strip()
 SLACK_WEBHOOK_URL = os.environ.get("SLACK_WEBHOOK_URL", "").strip()
 
-# Identify as a real browser so Cloudflare/WAFs don't bot-block the check (they
-# otherwise return 403/421 and a healthy site looks "degraded").
+# Identify as a real browser so Cloudflare/WAFs don't bot-block the check.
 UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
       "(KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36")
 BROWSER_HEADERS = {
     "User-Agent": UA,
     "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
     "Accept-Language": "en-US,en;q=0.9",
-    "Accept-Encoding": "gzip, deflate, br",
+    "Accept-Encoding": "gzip, deflate",
     "Upgrade-Insecure-Requests": "1",
 }
 
@@ -101,6 +101,27 @@ def check_ssl(host, port=443):
         return {"ok": False, "days_left": None, "expires": None, "error": f"TLS error: {e}"}
 
 
+# Error pages that return a "success-ish" status but really mean the domain is
+# NOT connected to a live project. (substring in page body -> human reason)
+BROKEN_PAGE_SIGNATURES = [
+    ("are not properly configured", "Lovable: domain/DNS not connected"),
+    ("project not found", "Lovable: project not found"),
+    ("deployment_not_found", "Vercel: deployment not found"),
+    ("the deployment could not be found", "Vercel: deployment not found"),
+    ("there isn't a github pages site here", "GitHub Pages: no site here"),
+    ("site not found · netlify", "Netlify: site not found"),
+    ("sorry, this shop is currently unavailable", "Shopify: shop unavailable"),
+    ("no such app", "Host: no such app"),
+]
+
+
+def detect_broken_page(body_lower):
+    for sig, reason in BROKEN_PAGE_SIGNATURES:
+        if sig in body_lower:
+            return reason
+    return None
+
+
 def check_http(domain):
     url = f"https://{domain}"
     try:
@@ -109,10 +130,21 @@ def check_http(domain):
             headers=BROWSER_HEADERS,
         )
         code = r.status_code
-        if code < 400:
+        try:
+            body_lower = (r.text or "")[:6000].lower()
+        except Exception:  # noqa: BLE001
+            body_lower = ""
+        broken = detect_broken_page(body_lower)
+
+        err = None
+        if broken:
+            status, err = "DOWN", broken            # error page (e.g. unconnected Lovable domain)
+        elif code == 421:
+            status, err = "DOWN", "HTTP 421 — domain not connected to a project"
+        elif code < 400:
             status = "UP"
-        elif code in (401, 403, 421, 429):
-            status = "UP"         # server is alive, just bot-gated (Cloudflare/WAF)
+        elif code in (401, 403, 429):
+            status = "UP"         # server alive, just bot-gated (Cloudflare/WAF)
         elif code < 500:
             status = "DEGRADED"   # e.g. 404/410 — page issue but server responding
         else:
@@ -123,7 +155,7 @@ def check_http(domain):
             "final_url": r.url,
             "server": r.headers.get("Server", ""),
             "time_ms": int(r.elapsed.total_seconds() * 1000),
-            "error": None,
+            "error": err,
         }
     except requests.exceptions.SSLError as e:
         return {"status": "DOWN", "code": None, "final_url": url, "server": "",
@@ -325,7 +357,8 @@ def write_dashboard(results, checked_at):
     for r in results:
         color = SEV_COLOR.get(r["overall"], "#888")
         code = r["http"]["code"]
-        code_txt = code if code is not None else (r["http"]["error"] or "—")
+        # Prefer a human reason when something is wrong; otherwise show the code.
+        code_txt = r["http"]["error"] or (code if code is not None else "—")
         if r["ssl"]["ok"]:
             ssl_txt = f"{r['ssl']['days_left']}d → {r['ssl']['expires']}"
         else:
@@ -395,10 +428,10 @@ def write_dashboard(results, checked_at):
     <span class="btnhint">opens GitHub → click the green “Run workflow” button (takes ~30s, then reload this page)</span>
     <div class="cards">{summary}</div>
     <table>
-      <thead><tr><th></th><th>Domain</th><th>Status</th><th>HTTP</th><th>SSL (days → expiry)</th><th>Response</th><th>Host</th></tr></thead>
+      <thead><tr><th></th><th>Domain</th><th>Status</th><th>HTTP / detail</th><th>SSL (days → expiry)</th><th>Response</th><th>Host</th></tr></thead>
       <tbody>{''.join(rows)}</tbody>
     </table>
-    <div class="foot">Generated automatically by GitHub Actions. DEGRADED usually means a 4xx page issue (e.g. 404). Cloudflare bot-gating (403/421) counts as UP.</div>
+    <div class="foot">Generated automatically by GitHub Actions. "Domain not connected" pages (Lovable/Vercel) are flagged DOWN even when they return a 2xx/421 status.</div>
   </div>
 </body>
 </html>"""
