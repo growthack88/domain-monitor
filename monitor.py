@@ -7,19 +7,8 @@ For every domain in domains.txt it checks:
   2. TLS certificate        -> valid?  days until expiry?  (catches the Lovable SSL problem)
 
 Alerting model:
-  - SLACK: live. Posts on every run when a domain CHANGES state (down / SSL broken /
-    expiring / recovered).
-  - PUSHOVER: quiet. One digest per day (first scheduled run of the day) summarising
-    current problems. Plus an instant reply when YOU trigger an on-demand check
-    (the dashboard 'Check now' button or a Slack /sitecheck command).
-
-Configuration is via environment variables (all optional except the domains file):
-  PUSHOVER_TOKEN, PUSHOVER_USER   -> enable Pushover alerts
-  SLACK_WEBHOOK_URL               -> enable Slack alerts
-  SSL_WARN_DAYS   (default 14)    -> warn when a cert expires within N days
-  HTTP_TIMEOUT    (default 20)    -> per-request timeout (seconds)
-  DASHBOARD_URL                   -> link included in alerts (your GitHub Pages URL)
-  MAX_WORKERS     (default 12)    -> concurrency
+  - SLACK: live. Posts on every run when a domain CHANGES state.
+  - PUSHOVER: quiet. One digest per day, plus an instant reply on a manual check.
 """
 
 import os
@@ -48,7 +37,17 @@ PUSHOVER_TOKEN = os.environ.get("PUSHOVER_TOKEN", "").strip()
 PUSHOVER_USER = os.environ.get("PUSHOVER_USER", "").strip()
 SLACK_WEBHOOK_URL = os.environ.get("SLACK_WEBHOOK_URL", "").strip()
 
-UA = "Mozilla/5.0 (compatible; DomainMonitor/1.0; +https://github.com)"
+# Identify as a real browser so Cloudflare/WAFs don't bot-block the check (they
+# otherwise return 403/421 and a healthy site looks "degraded").
+UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+      "(KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36")
+BROWSER_HEADERS = {
+    "User-Agent": UA,
+    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
+    "Accept-Language": "en-US,en;q=0.9",
+    "Accept-Encoding": "gzip, deflate, br",
+    "Upgrade-Insecure-Requests": "1",
+}
 
 
 # ----------------------------- checks -----------------------------
@@ -107,15 +106,17 @@ def check_http(domain):
     try:
         r = requests.get(
             url, timeout=HTTP_TIMEOUT, allow_redirects=True,
-            headers={"User-Agent": UA},
+            headers=BROWSER_HEADERS,
         )
         code = r.status_code
         if code < 400:
             status = "UP"
+        elif code in (401, 403, 421, 429):
+            status = "UP"         # server is alive, just bot-gated (Cloudflare/WAF)
         elif code < 500:
-            status = "DEGRADED"
+            status = "DEGRADED"   # e.g. 404/410 — page issue but server responding
         else:
-            status = "DOWN"
+            status = "DOWN"       # 5xx (incl. Cloudflare 5xx like 521/526)
         return {
             "status": status,
             "code": code,
@@ -245,8 +246,7 @@ def send_slack(text):
 
 
 def send_alerts(new_problems, recovered):
-    """Per-change alert. Goes to SLACK only (live, every run). Pushover is sent
-    separately as a once-a-day digest to keep the phone quiet."""
+    """Per-change alert. SLACK only (live). Pushover is a once-a-day digest."""
     if not new_problems and not recovered:
         return
     lines = []
@@ -267,15 +267,14 @@ def send_pushover_daily_digest(results, checked_at):
     """One Pushover push per day summarising current problems (no per-run spam)."""
     problems = [r for r in results if r["overall"] != "OK"]
     if not problems:
-        return  # nothing wrong today — stay silent on the phone
+        return
     lines = [f"{len(problems)} domain issue(s) — {checked_at}", ""]
     lines += [problem_line(r) for r in sorted(problems, key=lambda r: SEV_ORDER.get(r["overall"], 9))]
     send_pushover(f"🔴 {len(problems)} domain issue(s)", "\n".join(lines), priority=1)
 
 
 def send_status_summary(results, checked_at):
-    """Post the FULL current status (not just changes). Used for on-demand checks
-    triggered manually / from Slack, so the user always 'gets an answer'."""
+    """Post the FULL current status (used for on-demand /sitecheck or 'Check now')."""
     counts = {k: 0 for k in SEV_ORDER}
     for r in results:
         counts[r["overall"]] = counts.get(r["overall"], 0) + 1
@@ -399,7 +398,7 @@ def write_dashboard(results, checked_at):
       <thead><tr><th></th><th>Domain</th><th>Status</th><th>HTTP</th><th>SSL (days → expiry)</th><th>Response</th><th>Host</th></tr></thead>
       <tbody>{''.join(rows)}</tbody>
     </table>
-    <div class="foot">Generated automatically by GitHub Actions. DEGRADED usually means a 4xx (often an auth wall) — the server is alive.</div>
+    <div class="foot">Generated automatically by GitHub Actions. DEGRADED usually means a 4xx page issue (e.g. 404). Cloudflare bot-gating (403/421) counts as UP.</div>
   </div>
 </body>
 </html>"""
@@ -455,8 +454,7 @@ def main():
     else:
         print("Slack: no state changes — nothing sent.")
 
-    # Pushover: at most ONCE per day (keeps the phone quiet).
-    # Exception: a manual /sitecheck or 'Check now' answers immediately.
+    # Pushover: at most ONCE per day; manual runs answer immediately.
     today = dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%d")
     if os.environ.get("GITHUB_EVENT_NAME") == "workflow_dispatch":
         send_status_summary(results, checked_at)
