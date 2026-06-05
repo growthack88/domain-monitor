@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Domain Monitor</title>
+<style>
+  :root { color-scheme: light dark; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+         margin:0; background:#0f1115; color:#e6e8eb; }
+  .wrap { max-width:1100px; margin:0 auto; padding:28px 20px 60px; }
+  h1 { font-size:22px; margin:0 0 4px; }
+  .sub { color:#9aa0a6; font-size:13px; margin-bottom:22px; }
+  .cards { display:flex; gap:12px; flex-wrap:wrap; margin-bottom:24px; }
+  .card { flex:1; min-width:120px; background:#171a21; border:1px solid #232833;
+          border-radius:12px; padding:16px; font-size:30px; font-weight:700; }
+  .card span { display:block; font-size:12px; font-weight:500; color:#9aa0a6; margin-top:4px; }
+  .card.down { color:#ff6b6f; }
+  .card.sslbad { color:#ff6b6f; } .card.warn { color:#f5a623; }
+  .card.deg { color:#f5a623; } .card.ok { color:#30a46c; }
+  table { width:100%; border-collapse:collapse; background:#171a21;
+          border:1px solid #232833; border-radius:12px; overflow:hidden; }
+  th, td { text-align:left; padding:10px 12px; font-size:13px; border-bottom:1px solid #232833; }
+  th { color:#9aa0a6; font-weight:600; position:sticky; top:0; background:#13161c; }
+  tr:last-child td { border-bottom:none; }
+  a { color:#7cc0ff; text-decoration:none; } a:hover { text-decoration:underline; }
+  .muted { color:#9aa0a6; }
+  .dot { display:inline-block; width:10px; height:10px; border-radius:50%; }
+  .badge { color:#0f1115; font-weight:700; font-size:11px; padding:2px 8px; border-radius:20px; }
+  .foot { margin-top:18px; color:#6b7280; font-size:12px; }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Domain Monitor</h1>
+    <div class="sub">72 domains · last checked 2026-06-05 07:51 UTC · SSL warning threshold 14 days · refreshes every 6h</div>
+    <div class="cards">
+      <div class="card down">14<span>Down</span></div>
+      <div class="card sslbad">0<span>SSL invalid</span></div>
+      <div class="card warn">0<span>SSL expiring</span></div>
+      <div class="card deg">25<span>Degraded</span></div>
+      <div class="card ok">33<span>OK</span></div>
+    </div>
+    <table>
+      <thead><tr><th></th><th>Domain</th><th>Status</th><th>HTTP</th><th>SSL (days → expiry)</th><th>Response</th><th>Host</th></tr></thead>
+      <tbody>
+      <tr>
+        <td><span class="dot" style="background:#e5484d"></span></td>
+        <td><a href="https://afaqmena.com" target="_blank" rel="noopener">afaqmena.com</a></td>
+        <td><span class="badge" style="background:#e5484d">DOWN</span></td>
+        <td>connection error: HTTPSConnectionPool(host='afaqmena.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError("HTTPSConnection(host='afaqmena.com', port=4</td>
+        <td>DNS resolution failed</td>
+        <td>—</td>
+        <td class="muted">—</td>
+      </tr>
+      <tr>
+        <td><span class="dot" style="background:#e5484d"></span></td>
+        <td><a href="https://fitforanime.com" target="_blank" rel="noopener">fitforanime.com</a></td>
+        <td><span class="badge" style="background:#e5484d">DOWN</span></td>
+        <td>TLS handshake failed: HTTPSConnectionPool(host='fitforanime.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError(1, "[SSL: CERTIFICATE_VERIF</td>
+        <td>invalid cert: Hostname mismatch, certificate is not valid for 'fitforanime.com'.</td>
+        <td>—</td>
+        <td class="muted">—</td>
+      </tr>
+      <tr>
+        <td><span class="dot" style="background:#e5484d"></span></td>
+        <td><a href="https://fitforshop.com" target="_blank" rel="noopener">fitforshop.com</a></td>
+        <td><span class="badge" style="background:#e5484d">DOWN</span></td>
+        <td>connection error: HTTPSConnectionPool(host='fitforshop.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError("HTTPSConnection(host='fitforshop.com', po</td>
+        <td>DNS resolution failed</td>
+        <td>—</td>
+        <td class="muted">—</td>
+      </tr>
+      <tr>
+        <td><span class="dot" style="background:#e5484d"></span></td>
+        <td><a href="https://i-geeky.info" target="_blank" rel="noopener">i-geeky.info</a></td>
+        <td><span class="badge" style="background:#e5484d">DOWN</span></td>
+        <td>TLS handshake failed: HTTPSConnectionPool(host='i-geeky.info', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_F</td>
+        <td>invalid cert: certificate has expired</td>
+        <td>—</td>
+        <td class="muted">—</td>
+      </tr>
+      <tr>
+        <td><span class="dot" style="background:#e5484d"></span></td>
+        <td><a href="https://mujeer.org" target="_blank" rel="noopener">mujeer.org</a></td>
+        <td><span class="badge" style="background:#e5484d">DOWN</span></td>
+        <td>connection error: HTTPSConnectionPool(host='mujeer.org', port=443): Max retries exceeded with url: / (Caused by NameResolutionError("HTTPSConnection(host='mujeer.org', port=443):</td>
+        <td>DNS resolution failed</td>
+        <td>—</td>
+        <td class="muted">—</td>
+      </tr>
+      <tr>
+        <td><span class="dot" style="background:#e5484d"></span></td>
+        <td><a href="https://publishtolead.pro" target="_blank" rel="noopener">publishtolead.pro</a></td>
+        <td><span class="badge" style="background:#e5484d">DOWN</span></td>
+        <td>connection error: HTTPSConnectionPool(host='publishtolead.pro', port=443): Max retries exceeded with url: / (Caused by NameResolutionError("HTTPSConnection(host='publishtolead.pr</td>
+        <td>DNS resolution failed</td>
+        <td>—</td>
+        <td class="muted">—</td>
+      </tr>
+      <tr>
+        <td><span class="dot" style="background:#e5484d"></span></td>
+        <td><a href="https://rawipress.live" target="_blank" rel="noopener">rawipress.live</a></td>
+        <td><span class="badge" style="background:#e5484d">DOWN</span></td>
+        <td>connection error: HTTPSConnectionPool(host='rawipress.live', port=443): Max retries exceeded with url: / (Caused by NameResolutionError("HTTPSConnection(host='rawipress.live', po</td>
+        <td>DNS resolution failed</td>
+        <td>—</td>
+        <td class="muted">—</td>
+      </tr>
+      <tr>
+        <td><span class="dot" style="background:#e5484d"></span></td>
+        <td><a href="https://readcast.live" target="_blank" rel="noopener">readcast.live</a></td>
+        <td><span class="badge" style="background:#e5484d">DOWN</span></td>
+        <td>connection error: HTTPSConnectionPool(host='readcast.live', port=443): Max retries exceeded with url: / (Caused by NameResolutionError("HTTPSConnection(host='readcast.live', port</td>
+        <td>DNS resolution failed</td>
+        <td>—</td>
+        <td class="muted">—</td>
+      </tr>
+      <tr>
+        <td><span class="dot" style="background:#e5484d"></span></td>
+        <td><a href="https://shopyzilla.com" target="_blank" rel="noopener">shopyzilla.com</a></td>
+        <td><span class="badge" style="background:#e5484d">DOWN</span></td>
+        <td>connection error: HTTPSConnectionPool(host='shopyzilla.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError("HTTPSConnection(host='shopyzilla.com', po</td>
+        <td>DNS resolution failed</td>
+        <td>—</td>
+        <td class="muted">—</td>
+      </tr>
+      <tr>
+        <td><span class="dot" style="background:#e5484d"></span></td>
+        <td><a href="https://thegrowthwise.pro" target="_blank" rel="noopener">thegrowthwise.pro</a></td>
+        <td><span class="badge" style="background:#e5484d">DOWN</span></td>
+        <td>connection error: HTTPSConnectionPool(host='thegrowthwise.pro', port=443): Max retries exceeded with url: / (Caused by NameResolutionError("HTTPSConnection(host='thegrowthwise.pr</td>
+        <td>DNS resolution failed</td>
+        <td>—</td>
+        <td class="muted">—</td>
+      </tr>
+      <tr>
+        <td><span class="dot" style="background:#e5484d"></span></td>
+        <td><a href="https://theictevents.com" target="_blank" rel="noopener">theictevents.com</a></td>
+        <td><span class="badge" style="background:#e5484d">DOWN</span></td>
+        <td>TLS handshake failed: HTTPSConnectionPool(host='theictevents.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERI</td>
+        <td>invalid cert: certificate has expired</td>
+        <td>—</td>
+        <td class="muted">—</td>
+      </tr>
+      <tr>
+        <td><span class="dot" style="background:#e5484d"></span></td>
+        <td><a href="https://theictjobs.com" target="_blank" rel="noopener">theictjobs.com</a></td>
+        <td><span class="badge" style="background:#e5484d">DOWN</span></td>
+        <td>526</td>
+        <td>44d → 2026-07-20</td>
+        <td>586 ms</td>
+        <td class="muted">Cloudflare</td>
+      </tr>
+      <tr>
+        <td><span class="dot" style="background:#e5484d"></span></td>
+        <td><a href="https://theicttrends.com" target="_blank" rel="noopener">theicttrends.com</a></td>
+        <td><span class="badge" style="background:#e5484d">DOWN</span></td>
+        <td>connection error: HTTPSConnectionPool(host='theicttrends.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError("HTTPSConnection(host='theicttrends.com'</td>
+        <td>DNS resolution failed</td>
+        <td>—</td>
+        <td class="muted">—</td>
+      </tr>
+      <tr>
+        <td><span class="dot" style="background:#e5484d"></span></td>
+        <td><a href="https://wooder.store" target="_blank" rel="noopener">wooder.store</a></td>
+        <td><span class="badge" style="background:#e5484d">DOWN</span></td>
+        <td>connection error: HTTPSConnectionPool(host='wooder.store', port=443): Max retries exceeded with url: / (Caused by NameResolutionError("HTTPSConnection(host='wooder.store', port=4</td>
+        <td>DNS resolution failed</td>
+        <td>—</td>
+        <td class="muted">—</td>
+      </tr>
+      <tr>
+        <td><span class="dot" style="background:#f5a623"></span></td>
+        <td><a href="https://bookkhan.com" target="_blank" rel="noopener">bookkhan.com</a></td>
+        <td><span class="badge" style="background:#f5a623">DEGRADED</span></td>
+        <td>404</td>
+        <td>82d → 2026-08-26</td>
+        <td>501 ms</td>
+        <td class="muted">Shared/WordPress</td>
+      </tr>
+      <tr>
+        <td><span class="dot" style="background:#f5a623"></span></td>
+        <td><a href="https://dpblueprint.com" target="_blank" rel="noopener">dpblueprint.com</a></td>
+        <td><span class="badge" style="background:#f5a623">DEGRADED</span></td>
+        <td>421</td>
+        <td>89d → 2026-09-02</td>
+        <td>358 ms</td>
+        <td class="muted">Cloudflare</td>
+      </tr>
+      <tr>
+        <td><span class="dot" style="background:#f5a623"></span></td>
+        <td><a href="https://ducklancer.com" target="_blank" rel="noopener">ducklancer.com</a></td>
+        <td><span class="badge" style="background:#f5a623">DEGRADED</span></td>
+        <td>421</td>
+        <td>60d → 2026-08-05</td>
+        <td>333 ms</td>
+        <td class="muted">Cloudflare</td>
+      </tr>
+      <tr>
+        <td><span class="dot" style="background:#f5a623"></span></td>
+        <td><a href="https://getduckdoro.com" target="_blank" rel="noopener">getduckdoro.com</a></td>
+        <td><span class="badge" style="background:#f5a623">DEGRADED</span></td>
+        <td>421</td>
+        <td>44d → 2026-07-19</td>
+        <td>460 ms</td>
+        <td class="muted">Cloudflare</td>
+      </tr>
+      <tr>
+        <td><span class="dot" style="background:#f5a623"></span></td>
+        <td><a href="https://greenverse.lol" target="_blank" rel="noopener">greenverse.lol</a></td>
+        <td><span class="badge" style="background:#f5a623">DEGRADED</span></td>
+        <td>421</td>
+        <td>57d → 2026-08-01</td>
+        <td>337 ms</td>
+        <td class="muted">Cloudflare</td>
+      </tr>
+      <tr>
+        <td><span class="dot" style="background:#f5a623"></span></td>
+        <td><a href="https://gristory.com" target="_blank" rel="noopener">gristory.com</a></td>
+        <td><span class="badge" style="background:#f5a623">DEGRADED</span></td>
+        <td>421</td>
+        <td>53d → 2026-07-28</td>
+        <td>302 ms</td>
+        <td class="muted">Cloudflare</td>
+      </tr>
+      <tr>
+        <td><span class="dot" style="background:#f5a623"></span></td>
+        <td><a href="https://growthduckup.com" target="_blank" rel="noopener">growthduckup.com</a></td>
+        <td><span class="badge" style="background:#f5a623">DEGRADED</span></td>
+        <td>421</td>
+        <td>53d → 2026-07-28</td>
+        <td>1477 ms</td>
+        <td class="muted">Cloudflare</td>
+      </tr>
+      <tr>
+        <td><span class="dot" style="background:#f5a623"></span></td>
+        <td><a href="https://growthhackacademy.com" target="_blank" rel="noopener">growthhackacademy.com</a></td>
+        <td><span class="badge" style="background:#f5a623">DEGRADED</span></td>
+        <td>421</td>
+        <td>89d → 2026-09-02</td>
+        <td>1003 ms</td>
+        <td class="muted">Cloudflare</td>
+      </tr>
+      <tr>
+        <td><span class="dot" style="background:#f5a623"></span></td>
+        <td><a href="https://howakeda.com" target="_blank" rel="noopener">howakeda.com</a></td>
+        <td><span class="badge" style="background:#f5a623">DEGRADED</span></td>
+        <td>421</td>
+        <td>58d → 2026-08-02</td>
+        <td>432 ms</td>
+        <td class="muted">Cloudflare</td>
+      </tr>
+      <tr>
+        <td><span class="dot" style="background:#f5a623"></span></td>
+        <td><a href="https://i-geeky.com" target="_blank" rel="noopener">i-geeky.com</a></td>
+        <td><span class="badge" style="background:#f5a623">DEGRADED</span></td>
+        <td>421</td>
+        <td>88d → 2026-09-01</td>
+        <td>318 ms</td>
+        <td class="muted">Cloudflare</td>
+      </tr>
+      <tr>
+        <td><span class="dot" style="background:#f5a623"></span></td>
+        <td><a href="https://interms.pro" target="_blank" rel="noopener">interms.pro</a></td>
+        <td><span class="badge" style="background:#f5a623">DEGRADED</span></td>
+        <td>421</td>
+        <td>40d → 2026-07-16</td>
+        <td>317 ms</td>
+        <td class="muted">Cloudflare</td>
+      </tr>
+      <tr>
+        <td><span class="dot" style="background:#f5a623"></span></td>
+        <td><a href="https://kidstolead.com" target="_blank" rel="noopener">kidstolead.com</a></td>
+        <td><span class="badge" style="background:#f5a623">DEGRADED</span></td>
+        <td>421</td>
+        <td>57d → 2026-08-02</td>
+        <td>310 ms</td>
+        <td class="muted">Cloudflare</td>
+      </tr>
+      <tr>
+        <td><span class="dot" style="background:#f5a623"></span></td>
+        <td><a href="https://mahmoud.tel" target="_blank" rel="noopener">mahmoud.tel</a></td>
+        <td><span class="badge" style="background:#f5a623">DEGRADED</span></td>
+        <td>421</td>
+        <td>49d → 2026-07-24</td>
+        <td>436 ms</td>
+        <td class="muted">Cloudflare</td>
+      </tr>
+      <tr>
+        <td><span class="dot" style="background:#f5a623"></span></td>
+        <td><a href="https://mahmoudomar.com" target="_blank" rel="noopener">mahmoudomar.com</a></td>
+        <td><span class="badge" style="background:#f5a623">DEGRADED</span></td>
+        <td>421</td>
+        <td>49d → 2026-07-25</td>
+        <td>281 ms</td>
+        <td class="muted">Cloudflare</td>
+      </tr>
+      <tr>
+        <td><span class="dot" style="background:#f5a623"></span></td>
+        <td><a href="https://masaai2030.com" target="_blank" rel="noopener">masaai2030.com</a></td>
+        <td><span class="badge" style="background:#f5a623">DEGRADED</span></td>
+        <td>421</td>
+        <td>89d → 2026-09-02</td>
+        <td>337 ms</td>
+        <td class="muted">Cloudflare</td>
+      </tr>
+      <tr>
+        <td><span class="dot" style="background:#f5a623"></span></td>
+        <td><a href="https://mempireangels.com" target="_blank" rel="noopener">mempireangels.com</a></td>
+        <td><span class="badge" style="background:#f5a623">DEGRADED</span></td>
+        <td>421</td>
+        <td>53d → 2026-07-28</td>
+        <td>1039 ms</td>
+        <td class="muted">Cloudflare</td>
+      </tr>
+      <tr>
+        <td><span class="dot" style="background:#f5a623"></span></td>
+        <td><a href="https://mmas89.com" target="_blank" rel="noopener">mmas89.com</a></td>
+        <td><span class="badge" style="background:#f5a623">DEGRADED</span></td>
+        <td>421</td>
+        <td>49d → 2026-07-24</td>
+        <td>1059 ms</td>
+        <td class="muted">Cloudflare</td>
+      </tr>
+      <tr>
+        <td><span class="dot" style="background:#f5a623"></span></td>
+        <td><a href="https://pluginz.io" target="_blank" rel="noopener">pluginz.io</a></td>
+        <td><span class="badge" style="background:#f5a623">DEGRADED</span></td>
+        <td>421</td>
+        <td>78d → 2026-08-22</td>
+        <td>503 ms</td>
+        <td class="muted">Cloudflare</td>
+      </tr>
+      <tr>
+        <td><span class="dot" style="background:#f5a623"></span></td>
+        <td><a href="https://readtolead.pro" target="_blank" rel="noopener">readtolead.pro</a></td>
+        <td><span class="badge" style="background:#f5a623">DEGRADED</span></td>
+        <td>421</td>
+        <td>87d → 2026-09-01</td>
+        <td>1036 ms</td>
+        <td class="muted">Cloudflare</td>
+      </tr>
+      <tr>
+        <td><span class="dot" style="background:#f5a623"></span></td>
+        <td><a href="https://startupkitpro.com" target="_blank" rel="noopener">startupkitpro.com</a></td>
+        <td><span class="badge" style="background:#f5a623">DEGRADED</span></td>
+        <td>421</td>
+        <td>89d → 2026-09-02</td>
+        <td>314 ms</td>
+        <td class="muted">Cloudflare</td>
+      </tr>
+      <tr>
+        <td><span class="dot" style="background:#f5a623"></span></td>
+        <td><a href="https://templify.pro" target="_blank" rel="noopener">templify.pro</a></td>
+        <td><span class="badge" style="background:#f5a623">DEGRADED</span></td>
+        <td>421</td>
+        <td>77d → 2026-08-21</td>
+        <td>285 ms</td>
+        <td class="muted">Cloudflare</td>
+      </tr>
+      <tr>
+        <td><span class="dot" style="background:#f5a623"></span></td>
+        <td><a href="https://templify.store" target="_blank" rel="noopener">templify.store</a></td>
+        <td><span class="badge" style="background:#f5a623">DEGRADED</span></td>
+        <td>403</td>
+        <td>59d → 2026-08-03</td>
+        <td>112 ms</td>
+        <td class="muted">Cloudflare</td>
+      </tr>
+      <tr>
+        <td><span class="dot" style="background:#f5a623"></span></td>
+        <td><a href="https://trycopyduck.com" target="_blank" rel="noopener">trycopyduck.com</a></td>
+        <td><span class="badge" style="background:#f5a623">DEGRADED</span></td>
+        <td>421</td>
+        <td>63d → 2026-08-08</td>
+        <td>353 ms</td>
+        <td class="muted">Cloudflare</td>
+      </tr>
+      <tr>
+        <td><span class="dot" style="background:#f5a623"></span></td>
+        <td><a href="https://tryduckdev.com" target="_blank" rel="noopener">tryduckdev.com</a></td>
+        <td><span class="badge" style="background:#f5a623">DEGRADED</span></td>
+        <td>421</td>
+        <td>59d → 2026-08-03</td>
+        <td>307 ms</td>
+        <td class="muted">Cloudflare</td>
+      </tr>
+      <tr>
+        <td><span class="dot" style="background:#f5a623"></span></td>
+        <td><a href="https://tryducktank.com" target="_blank" rel="noopener">tryducktank.com</a></td>
+        <td><span class="badge" style="background:#f5a623">DEGRADED</span></td>
+        <td>403</td>
+        <td>89d → 2026-09-02</td>
+        <td>236 ms</td>
+        <td class="muted">Cloudflare</td>
+      </tr>
+      <tr>
+        <td><span class="dot" style="background:#30a46c"></span></td>
+        <td><a href="https://asknagaty.com" target="_blank" rel="noopener">asknagaty.com</a></td>
+        <td><span class="badge" style="background:#30a46c">OK</span></td>
+        <td>200</td>
+        <td>89d → 2026-09-02</td>
+        <td>1455 ms</td>
+        <td class="muted">Cloudflare</td>
+      </tr>
+      <tr>
+        <td><span class="dot" style="background:#30a46c"></span></td>
+        <td><a href="https://bdealz.com" target="_blank" rel="noopener">bdealz.com</a></td>
+        <td><span class="badge" style="background:#30a46c">OK</span></td>
+        <td>200</td>
+        <td>79d → 2026-08-24</td>
+        <td>840 ms</td>
+        <td class="muted">Shared/WordPress</td>
+      </tr>
+      <tr>
+        <td><span class="dot" style="background:#30a46c"></span></td>
+        <td><a href="https://bookyol.com" target="_blank" rel="noopener">bookyol.com</a></td>
+        <td><span class="badge" style="background:#30a46c">OK</span></td>
+        <td>200</td>
+        <td>64d → 2026-08-09</td>
+        <td>478 ms</td>
+        <td class="muted">Shared/WordPress</td>
+      </tr>
+      <tr>
+        <td><span class="dot" style="background:#30a46c"></span></td>
+        <td><a href="https://bookzad.com" target="_blank" rel="noopener">bookzad.com</a></td>
+        <td><span class="badge" style="background:#30a46c">OK</span></td>
+        <td>200</td>
+        <td>64d → 2026-08-09</td>
+        <td>484 ms</td>
+        <td class="muted">Shared/WordPress</td>
+      </tr>
+      <tr>
+        <td><span class="dot" style="background:#30a46c"></span></td>
+        <td><a href="https://buildinggrowthmachine.com" target="_blank" rel="noopener">buildinggrowthmachine.com</a></td>
+        <td><span class="badge" style="background:#30a46c">OK</span></td>
+        <td>200</td>
+        <td>44d → 2026-07-19</td>
+        <td>2030 ms</td>
+        <td class="muted">Cloudflare</td>
+      </tr>
+      <tr>
+        <td><span class="dot" style="background:#30a46c"></span></td>
+        <td><a href="https://buildtolead.pro" target="_blank" rel="noopener">buildtolead.pro</a></td>
+        <td><span class="badge" style="background:#30a46c">OK</span></td>
+        <td>200</td>
+        <td>84d → 2026-08-28</td>
+        <td>1068 ms</td>
+        <td class="muted">Cloudflare</td>
+      </tr>
+      <tr>
+        <td><span class="dot" style="background:#30a46c"></span></td>
+        <td><a href="https://diguply.com" target="_blank" rel="noopener">diguply.com</a></td>
+        <td><span class="badge" style="background:#30a46c">OK</span></td>
+        <td>200</td>
+        <td>36d → 2026-07-11</td>
+        <td>2069 ms</td>
+        <td class="muted">Shared/WordPress</td>
+      </tr>
+      <tr>
+        <td><span class="dot" style="background:#30a46c"></span></td>
+        <td><a href="https://doojr62.art" target="_blank" rel="noopener">doojr62.art</a></td>
+        <td><span class="badge" style="background:#30a46c">OK</span></td>
+        <td>200</td>
+        <td>53d → 2026-07-28</td>
+        <td>1890 ms</td>
+        <td class="muted">Cloudflare</td>
+      </tr>
+      <tr>
+        <td><span class="dot" style="background:#30a46c"></span></td>
+        <td><a href="https://duckdoro.com" target="_blank" rel="noopener">duckdoro.com</a></td>
+        <td><span class="badge" style="background:#30a46c">OK</span></td>
+        <td>200</td>
+        <td>89d → 2026-09-02</td>
+        <td>1809 ms</td>
+        <td class="muted">Cloudflare</td>
+      </tr>
+      <tr>
+        <td><span class="dot" style="background:#30a46c"></span></td>
+        <td><a href="https://duckmerce.com" target="_blank" rel="noopener">duckmerce.com</a></td>
+        <td><span class="badge" style="background:#30a46c">OK</span></td>
+        <td>200</td>
+        <td>89d → 2026-09-02</td>
+        <td>1406 ms</td>
+        <td class="muted">Cloudflare</td>
+      </tr>
+      <tr>
+        <td><span class="dot" style="background:#30a46c"></span></td>
+        <td><a href="https://duckverse.pro" target="_blank" rel="noopener">duckverse.pro</a></td>
+        <td><span class="badge" style="background:#30a46c">OK</span></td>
+        <td>200</td>
+        <td>89d → 2026-09-02</td>
+        <td>1743 ms</td>
+        <td class="muted">Cloudflare</td>
+      </tr>
+      <tr>
+        <td><span class="dot" style="background:#30a46c"></span></td>
+        <td><a href="https://duckverse.store" target="_blank" rel="noopener">duckverse.store</a></td>
+        <td><span class="badge" style="background:#30a46c">OK</span></td>
+        <td>200</td>
+        <td>79d → 2026-08-23</td>
+        <td>605 ms</td>
+        <td class="muted">caddy</td>
+      </tr>
+      <tr>
+        <td><span class="dot" style="background:#30a46c"></span></td>
+        <td><a href="https://ecomhouse.pro" target="_blank" rel="noopener">ecomhouse.pro</a></td>
+        <td><span class="badge" style="background:#30a46c">OK</span></td>
+        <td>200</td>
+        <td>71d → 2026-08-15</td>
+        <td>2686 ms</td>
+        <td class="muted">Cloudflare</td>
+      </tr>
+      <tr>
+        <td><span class="dot" style="background:#30a46c"></span></td>
+        <td><a href="https://eltizam.net" target="_blank" rel="noopener">eltizam.net</a></td>
+        <td><span class="badge" style="background:#30a46c">OK</span></td>
+        <td>200</td>
+        <td>84d → 2026-08-28</td>
+        <td>565 ms</td>
+        <td class="muted">Shared/WordPress</td>
+      </tr>
+      <tr>
+        <td><span class="dot" style="background:#30a46c"></span></td>
+        <td><a href="https://fitformoda.com" target="_blank" rel="noopener">fitformoda.com</a></td>
+        <td><span class="badge" style="background:#30a46c">OK</span></td>
+        <td>200</td>
+        <td>84d → 2026-08-28</td>
+        <td>244 ms</td>
+        <td class="muted">Cloudflare</td>
+      </tr>
+      <tr>
+        <td><span class="dot" style="background:#30a46c"></span></td>
+        <td><a href="https://freeduckter.com" target="_blank" rel="noopener">freeduckter.com</a></td>
+        <td><span class="badge" style="background:#30a46c">OK</span></td>
+        <td>200</td>
+        <td>60d → 2026-08-04</td>
+        <td>1913 ms</td>
+        <td class="muted">Cloudflare</td>
+      </tr>
+      <tr>
+        <td><span class="dot" style="background:#30a46c"></span></td>
+        <td><a href="https://gadzilla.diy" target="_blank" rel="noopener">gadzilla.diy</a></td>
+        <td><span class="badge" style="background:#30a46c">OK</span></td>
+        <td>200</td>
+        <td>36d → 2026-07-12</td>
+        <td>1647 ms</td>
+        <td class="muted">Cloudflare</td>
+      </tr>
+      <tr>
+        <td><span class="dot" style="background:#30a46c"></span></td>
+        <td><a href="https://growthack.info" target="_blank" rel="noopener">growthack.info</a></td>
+        <td><span class="badge" style="background:#30a46c">OK</span></td>
+        <td>200</td>
+        <td>84d → 2026-08-28</td>
+        <td>1326 ms</td>
+        <td class="muted">Cloudflare</td>
+      </tr>
+      <tr>
+        <td><span class="dot" style="background:#30a46c"></span></td>
+        <td><a href="https://growthdna.pro" target="_blank" rel="noopener">growthdna.pro</a></td>
+        <td><span class="badge" style="background:#30a46c">OK</span></td>
+        <td>200</td>
+        <td>68d → 2026-08-12</td>
+        <td>11023 ms</td>
+        <td class="muted">Cloudflare</td>
+      </tr>
+      <tr>
+        <td><span class="dot" style="background:#30a46c"></span></td>
+        <td><a href="https://growthhack.pro" target="_blank" rel="noopener">growthhack.pro</a></td>
+        <td><span class="badge" style="background:#30a46c">OK</span></td>
+        <td>200</td>
+        <td>89d → 2026-09-02</td>
+        <td>3418 ms</td>
+        <td class="muted">Cloudflare</td>
+      </tr>
+      <tr>
+        <td><span class="dot" style="background:#30a46c"></span></td>
+        <td><a href="https://growthhacktoolkit.com" target="_blank" rel="noopener">growthhacktoolkit.com</a></td>
+        <td><span class="badge" style="background:#30a46c">OK</span></td>
+        <td>200</td>
+        <td>37d → 2026-07-13</td>
+        <td>778 ms</td>
+        <td class="muted">Cloudflare</td>
+      </tr>
+      <tr>
+        <td><span class="dot" style="background:#30a46c"></span></td>
+        <td><a href="https://infosfere.com" target="_blank" rel="noopener">infosfere.com</a></td>
+        <td><span class="badge" style="background:#30a46c">OK</span></td>
+        <td>200</td>
+        <td>65d → 2026-08-10</td>
+        <td>546 ms</td>
+        <td class="muted">Shared/WordPress</td>
+      </tr>
+      <tr>
+        <td><span class="dot" style="background:#30a46c"></span></td>
+        <td><a href="https://leadtoolkits.com" target="_blank" rel="noopener">leadtoolkits.com</a></td>
+        <td><span class="badge" style="background:#30a46c">OK</span></td>
+        <td>200</td>
+        <td>62d → 2026-08-06</td>
+        <td>1924 ms</td>
+        <td class="muted">Cloudflare</td>
+      </tr>
+      <tr>
+        <td><span class="dot" style="background:#30a46c"></span></td>
+        <td><a href="https://myreadtolead.com" target="_blank" rel="noopener">myreadtolead.com</a></td>
+        <td><span class="badge" style="background:#30a46c">OK</span></td>
+        <td>200</td>
+        <td>89d → 2026-09-02</td>
+        <td>3942 ms</td>
+        <td class="muted">Cloudflare</td>
+      </tr>
+      <tr>
+        <td><span class="dot" style="background:#30a46c"></span></td>
+        <td><a href="https://read-summary.com" target="_blank" rel="noopener">read-summary.com</a></td>
+        <td><span class="badge" style="background:#30a46c">OK</span></td>
+        <td>200</td>
+        <td>24d → 2026-06-29</td>
+        <td>1069 ms</td>
+        <td class="muted">youcan.private.dc/2.0</td>
+      </tr>
+      <tr>
+        <td><span class="dot" style="background:#30a46c"></span></td>
+        <td><a href="https://readtolead.online" target="_blank" rel="noopener">readtolead.online</a></td>
+        <td><span class="badge" style="background:#30a46c">OK</span></td>
+        <td>200</td>
+        <td>89d → 2026-09-02</td>
+        <td>2254 ms</td>
+        <td class="muted">Cloudflare</td>
+      </tr>
+      <tr>
+        <td><span class="dot" style="background:#30a46c"></span></td>
+        <td><a href="https://readtolead.store" target="_blank" rel="noopener">readtolead.store</a></td>
+        <td><span class="badge" style="background:#30a46c">OK</span></td>
+        <td>200</td>
+        <td>82d → 2026-08-27</td>
+        <td>576 ms</td>
+        <td class="muted">Cloudflare</td>
+      </tr>
+      <tr>
+        <td><span class="dot" style="background:#30a46c"></span></td>
+        <td><a href="https://startupkit.pro" target="_blank" rel="noopener">startupkit.pro</a></td>
+        <td><span class="badge" style="background:#30a46c">OK</span></td>
+        <td>200</td>
+        <td>89d → 2026-09-02</td>
+        <td>121 ms</td>
+        <td class="muted">Vercel</td>
+      </tr>
+      <tr>
+        <td><span class="dot" style="background:#30a46c"></span></td>
+        <td><a href="https://steplead.org" target="_blank" rel="noopener">steplead.org</a></td>
+        <td><span class="badge" style="background:#30a46c">OK</span></td>
+        <td>200</td>
+        <td>44d → 2026-07-20</td>
+        <td>1432 ms</td>
+        <td class="muted">Cloudflare</td>
+      </tr>
+      <tr>
+        <td><span class="dot" style="background:#30a46c"></span></td>
+        <td><a href="https://tryduckcash.com" target="_blank" rel="noopener">tryduckcash.com</a></td>
+        <td><span class="badge" style="background:#30a46c">OK</span></td>
+        <td>200</td>
+        <td>89d → 2026-09-02</td>
+        <td>1185 ms</td>
+        <td class="muted">Cloudflare</td>
+      </tr>
+      <tr>
+        <td><span class="dot" style="background:#30a46c"></span></td>
+        <td><a href="https://tryduckdash.com" target="_blank" rel="noopener">tryduckdash.com</a></td>
+        <td><span class="badge" style="background:#30a46c">OK</span></td>
+        <td>200</td>
+        <td>47d → 2026-07-22</td>
+        <td>1477 ms</td>
+        <td class="muted">Cloudflare</td>
+      </tr>
+      <tr>
+        <td><span class="dot" style="background:#30a46c"></span></td>
+        <td><a href="https://whatzduck.com" target="_blank" rel="noopener">whatzduck.com</a></td>
+        <td><span class="badge" style="background:#30a46c">OK</span></td>
+        <td>200</td>
+        <td>58d → 2026-08-02</td>
+        <td>1108 ms</td>
+        <td class="muted">Cloudflare</td>
+      </tr>
+      <tr>
+        <td><span class="dot" style="background:#30a46c"></span></td>
+        <td><a href="https://zahranppc.com" target="_blank" rel="noopener">zahranppc.com</a></td>
+        <td><span class="badge" style="background:#30a46c">OK</span></td>
+        <td>200</td>
+        <td>89d → 2026-09-02</td>
+        <td>906 ms</td>
+        <td class="muted">Cloudflare</td>
+      </tr></tbody>
+    </table>
+    <div class="foot">Generated automatically by GitHub Actions. DEGRADED usually means a 4xx (often an auth wall) — the server is alive.</div>
+  </div>
+</body>
+</html>
