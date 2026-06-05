@@ -11,6 +11,8 @@ It then:
   - Compares against the previous run (state.json) and sends Pushover + Slack
     alerts ONLY when something changes (newly down, SSL newly broken/expiring,
     or recovered). No spam on every run.
+  - On a manual/on-demand run (workflow_dispatch) it also posts a FULL current
+    status summary to Slack + Pushover, so you 'ask and get an answer'.
 
 Configuration is via environment variables (all optional except the domains file):
   PUSHOVER_TOKEN, PUSHOVER_USER   -> enable Pushover alerts
@@ -71,6 +73,7 @@ def load_domains():
 
 
 def check_ssl(host, port=443):
+    """Return dict with cert validity and days_left, or an error."""
     ctx = ssl.create_default_context()
     try:
         with socket.create_connection((host, port), timeout=HTTP_TIMEOUT) as sock:
@@ -191,6 +194,9 @@ def evaluate(domain):
 
 
 # ----------------------------- alerting -----------------------------
+SEV_ORDER = {"DOWN": 0, "SSL_INVALID": 1, "SSL_EXPIRING": 2, "DEGRADED": 3, "OK": 4}
+
+
 def state_signature(r):
     return f"{int(r['down'])}{int(r['ssl_invalid'])}{int(r['ssl_expiring'])}"
 
@@ -262,8 +268,32 @@ def send_alerts(new_problems, recovered):
     send_slack(body)
 
 
+def send_status_summary(results, checked_at):
+    """Post the FULL current status (not just changes). Used for on-demand checks
+    triggered manually / from Slack, so the user always 'gets an answer'."""
+    counts = {k: 0 for k in SEV_ORDER}
+    for r in results:
+        counts[r["overall"]] = counts.get(r["overall"], 0) + 1
+    problems = [r for r in results if r["overall"] != "OK"]
+    header = (f"*Domain check — {checked_at}*\n"
+              f"{counts.get('OK',0)} OK · {counts.get('DOWN',0)} down · "
+              f"{counts.get('SSL_INVALID',0)} SSL invalid · "
+              f"{counts.get('SSL_EXPIRING',0)} SSL expiring · "
+              f"{counts.get('DEGRADED',0)} degraded")
+    if problems:
+        lines = [header, ""] + [
+            problem_line(r) for r in sorted(problems, key=lambda r: SEV_ORDER.get(r["overall"], 9))
+        ]
+    else:
+        lines = [header, "", "✅ All domains healthy."]
+    body = "\n".join(lines)
+    if DASHBOARD_URL:
+        body += f"\n\nDashboard: {DASHBOARD_URL}"
+    send_slack(body)
+    send_pushover("Domain check", body.replace("*", ""), priority=0)
+
+
 # ----------------------------- dashboard -----------------------------
-SEV_ORDER = {"DOWN": 0, "SSL_INVALID": 1, "SSL_EXPIRING": 2, "DEGRADED": 3, "OK": 4}
 SEV_COLOR = {
     "DOWN": "#e5484d", "SSL_INVALID": "#e5484d", "SSL_EXPIRING": "#f5a623",
     "DEGRADED": "#f5a623", "OK": "#30a46c",
@@ -276,6 +306,11 @@ SEV_LABEL = {
 
 def write_dashboard(results, checked_at):
     os.makedirs(DOCS_DIR, exist_ok=True)
+    actions_url = (
+        f"{os.environ.get('GITHUB_SERVER_URL', 'https://github.com')}/"
+        f"{os.environ.get('GITHUB_REPOSITORY', 'growthack88/domain-monitor')}"
+        f"/actions/workflows/monitor.yml"
+    )
     results = sorted(results, key=lambda r: (SEV_ORDER.get(r["overall"], 9), r["domain"]))
 
     counts = {k: 0 for k in SEV_ORDER}
@@ -342,12 +377,18 @@ def write_dashboard(results, checked_at):
   .dot {{ display:inline-block; width:10px; height:10px; border-radius:50%; }}
   .badge {{ color:#0f1115; font-weight:700; font-size:11px; padding:2px 8px; border-radius:20px; }}
   .foot {{ margin-top:18px; color:#6b7280; font-size:12px; }}
+  .btn {{ display:inline-block; margin:0 0 22px; background:#7cc0ff; color:#0f1115;
+          font-weight:700; font-size:14px; padding:10px 18px; border-radius:8px; text-decoration:none; }}
+  .btn:hover {{ filter:brightness(1.08); text-decoration:none; }}
+  .btnhint {{ font-size:12px; color:#6b7280; margin-left:10px; }}
 </style>
 </head>
 <body>
   <div class="wrap">
     <h1>Domain Monitor</h1>
-    <div class="sub">{len(results)} domains · last checked {checked_at} · SSL warning threshold {SSL_WARN_DAYS} days · refreshes every 6h</div>
+    <div class="sub">{len(results)} domains · last checked {checked_at} · SSL warning threshold {SSL_WARN_DAYS} days · auto-checks every 6h</div>
+    <a class="btn" href="{actions_url}" target="_blank" rel="noopener">🔄 Check now</a>
+    <span class="btnhint">opens GitHub → click the green “Run workflow” button (takes ~30s, then reload this page)</span>
     <div class="cards">{summary}</div>
     <table>
       <thead><tr><th></th><th>Domain</th><th>Status</th><th>HTTP</th><th>SSL (days → expiry)</th><th>Response</th><th>Host</th></tr></thead>
@@ -409,6 +450,12 @@ def main():
         print(f"Alerts sent: {len(new_problems)} new, {len(recovered)} recovered.")
     else:
         print("No state changes — no alerts sent.")
+
+    # On-demand run (clicked 'Check now' / triggered from Slack): always post a
+    # full current-status summary so the user gets an immediate answer.
+    if os.environ.get("GITHUB_EVENT_NAME") == "workflow_dispatch":
+        send_status_summary(results, checked_at)
+        print("Manual run: full status summary posted to Slack + Pushover.")
 
 
 if __name__ == "__main__":
