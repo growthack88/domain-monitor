@@ -6,13 +6,12 @@ For every domain in domains.txt it checks:
   1. HTTP(S) reachability   -> UP / DEGRADED / DOWN
   2. TLS certificate        -> valid?  days until expiry?  (catches the Lovable SSL problem)
 
-It then:
-  - Writes docs/status.json and a self-contained docs/index.html dashboard.
-  - Compares against the previous run (state.json) and sends Pushover + Slack
-    alerts ONLY when something changes (newly down, SSL newly broken/expiring,
-    or recovered). No spam on every run.
-  - On a manual/on-demand run (workflow_dispatch) it also posts a FULL current
-    status summary to Slack + Pushover, so you 'ask and get an answer'.
+Alerting model:
+  - SLACK: live. Posts on every run when a domain CHANGES state (down / SSL broken /
+    expiring / recovered).
+  - PUSHOVER: quiet. One digest per day (first scheduled run of the day) summarising
+    current problems. Plus an instant reply when YOU trigger an on-demand check
+    (the dashboard 'Check now' button or a Slack /sitecheck command).
 
 Configuration is via environment variables (all optional except the domains file):
   PUSHOVER_TOKEN, PUSHOVER_USER   -> enable Pushover alerts
@@ -246,11 +245,10 @@ def send_slack(text):
 
 
 def send_alerts(new_problems, recovered):
+    """Per-change alert. Goes to SLACK only (live, every run). Pushover is sent
+    separately as a once-a-day digest to keep the phone quiet."""
     if not new_problems and not recovered:
         return
-    n = len(new_problems)
-    title = f"🔴 {n} domain issue(s) detected" if n else "✅ Domains recovered"
-
     lines = []
     if new_problems:
         lines.append("*New issues:*")
@@ -262,10 +260,17 @@ def send_alerts(new_problems, recovered):
     body = "\n".join(lines)
     if DASHBOARD_URL:
         body += f"\n\nDashboard: {DASHBOARD_URL}"
-
-    severe = any(r["down"] or r["ssl_invalid"] for r in new_problems)
-    send_pushover(title, body.replace("*", ""), priority=2 if severe else 1)
     send_slack(body)
+
+
+def send_pushover_daily_digest(results, checked_at):
+    """One Pushover push per day summarising current problems (no per-run spam)."""
+    problems = [r for r in results if r["overall"] != "OK"]
+    if not problems:
+        return  # nothing wrong today — stay silent on the phone
+    lines = [f"{len(problems)} domain issue(s) — {checked_at}", ""]
+    lines += [problem_line(r) for r in sorted(problems, key=lambda r: SEV_ORDER.get(r["overall"], 9))]
+    send_pushover(f"🔴 {len(problems)} domain issue(s)", "\n".join(lines), priority=1)
 
 
 def send_status_summary(results, checked_at):
@@ -437,25 +442,34 @@ def main():
             recovered.append(r)
 
     write_dashboard(results, checked_at)
-    with open(STATE_FILE, "w", encoding="utf-8") as f:
-        json.dump(cur_state, f, indent=2)
 
     problems = [r for r in results if r["overall"] != "OK"]
     print(f"Done. {len(problems)} issue(s):")
     for r in sorted(problems, key=lambda r: SEV_ORDER.get(r["overall"], 9)):
         print("  " + problem_line(r))
 
+    # Slack: per-change, live on every run
     send_alerts(new_problems, recovered)
     if new_problems or recovered:
-        print(f"Alerts sent: {len(new_problems)} new, {len(recovered)} recovered.")
+        print(f"Slack: {len(new_problems)} new, {len(recovered)} recovered.")
     else:
-        print("No state changes — no alerts sent.")
+        print("Slack: no state changes — nothing sent.")
 
-    # On-demand run (clicked 'Check now' / triggered from Slack): always post a
-    # full current-status summary so the user gets an immediate answer.
+    # Pushover: at most ONCE per day (keeps the phone quiet).
+    # Exception: a manual /sitecheck or 'Check now' answers immediately.
+    today = dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%d")
     if os.environ.get("GITHUB_EVENT_NAME") == "workflow_dispatch":
         send_status_summary(results, checked_at)
         print("Manual run: full status summary posted to Slack + Pushover.")
+    elif prev.get("_pushover_last_date") != today:
+        send_pushover_daily_digest(results, checked_at)
+        print("Pushover: daily digest sent (first scheduled run of the day).")
+    else:
+        print("Pushover: already sent today — staying quiet.")
+
+    cur_state["_pushover_last_date"] = today
+    with open(STATE_FILE, "w", encoding="utf-8") as f:
+        json.dump(cur_state, f, indent=2)
 
 
 if __name__ == "__main__":
