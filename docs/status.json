@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-06-05 07:51 UTC",
+  "checked_at": "2026-06-05 08:17 UTC",
   "counts": {
     "DOWN": 14,
     "SSL_INVALID": 0,
@@ -261,7 +261,7 @@
         "code": 526,
         "final_url": "https://theictjobs.com/",
         "server": "cloudflare",
-        "time_ms": 586,
+        "time_ms": 518,
         "error": null
       },
       "ssl": {
@@ -327,7 +327,7 @@
         "code": 404,
         "final_url": "https://bookkhan.com/",
         "server": "LiteSpeed",
-        "time_ms": 501,
+        "time_ms": 537,
         "error": null
       },
       "ssl": {
@@ -349,7 +349,7 @@
         "code": 421,
         "final_url": "https://dpblueprint.com/",
         "server": "cloudflare",
-        "time_ms": 358,
+        "time_ms": 388,
         "error": null
       },
       "ssl": {
@@ -371,7 +371,7 @@
         "code": 421,
         "final_url": "https://ducklancer.com/",
         "server": "cloudflare",
-        "time_ms": 333,
+        "time_ms": 290,
         "error": null
       },
       "ssl": {
@@ -393,7 +393,7 @@
         "code": 421,
         "final_url": "https://getduckdoro.com/",
         "server": "cloudflare",
-        "time_ms": 460,
+        "time_ms": 360,
         "error": null
       },
       "ssl": {
@@ -415,7 +415,7 @@
         "code": 421,
         "final_url": "https://greenverse.lol/",
         "server": "cloudflare",
-        "time_ms": 337,
+        "time_ms": 278,
         "error": null
       },
       "ssl": {
@@ -437,7 +437,7 @@
         "code": 421,
         "final_url": "https://gristory.com/",
         "server": "cloudflare",
-        "time_ms": 302,
+        "time_ms": 349,
         "error": null
       },
       "ssl": {
@@ -459,7 +459,7 @@
         "code": 421,
         "final_url": "https://growthduckup.com/",
         "server": "cloudflare",
-        "time_ms": 1477,
+        "time_ms": 285,
         "error": null
       },
       "ssl": {
@@ -481,7 +481,7 @@
         "code": 421,
         "final_url": "https://growthhackacademy.com/",
         "server": "cloudflare",
-        "time_ms": 1003,
+        "time_ms": 288,
         "error": null
       },
       "ssl": {
@@ -503,7 +503,7 @@
         "code": 421,
         "final_url": "https://howakeda.com/",
         "server": "cloudflare",
-        "time_ms": 432,
+        "time_ms": 284,
         "error": null
       },
       "ssl": {
@@ -525,7 +525,7 @@
         "code": 421,
         "final_url": "https://i-geeky.com/",
         "server": "cloudflare",
-        "time_ms": 318,
+        "time_ms": 326,
         "error": null
       },
       "ssl": {
@@ -547,7 +547,7 @@
         "code": 421,
         "final_url": "https://interms.pro/",
         "server": "cloudflare",
-        "time_ms": 317,
+        "time_ms": 249,
         "error": null
       },
       "ssl": {
@@ -569,7 +569,7 @@
         "code": 421,
         "final_url": "https://kidstolead.com/",
         "server": "cloudflare",
-        "time_ms": 310,
+        "time_ms": 357,
         "error": null
       },
       "ssl": {
@@ -591,7 +591,7 @@
         "code": 421,
         "final_url": "https://mahmoud.tel/",
         "server": "cloudflare",
-        "time_ms": 436,
+        "time_ms": 282,
         "error": null
       },
       "ssl": {
@@ -613,7 +613,7 @@
         "code": 421,
         "final_url": "https://mahmoudomar.com/",
         "server": "cloudflare",
-        "time_ms": 281,
+        "time_ms": 339,
         "error": null
       },
       "ssl": {
@@ -635,7 +635,7 @@
         "code": 421,
         "final_url": "https://masaai2030.com/",
         "server": "cloudflare",
-        "time_ms": 337,
+        "time_ms": 295,
         "error": null
       },
       "ssl": {
@@ -657,7 +657,7 @@
         "code": 421,
         "final_url": "https://mempireangels.com/",
         "server": "cloudflare",
-        "time_ms": 1039,
+        "time_ms": 339,
         "error": null
       },
       "ssl": {
@@ -679,7 +679,7 @@
         "code": 421,
         "final_url": "https://mmas89.com/",
         "server": "cloudflare",
-        "time_ms": 1059,
+        "time_ms": 359,
         "error": null
       },
       "ssl": {
@@ -701,7 +701,7 @@
         "code": 421,
         "final_url": "https://pluginz.io/",
         "server": "cloudflare",
-        "time_ms": 503,
+        "time_ms": 248,
         "error": null
       },
       "ssl": {
@@ -723,7 +723,7 @@
         "code": 421,
         "final_url": "https://readtolead.pro/",
         "server": "cloudflare",
-        "time_ms": 1036,
+        "time_ms": 253,
         "error": null
       },
       "ssl": {
@@ -745,7 +745,7 @@
         "code": 421,
         "final_url": "https://startupkitpro.com/",
         "server": "cloudflare",
-        "time_ms": 314,
+        "time_ms": 262,
         "error": null
       },
       "ssl": {
@@ -767,7 +767,7 @@
         "code": 421,
         "final_url": "https://templify.pro/",
         "server": "cloudflare",
-        "time_ms": 285,
+        "time_ms": 233,
         "error": null
       },
       "ssl": {
@@ -789,7 +789,7 @@
         "code": 403,
         "final_url": "https://payhip.com/global-identity?redirect=https%3A%2F%2Ftemplify.store%2F",
         "server": "cloudflare",
-        "time_ms": 112,
+        "time_ms": 136,
         "error": null
       },
       "ssl": {
@@ -811,7 +811,7 @@
         "code": 421,
         "final_url": "https://trycopyduck.com/",
         "server": "cloudflare",
-        "time_ms": 353,
+        "time_ms": 333,
         "error": null
       },
       "ssl": {
@@ -833,7 +833,7 @@
         "code": 421,
         "final_url": "https://tryduckdev.com/",
         "server": "cloudflare",
-        "time_ms": 307,
+        "time_ms": 256,
         "error": null
       },
       "ssl": {
@@ -855,7 +855,7 @@
         "code": 403,
         "final_url": "https://tryducktank.com/",
         "server": "cloudflare",
-        "time_ms": 236,
+        "time_ms": 262,
         "error": null
       },
       "ssl": {
@@ -877,7 +877,7 @@
         "code": 200,
         "final_url": "https://asknagaty.com/",
         "server": "cloudflare",
-        "time_ms": 1455,
+        "time_ms": 680,
         "error": null
       },
       "ssl": {
@@ -899,7 +899,7 @@
         "code": 200,
         "final_url": "https://bdealz.com/",
         "server": "LiteSpeed",
-        "time_ms": 840,
+        "time_ms": 806,
         "error": null
       },
       "ssl": {
@@ -921,7 +921,7 @@
         "code": 200,
         "final_url": "https://bookzad.com/",
         "server": "LiteSpeed",
-        "time_ms": 478,
+        "time_ms": 469,
         "error": null
       },
       "ssl": {
@@ -943,7 +943,7 @@
         "code": 200,
         "final_url": "https://bookzad.com/",
         "server": "LiteSpeed",
-        "time_ms": 484,
+        "time_ms": 426,
         "error": null
       },
       "ssl": {
@@ -965,7 +965,7 @@
         "code": 200,
         "final_url": "https://buildinggrowthmachine.com/",
         "server": "cloudflare",
-        "time_ms": 2030,
+        "time_ms": 675,
         "error": null
       },
       "ssl": {
@@ -987,7 +987,7 @@
         "code": 200,
         "final_url": "https://buildtolead.pro/",
         "server": "cloudflare",
-        "time_ms": 1068,
+        "time_ms": 867,
         "error": null
       },
       "ssl": {
@@ -1009,7 +1009,7 @@
         "code": 200,
         "final_url": "https://diguply.com/",
         "server": "LiteSpeed",
-        "time_ms": 2069,
+        "time_ms": 1826,
         "error": null
       },
       "ssl": {
@@ -1031,7 +1031,7 @@
         "code": 200,
         "final_url": "https://doojr62.art/",
         "server": "cloudflare",
-        "time_ms": 1890,
+        "time_ms": 771,
         "error": null
       },
       "ssl": {
@@ -1053,7 +1053,7 @@
         "code": 200,
         "final_url": "https://duckdoro.com/",
         "server": "cloudflare",
-        "time_ms": 1809,
+        "time_ms": 610,
         "error": null
       },
       "ssl": {
@@ -1075,7 +1075,7 @@
         "code": 200,
         "final_url": "https://duckmerce.com/",
         "server": "cloudflare",
-        "time_ms": 1406,
+        "time_ms": 616,
         "error": null
       },
       "ssl": {
@@ -1097,7 +1097,7 @@
         "code": 200,
         "final_url": "https://duckverse.pro/",
         "server": "cloudflare",
-        "time_ms": 1743,
+        "time_ms": 599,
         "error": null
       },
       "ssl": {
@@ -1119,7 +1119,7 @@
         "code": 200,
         "final_url": "https://duckverse.store/ar",
         "server": "Caddy",
-        "time_ms": 605,
+        "time_ms": 144,
         "error": null
       },
       "ssl": {
@@ -1141,7 +1141,7 @@
         "code": 200,
         "final_url": "https://ecomhouse.pro/",
         "server": "cloudflare",
-        "time_ms": 2686,
+        "time_ms": 666,
         "error": null
       },
       "ssl": {
@@ -1163,7 +1163,7 @@
         "code": 200,
         "final_url": "https://eltizam.net/",
         "server": "LiteSpeed",
-        "time_ms": 565,
+        "time_ms": 456,
         "error": null
       },
       "ssl": {
@@ -1185,7 +1185,7 @@
         "code": 200,
         "final_url": "https://fitformoda.com/",
         "server": "cloudflare",
-        "time_ms": 244,
+        "time_ms": 473,
         "error": null
       },
       "ssl": {
@@ -1207,7 +1207,7 @@
         "code": 200,
         "final_url": "https://freeduckter.com/",
         "server": "cloudflare",
-        "time_ms": 1913,
+        "time_ms": 745,
         "error": null
       },
       "ssl": {
@@ -1229,7 +1229,7 @@
         "code": 200,
         "final_url": "https://gadzilla.diy/",
         "server": "cloudflare",
-        "time_ms": 1647,
+        "time_ms": 723,
         "error": null
       },
       "ssl": {
@@ -1251,7 +1251,7 @@
         "code": 200,
         "final_url": "https://growthack.info/",
         "server": "cloudflare",
-        "time_ms": 1326,
+        "time_ms": 860,
         "error": null
       },
       "ssl": {
@@ -1273,7 +1273,7 @@
         "code": 200,
         "final_url": "https://growthdna.pro/",
         "server": "cloudflare",
-        "time_ms": 11023,
+        "time_ms": 1098,
         "error": null
       },
       "ssl": {
@@ -1295,7 +1295,7 @@
         "code": 200,
         "final_url": "https://growthhack.pro/",
         "server": "cloudflare",
-        "time_ms": 3418,
+        "time_ms": 719,
         "error": null
       },
       "ssl": {
@@ -1317,7 +1317,7 @@
         "code": 200,
         "final_url": "https://growthhacktoolkit.com/",
         "server": "cloudflare",
-        "time_ms": 778,
+        "time_ms": 699,
         "error": null
       },
       "ssl": {
@@ -1339,7 +1339,7 @@
         "code": 200,
         "final_url": "https://infosfere.com/",
         "server": "LiteSpeed",
-        "time_ms": 546,
+        "time_ms": 441,
         "error": null
       },
       "ssl": {
@@ -1361,7 +1361,7 @@
         "code": 200,
         "final_url": "https://leadtoolkits.com/",
         "server": "cloudflare",
-        "time_ms": 1924,
+        "time_ms": 796,
         "error": null
       },
       "ssl": {
@@ -1383,7 +1383,7 @@
         "code": 200,
         "final_url": "https://myreadtolead.com/",
         "server": "cloudflare",
-        "time_ms": 3942,
+        "time_ms": 686,
         "error": null
       },
       "ssl": {
@@ -1405,7 +1405,7 @@
         "code": 200,
         "final_url": "https://read-summary.com/",
         "server": "Youcan.Private.DC/2.0",
-        "time_ms": 1069,
+        "time_ms": 1051,
         "error": null
       },
       "ssl": {
@@ -1427,7 +1427,7 @@
         "code": 200,
         "final_url": "https://readtolead.online/",
         "server": "cloudflare",
-        "time_ms": 2254,
+        "time_ms": 653,
         "error": null
       },
       "ssl": {
@@ -1449,7 +1449,7 @@
         "code": 200,
         "final_url": "https://readtolead.store/",
         "server": "cloudflare",
-        "time_ms": 576,
+        "time_ms": 237,
         "error": null
       },
       "ssl": {
@@ -1471,7 +1471,7 @@
         "code": 200,
         "final_url": "https://www.startupkit.pro/",
         "server": "Vercel",
-        "time_ms": 121,
+        "time_ms": 224,
         "error": null
       },
       "ssl": {
@@ -1493,7 +1493,7 @@
         "code": 200,
         "final_url": "https://steplead.org/",
         "server": "cloudflare",
-        "time_ms": 1432,
+        "time_ms": 626,
         "error": null
       },
       "ssl": {
@@ -1515,7 +1515,7 @@
         "code": 200,
         "final_url": "https://tryduckcash.com/",
         "server": "cloudflare",
-        "time_ms": 1185,
+        "time_ms": 936,
         "error": null
       },
       "ssl": {
@@ -1537,7 +1537,7 @@
         "code": 200,
         "final_url": "https://tryduckdash.com/",
         "server": "cloudflare",
-        "time_ms": 1477,
+        "time_ms": 721,
         "error": null
       },
       "ssl": {
@@ -1559,7 +1559,7 @@
         "code": 200,
         "final_url": "https://whatzduck.com/",
         "server": "cloudflare",
-        "time_ms": 1108,
+        "time_ms": 712,
         "error": null
       },
       "ssl": {
@@ -1581,7 +1581,7 @@
         "code": 200,
         "final_url": "https://zahranppc.com/",
         "server": "cloudflare",
-        "time_ms": 906,
+        "time_ms": 850,
         "error": null
       },
       "ssl": {
