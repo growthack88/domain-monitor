@@ -1,0 +1,52 @@
+name: Domain Monitor
+
+on:
+  schedule:
+    - cron: "0 */6 * * *"   # every 6 hours (UTC)
+  workflow_dispatch: {}      # manual "Run workflow" button
+  push:
+    branches: [main]         # also run on push, handy for first test
+
+permissions:
+  contents: write            # needed to commit dashboard + state back
+
+concurrency:
+  group: domain-monitor
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run monitor
+        env:
+          PUSHOVER_TOKEN: ${{ secrets.PUSHOVER_TOKEN }}
+          PUSHOVER_USER: ${{ secrets.PUSHOVER_USER }}
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          SSL_WARN_DAYS: "14"
+          HTTP_TIMEOUT: "20"
+          DASHBOARD_URL: ${{ vars.DASHBOARD_URL }}
+        run: python monitor.py
+
+      - name: Commit dashboard + state
+        run: |
+          git config user.name  "domain-monitor-bot"
+          git config user.email "actions@github.com"
+          git add docs/ state.json
+          if git diff --staged --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "monitor: update status [skip ci]"
+            git push
+          fi
