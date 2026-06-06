@@ -1,6 +1,6 @@
 {
   "afaqmena.com": "DOWN",
-  "asknagaty.com": "DOWN",
+  "asknagaty.com": "NEEDS_ACTION",
   "bdealz.com": "OK",
   "bookkhan.com": "DEGRADED",
   "bookyol.com": "OK",
@@ -41,7 +41,7 @@
   "mahmoud.tel": "DOWN",
   "mahmoudomar.com": "OK",
   "masaai2030.com": "OK",
-  "mempireangels.com": "DOWN",
+  "mempireangels.com": "NEEDS_ACTION",
   "mmas89.com": "DOWN",
   "mujeer.org": "DOWN",
   "myreadtolead.com": "OK",
