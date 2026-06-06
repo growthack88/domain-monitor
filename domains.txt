@@ -1,25 +1,17 @@
+# Lovable apps & websites — served via the Cloudflare 'lovable-proxy' Worker (or pending migration).
 # One domain per line. Lines starting with # are ignored.
+
 afaqmena.com
 asknagaty.com
-bdealz.com
-bookkhan.com
-bookyol.com
-bookzad.com
 buildinggrowthmachine.com
 buildtolead.pro
-diguply.com
 doojr62.art
 dpblueprint.com
 duckdoro.com
 ducklancer.com
 duckmerce.com
 duckverse.pro
-duckverse.store
 ecomhouse.pro
-eltizam.net
-fitforanime.com
-fitformoda.com
-fitforshop.com
 freeduckter.com
 gadzilla.diy
 getduckdoro.com
@@ -33,8 +25,6 @@ growthhackacademy.com
 growthhacktoolkit.com
 howakeda.com
 i-geeky.com
-i-geeky.info
-infosfere.com
 interms.pro
 kidstolead.com
 leadtoolkits.com
@@ -48,26 +38,41 @@ myreadtolead.com
 pluginz.io
 publishtolead.pro
 rawipress.live
-read-summary.com
 readcast.live
 readtolead.online
 readtolead.pro
-readtolead.store
-shopyzilla.com
 startupkit.pro
 startupkitpro.com
 steplead.org
 templify.pro
-templify.store
-thegrowthwise.pro
-theictevents.com
-theictjobs.com
-theicttrends.com
 trycopyduck.com
 tryduckcash.com
 tryduckdash.com
 tryduckdev.com
 tryducktank.com
 whatzduck.com
-wooder.store
 zahranppc.com
+
+# ----- non-Lovable (NOT monitored — on other platforms: Shopify / WordPress / YouCan / shared host / parked) -----
+# Re-enable by removing the leading '# '.
+# bdealz.com
+# bookkhan.com
+# bookyol.com
+# bookzad.com
+# diguply.com
+# duckverse.store
+# eltizam.net
+# fitforanime.com
+# fitformoda.com
+# fitforshop.com
+# i-geeky.info
+# infosfere.com
+# read-summary.com
+# readtolead.store
+# shopyzilla.com
+# templify.store
+# thegrowthwise.pro
+# theictevents.com
+# theictjobs.com
+# theicttrends.com
+# wooder.store
