@@ -1,11 +1,11 @@
 {
-  "checked_at": "2026-06-06 12:19 UTC",
+  "checked_at": "2026-06-06 13:14 UTC",
   "counts": {
-    "DOWN": 28,
+    "DOWN": 32,
     "SSL_INVALID": 0,
     "SSL_EXPIRING": 0,
     "DEGRADED": 1,
-    "OK": 43
+    "OK": 39
   },
   "results": [
     {
@@ -31,18 +31,18 @@
       "host": "\u2014"
     },
     {
-      "domain": "dpblueprint.com",
+      "domain": "asknagaty.com",
       "overall": "DOWN",
       "down": true,
       "ssl_invalid": false,
       "ssl_expiring": false,
       "http": {
         "status": "DOWN",
-        "code": 421,
-        "final_url": "https://dpblueprint.com/",
+        "code": 404,
+        "final_url": "https://asknagaty.com/",
         "server": "cloudflare",
-        "time_ms": 219,
-        "error": "Lovable: domain/DNS not connected"
+        "time_ms": 407,
+        "error": "Lovable: project not found"
       },
       "ssl": {
         "ok": true,
@@ -53,23 +53,67 @@
       "host": "Cloudflare"
     },
     {
-      "domain": "ducklancer.com",
+      "domain": "duckdoro.com",
       "overall": "DOWN",
       "down": true,
       "ssl_invalid": false,
       "ssl_expiring": false,
       "http": {
         "status": "DOWN",
-        "code": 421,
-        "final_url": "https://ducklancer.com/",
+        "code": 503,
+        "final_url": "https://duckdoro.com/",
         "server": "cloudflare",
-        "time_ms": 182,
-        "error": "Lovable: domain/DNS not connected"
+        "time_ms": 644,
+        "error": null
       },
       "ssl": {
         "ok": true,
-        "days_left": 59,
-        "expires": "2026-08-05",
+        "days_left": 88,
+        "expires": "2026-09-02",
+        "error": null
+      },
+      "host": "Cloudflare"
+    },
+    {
+      "domain": "duckmerce.com",
+      "overall": "DOWN",
+      "down": true,
+      "ssl_invalid": false,
+      "ssl_expiring": false,
+      "http": {
+        "status": "DOWN",
+        "code": 503,
+        "final_url": "https://duckmerce.com/",
+        "server": "cloudflare",
+        "time_ms": 630,
+        "error": null
+      },
+      "ssl": {
+        "ok": true,
+        "days_left": 88,
+        "expires": "2026-09-02",
+        "error": null
+      },
+      "host": "Cloudflare"
+    },
+    {
+      "domain": "duckverse.pro",
+      "overall": "DOWN",
+      "down": true,
+      "ssl_invalid": false,
+      "ssl_expiring": false,
+      "http": {
+        "status": "DOWN",
+        "code": 503,
+        "final_url": "https://duckverse.pro/",
+        "server": "cloudflare",
+        "time_ms": 591,
+        "error": null
+      },
+      "ssl": {
+        "ok": true,
+        "days_left": 88,
+        "expires": "2026-09-02",
         "error": null
       },
       "host": "Cloudflare"
@@ -119,7 +163,7 @@
       "host": "\u2014"
     },
     {
-      "domain": "gristory.com",
+      "domain": "growthduckup.com",
       "overall": "DOWN",
       "down": true,
       "ssl_invalid": false,
@@ -127,9 +171,9 @@
       "http": {
         "status": "DOWN",
         "code": 421,
-        "final_url": "https://gristory.com/",
+        "final_url": "https://growthduckup.com/",
         "server": "cloudflare",
-        "time_ms": 208,
+        "time_ms": 274,
         "error": "Lovable: domain/DNS not connected"
       },
       "ssl": {
@@ -141,23 +185,23 @@
       "host": "Cloudflare"
     },
     {
-      "domain": "growthduckup.com",
+      "domain": "growthhackacademy.com",
       "overall": "DOWN",
       "down": true,
       "ssl_invalid": false,
       "ssl_expiring": false,
       "http": {
         "status": "DOWN",
-        "code": 421,
-        "final_url": "https://growthduckup.com/",
+        "code": 503,
+        "final_url": "https://growthhackacademy.com/",
         "server": "cloudflare",
-        "time_ms": 187,
-        "error": "Lovable: domain/DNS not connected"
+        "time_ms": 638,
+        "error": null
       },
       "ssl": {
         "ok": true,
-        "days_left": 52,
-        "expires": "2026-07-28",
+        "days_left": 89,
+        "expires": "2026-09-03",
         "error": null
       },
       "host": "Cloudflare"
@@ -173,7 +217,7 @@
         "code": 421,
         "final_url": "https://howakeda.com/",
         "server": "cloudflare",
-        "time_ms": 228,
+        "time_ms": 275,
         "error": "Lovable: domain/DNS not connected"
       },
       "ssl": {
@@ -195,7 +239,7 @@
         "code": 421,
         "final_url": "https://i-geeky.com/",
         "server": "cloudflare",
-        "time_ms": 183,
+        "time_ms": 284,
         "error": "Lovable: domain/DNS not connected"
       },
       "ssl": {
@@ -229,6 +273,28 @@
       "host": "\u2014"
     },
     {
+      "domain": "kidstolead.com",
+      "overall": "DOWN",
+      "down": true,
+      "ssl_invalid": false,
+      "ssl_expiring": false,
+      "http": {
+        "status": "DOWN",
+        "code": 503,
+        "final_url": "https://kidstolead.com/",
+        "server": "cloudflare",
+        "time_ms": 601,
+        "error": null
+      },
+      "ssl": {
+        "ok": true,
+        "days_left": 89,
+        "expires": "2026-09-03",
+        "error": null
+      },
+      "host": "Cloudflare"
+    },
+    {
       "domain": "mahmoud.tel",
       "overall": "DOWN",
       "down": true,
@@ -239,35 +305,35 @@
         "code": 421,
         "final_url": "https://mahmoud.tel/",
         "server": "cloudflare",
-        "time_ms": 206,
+        "time_ms": 298,
         "error": "Lovable: domain/DNS not connected"
       },
       "ssl": {
         "ok": true,
-        "days_left": 48,
+        "days_left": 47,
         "expires": "2026-07-24",
         "error": null
       },
       "host": "Cloudflare"
     },
     {
-      "domain": "masaai2030.com",
+      "domain": "mempireangels.com",
       "overall": "DOWN",
       "down": true,
       "ssl_invalid": false,
       "ssl_expiring": false,
       "http": {
         "status": "DOWN",
-        "code": 421,
-        "final_url": "https://masaai2030.com/",
+        "code": 404,
+        "final_url": "https://mempireangels.com/",
         "server": "cloudflare",
-        "time_ms": 232,
-        "error": "Lovable: domain/DNS not connected"
+        "time_ms": 345,
+        "error": "Lovable: project not found"
       },
       "ssl": {
         "ok": true,
         "days_left": 88,
-        "expires": "2026-09-02",
+        "expires": "2026-09-03",
         "error": null
       },
       "host": "Cloudflare"
@@ -283,7 +349,7 @@
         "code": 421,
         "final_url": "https://mmas89.com/",
         "server": "cloudflare",
-        "time_ms": 180,
+        "time_ms": 313,
         "error": "Lovable: domain/DNS not connected"
       },
       "ssl": {
@@ -317,6 +383,28 @@
       "host": "\u2014"
     },
     {
+      "domain": "myreadtolead.com",
+      "overall": "DOWN",
+      "down": true,
+      "ssl_invalid": false,
+      "ssl_expiring": false,
+      "http": {
+        "status": "DOWN",
+        "code": 503,
+        "final_url": "https://myreadtolead.com/",
+        "server": "cloudflare",
+        "time_ms": 604,
+        "error": null
+      },
+      "ssl": {
+        "ok": true,
+        "days_left": 88,
+        "expires": "2026-09-02",
+        "error": null
+      },
+      "host": "Cloudflare"
+    },
+    {
       "domain": "pluginz.io",
       "overall": "DOWN",
       "down": true,
@@ -327,7 +415,7 @@
         "code": 421,
         "final_url": "https://pluginz.io/",
         "server": "cloudflare",
-        "time_ms": 186,
+        "time_ms": 274,
         "error": "Lovable: domain/DNS not connected"
       },
       "ssl": {
@@ -405,6 +493,28 @@
       "host": "\u2014"
     },
     {
+      "domain": "readtolead.online",
+      "overall": "DOWN",
+      "down": true,
+      "ssl_invalid": false,
+      "ssl_expiring": false,
+      "http": {
+        "status": "DOWN",
+        "code": 503,
+        "final_url": "https://readtolead.online/",
+        "server": "cloudflare",
+        "time_ms": 1171,
+        "error": null
+      },
+      "ssl": {
+        "ok": true,
+        "days_left": 88,
+        "expires": "2026-09-02",
+        "error": null
+      },
+      "host": "Cloudflare"
+    },
+    {
       "domain": "readtolead.pro",
       "overall": "DOWN",
       "down": true,
@@ -415,7 +525,7 @@
         "code": 421,
         "final_url": "https://readtolead.pro/",
         "server": "cloudflare",
-        "time_ms": 171,
+        "time_ms": 281,
         "error": "Lovable: domain/DNS not connected"
       },
       "ssl": {
@@ -447,28 +557,6 @@
         "error": "DNS resolution failed"
       },
       "host": "\u2014"
-    },
-    {
-      "domain": "templify.pro",
-      "overall": "DOWN",
-      "down": true,
-      "ssl_invalid": false,
-      "ssl_expiring": false,
-      "http": {
-        "status": "DOWN",
-        "code": 421,
-        "final_url": "https://templify.pro/",
-        "server": "cloudflare",
-        "time_ms": 177,
-        "error": "Lovable: domain/DNS not connected"
-      },
-      "ssl": {
-        "ok": true,
-        "days_left": 76,
-        "expires": "2026-08-21",
-        "error": null
-      },
-      "host": "Cloudflare"
     },
     {
       "domain": "thegrowthwise.pro",
@@ -525,7 +613,7 @@
         "code": 526,
         "final_url": "https://theictjobs.com/",
         "server": "cloudflare",
-        "time_ms": 356,
+        "time_ms": 521,
         "error": null
       },
       "ssl": {
@@ -559,45 +647,45 @@
       "host": "\u2014"
     },
     {
-      "domain": "trycopyduck.com",
+      "domain": "tryduckdash.com",
       "overall": "DOWN",
       "down": true,
       "ssl_invalid": false,
       "ssl_expiring": false,
       "http": {
         "status": "DOWN",
-        "code": 421,
-        "final_url": "https://trycopyduck.com/",
+        "code": 503,
+        "final_url": "https://tryduckdash.com/",
         "server": "cloudflare",
-        "time_ms": 238,
-        "error": "Lovable: domain/DNS not connected"
+        "time_ms": 615,
+        "error": null
       },
       "ssl": {
         "ok": true,
-        "days_left": 62,
-        "expires": "2026-08-08",
+        "days_left": 46,
+        "expires": "2026-07-22",
         "error": null
       },
       "host": "Cloudflare"
     },
     {
-      "domain": "tryduckdev.com",
+      "domain": "whatzduck.com",
       "overall": "DOWN",
       "down": true,
       "ssl_invalid": false,
       "ssl_expiring": false,
       "http": {
         "status": "DOWN",
-        "code": 421,
-        "final_url": "https://tryduckdev.com/",
+        "code": 503,
+        "final_url": "https://whatzduck.com/",
         "server": "cloudflare",
-        "time_ms": 188,
-        "error": "Lovable: domain/DNS not connected"
+        "time_ms": 622,
+        "error": null
       },
       "ssl": {
         "ok": true,
-        "days_left": 58,
-        "expires": "2026-08-03",
+        "days_left": 56,
+        "expires": "2026-08-02",
         "error": null
       },
       "host": "Cloudflare"
@@ -635,7 +723,7 @@
         "code": 404,
         "final_url": "https://bookkhan.com/",
         "server": "LiteSpeed",
-        "time_ms": 369,
+        "time_ms": 483,
         "error": null
       },
       "ssl": {
@@ -645,28 +733,6 @@
         "error": null
       },
       "host": "Shared/WordPress"
-    },
-    {
-      "domain": "asknagaty.com",
-      "overall": "OK",
-      "down": false,
-      "ssl_invalid": false,
-      "ssl_expiring": false,
-      "http": {
-        "status": "UP",
-        "code": 200,
-        "final_url": "https://asknagaty.com/",
-        "server": "cloudflare",
-        "time_ms": 576,
-        "error": null
-      },
-      "ssl": {
-        "ok": true,
-        "days_left": 88,
-        "expires": "2026-09-02",
-        "error": null
-      },
-      "host": "Cloudflare"
     },
     {
       "domain": "bdealz.com",
@@ -679,7 +745,7 @@
         "code": 200,
         "final_url": "https://bdealz.com/",
         "server": "LiteSpeed",
-        "time_ms": 679,
+        "time_ms": 780,
         "error": null
       },
       "ssl": {
@@ -701,7 +767,7 @@
         "code": 200,
         "final_url": "https://bookzad.com/",
         "server": "LiteSpeed",
-        "time_ms": 334,
+        "time_ms": 426,
         "error": null
       },
       "ssl": {
@@ -723,7 +789,7 @@
         "code": 200,
         "final_url": "https://bookzad.com/",
         "server": "LiteSpeed",
-        "time_ms": 396,
+        "time_ms": 481,
         "error": null
       },
       "ssl": {
@@ -745,12 +811,12 @@
         "code": 200,
         "final_url": "https://buildinggrowthmachine.com/",
         "server": "cloudflare",
-        "time_ms": 534,
+        "time_ms": 762,
         "error": null
       },
       "ssl": {
         "ok": true,
-        "days_left": 43,
+        "days_left": 42,
         "expires": "2026-07-19",
         "error": null
       },
@@ -767,7 +833,7 @@
         "code": 200,
         "final_url": "https://buildtolead.pro/",
         "server": "cloudflare",
-        "time_ms": 647,
+        "time_ms": 799,
         "error": null
       },
       "ssl": {
@@ -789,7 +855,7 @@
         "code": 200,
         "final_url": "https://diguply.com/",
         "server": "LiteSpeed",
-        "time_ms": 1601,
+        "time_ms": 1822,
         "error": null
       },
       "ssl": {
@@ -811,7 +877,7 @@
         "code": 200,
         "final_url": "https://doojr62.art/",
         "server": "cloudflare",
-        "time_ms": 710,
+        "time_ms": 839,
         "error": null
       },
       "ssl": {
@@ -823,7 +889,7 @@
       "host": "Cloudflare"
     },
     {
-      "domain": "duckdoro.com",
+      "domain": "dpblueprint.com",
       "overall": "OK",
       "down": false,
       "ssl_invalid": false,
@@ -831,9 +897,9 @@
       "http": {
         "status": "UP",
         "code": 200,
-        "final_url": "https://duckdoro.com/",
+        "final_url": "https://dpblueprint.com/",
         "server": "cloudflare",
-        "time_ms": 486,
+        "time_ms": 955,
         "error": null
       },
       "ssl": {
@@ -845,7 +911,7 @@
       "host": "Cloudflare"
     },
     {
-      "domain": "duckmerce.com",
+      "domain": "ducklancer.com",
       "overall": "OK",
       "down": false,
       "ssl_invalid": false,
@@ -853,37 +919,15 @@
       "http": {
         "status": "UP",
         "code": 200,
-        "final_url": "https://duckmerce.com/",
+        "final_url": "https://ducklancer.com/",
         "server": "cloudflare",
-        "time_ms": 548,
+        "time_ms": 687,
         "error": null
       },
       "ssl": {
         "ok": true,
-        "days_left": 88,
-        "expires": "2026-09-02",
-        "error": null
-      },
-      "host": "Cloudflare"
-    },
-    {
-      "domain": "duckverse.pro",
-      "overall": "OK",
-      "down": false,
-      "ssl_invalid": false,
-      "ssl_expiring": false,
-      "http": {
-        "status": "UP",
-        "code": 200,
-        "final_url": "https://duckverse.pro/",
-        "server": "cloudflare",
-        "time_ms": 501,
-        "error": null
-      },
-      "ssl": {
-        "ok": true,
-        "days_left": 88,
-        "expires": "2026-09-02",
+        "days_left": 59,
+        "expires": "2026-08-05",
         "error": null
       },
       "host": "Cloudflare"
@@ -899,7 +943,7 @@
         "code": 200,
         "final_url": "https://duckverse.store/en",
         "server": "Caddy",
-        "time_ms": 99,
+        "time_ms": 264,
         "error": null
       },
       "ssl": {
@@ -921,7 +965,7 @@
         "code": 200,
         "final_url": "https://ecomhouse.pro/",
         "server": "cloudflare",
-        "time_ms": 635,
+        "time_ms": 670,
         "error": null
       },
       "ssl": {
@@ -943,7 +987,7 @@
         "code": 200,
         "final_url": "https://eltizam.net/",
         "server": "LiteSpeed",
-        "time_ms": 434,
+        "time_ms": 568,
         "error": null
       },
       "ssl": {
@@ -965,7 +1009,7 @@
         "code": 200,
         "final_url": "https://fitformoda.com/",
         "server": "cloudflare",
-        "time_ms": 395,
+        "time_ms": 592,
         "error": null
       },
       "ssl": {
@@ -987,7 +1031,7 @@
         "code": 200,
         "final_url": "https://freeduckter.com/",
         "server": "cloudflare",
-        "time_ms": 653,
+        "time_ms": 836,
         "error": null
       },
       "ssl": {
@@ -1009,7 +1053,7 @@
         "code": 200,
         "final_url": "https://gadzilla.diy/",
         "server": "cloudflare",
-        "time_ms": 643,
+        "time_ms": 728,
         "error": null
       },
       "ssl": {
@@ -1031,7 +1075,7 @@
         "code": 200,
         "final_url": "https://getduckdoro.com/",
         "server": "cloudflare",
-        "time_ms": 524,
+        "time_ms": 636,
         "error": null
       },
       "ssl": {
@@ -1053,13 +1097,35 @@
         "code": 200,
         "final_url": "https://greenverse.lol/",
         "server": "cloudflare",
-        "time_ms": 738,
+        "time_ms": 849,
         "error": null
       },
       "ssl": {
         "ok": true,
         "days_left": 88,
         "expires": "2026-09-03",
+        "error": null
+      },
+      "host": "Cloudflare"
+    },
+    {
+      "domain": "gristory.com",
+      "overall": "OK",
+      "down": false,
+      "ssl_invalid": false,
+      "ssl_expiring": false,
+      "http": {
+        "status": "UP",
+        "code": 200,
+        "final_url": "https://gristory.com/",
+        "server": "cloudflare",
+        "time_ms": 1246,
+        "error": null
+      },
+      "ssl": {
+        "ok": true,
+        "days_left": 52,
+        "expires": "2026-07-28",
         "error": null
       },
       "host": "Cloudflare"
@@ -1075,7 +1141,7 @@
         "code": 200,
         "final_url": "https://growthack.info/",
         "server": "cloudflare",
-        "time_ms": 638,
+        "time_ms": 717,
         "error": null
       },
       "ssl": {
@@ -1097,7 +1163,7 @@
         "code": 200,
         "final_url": "https://growthdna.pro/",
         "server": "cloudflare",
-        "time_ms": 532,
+        "time_ms": 547,
         "error": null
       },
       "ssl": {
@@ -1119,35 +1185,13 @@
         "code": 200,
         "final_url": "https://growthhack.pro/",
         "server": "cloudflare",
-        "time_ms": 638,
+        "time_ms": 686,
         "error": null
       },
       "ssl": {
         "ok": true,
         "days_left": 88,
         "expires": "2026-09-02",
-        "error": null
-      },
-      "host": "Cloudflare"
-    },
-    {
-      "domain": "growthhackacademy.com",
-      "overall": "OK",
-      "down": false,
-      "ssl_invalid": false,
-      "ssl_expiring": false,
-      "http": {
-        "status": "UP",
-        "code": 200,
-        "final_url": "https://growthhackacademy.com/",
-        "server": "cloudflare",
-        "time_ms": 663,
-        "error": null
-      },
-      "ssl": {
-        "ok": true,
-        "days_left": 89,
-        "expires": "2026-09-03",
         "error": null
       },
       "host": "Cloudflare"
@@ -1163,7 +1207,7 @@
         "code": 200,
         "final_url": "https://growthhacktoolkit.com/",
         "server": "cloudflare",
-        "time_ms": 544,
+        "time_ms": 613,
         "error": null
       },
       "ssl": {
@@ -1185,7 +1229,7 @@
         "code": 200,
         "final_url": "https://infosfere.com/",
         "server": "LiteSpeed",
-        "time_ms": 403,
+        "time_ms": 541,
         "error": null
       },
       "ssl": {
@@ -1207,35 +1251,13 @@
         "code": 200,
         "final_url": "https://interms.pro/",
         "server": "cloudflare",
-        "time_ms": 665,
+        "time_ms": 719,
         "error": null
       },
       "ssl": {
         "ok": true,
         "days_left": 39,
         "expires": "2026-07-16",
-        "error": null
-      },
-      "host": "Cloudflare"
-    },
-    {
-      "domain": "kidstolead.com",
-      "overall": "OK",
-      "down": false,
-      "ssl_invalid": false,
-      "ssl_expiring": false,
-      "http": {
-        "status": "UP",
-        "code": 200,
-        "final_url": "https://kidstolead.com/",
-        "server": "cloudflare",
-        "time_ms": 729,
-        "error": null
-      },
-      "ssl": {
-        "ok": true,
-        "days_left": 89,
-        "expires": "2026-09-03",
         "error": null
       },
       "host": "Cloudflare"
@@ -1251,7 +1273,7 @@
         "code": 200,
         "final_url": "https://leadtoolkits.com/",
         "server": "cloudflare",
-        "time_ms": 560,
+        "time_ms": 763,
         "error": null
       },
       "ssl": {
@@ -1273,7 +1295,7 @@
         "code": 200,
         "final_url": "https://mahmoudomar.com/",
         "server": "cloudflare",
-        "time_ms": 647,
+        "time_ms": 717,
         "error": null
       },
       "ssl": {
@@ -1285,7 +1307,7 @@
       "host": "Cloudflare"
     },
     {
-      "domain": "mempireangels.com",
+      "domain": "masaai2030.com",
       "overall": "OK",
       "down": false,
       "ssl_invalid": false,
@@ -1293,31 +1315,9 @@
       "http": {
         "status": "UP",
         "code": 200,
-        "final_url": "https://mempireangels.com/",
+        "final_url": "https://masaai2030.com/",
         "server": "cloudflare",
-        "time_ms": 462,
-        "error": null
-      },
-      "ssl": {
-        "ok": true,
-        "days_left": 88,
-        "expires": "2026-09-03",
-        "error": null
-      },
-      "host": "Cloudflare"
-    },
-    {
-      "domain": "myreadtolead.com",
-      "overall": "OK",
-      "down": false,
-      "ssl_invalid": false,
-      "ssl_expiring": false,
-      "http": {
-        "status": "UP",
-        "code": 200,
-        "final_url": "https://myreadtolead.com/",
-        "server": "cloudflare",
-        "time_ms": 467,
+        "time_ms": 876,
         "error": null
       },
       "ssl": {
@@ -1339,7 +1339,7 @@
         "code": 200,
         "final_url": "https://read-summary.com/",
         "server": "Youcan.Private.DC/2.0",
-        "time_ms": 935,
+        "time_ms": 1021,
         "error": null
       },
       "ssl": {
@@ -1349,28 +1349,6 @@
         "error": null
       },
       "host": "youcan.private.dc/2.0"
-    },
-    {
-      "domain": "readtolead.online",
-      "overall": "OK",
-      "down": false,
-      "ssl_invalid": false,
-      "ssl_expiring": false,
-      "http": {
-        "status": "UP",
-        "code": 200,
-        "final_url": "https://readtolead.online/",
-        "server": "cloudflare",
-        "time_ms": 462,
-        "error": null
-      },
-      "ssl": {
-        "ok": true,
-        "days_left": 88,
-        "expires": "2026-09-02",
-        "error": null
-      },
-      "host": "Cloudflare"
     },
     {
       "domain": "readtolead.store",
@@ -1383,7 +1361,7 @@
         "code": 200,
         "final_url": "https://readtolead.store/",
         "server": "cloudflare",
-        "time_ms": 273,
+        "time_ms": 448,
         "error": null
       },
       "ssl": {
@@ -1405,7 +1383,7 @@
         "code": 200,
         "final_url": "https://www.startupkit.pro/",
         "server": "Vercel",
-        "time_ms": 69,
+        "time_ms": 158,
         "error": null
       },
       "ssl": {
@@ -1427,7 +1405,7 @@
         "code": 200,
         "final_url": "https://startupkitpro.com/",
         "server": "cloudflare",
-        "time_ms": 1375,
+        "time_ms": 1770,
         "error": null
       },
       "ssl": {
@@ -1449,13 +1427,35 @@
         "code": 200,
         "final_url": "https://steplead.org/",
         "server": "cloudflare",
-        "time_ms": 779,
+        "time_ms": 855,
         "error": null
       },
       "ssl": {
         "ok": true,
         "days_left": 43,
         "expires": "2026-07-20",
+        "error": null
+      },
+      "host": "Cloudflare"
+    },
+    {
+      "domain": "templify.pro",
+      "overall": "OK",
+      "down": false,
+      "ssl_invalid": false,
+      "ssl_expiring": false,
+      "http": {
+        "status": "UP",
+        "code": 200,
+        "final_url": "https://templify.pro/",
+        "server": "cloudflare",
+        "time_ms": 688,
+        "error": null
+      },
+      "ssl": {
+        "ok": true,
+        "days_left": 76,
+        "expires": "2026-08-21",
         "error": null
       },
       "host": "Cloudflare"
@@ -1471,13 +1471,35 @@
         "code": 403,
         "final_url": "https://payhip.com/global-identity?redirect=https%3A%2F%2Ftemplify.store%2F",
         "server": "cloudflare",
-        "time_ms": 49,
+        "time_ms": 134,
         "error": null
       },
       "ssl": {
         "ok": true,
         "days_left": 58,
         "expires": "2026-08-03",
+        "error": null
+      },
+      "host": "Cloudflare"
+    },
+    {
+      "domain": "trycopyduck.com",
+      "overall": "OK",
+      "down": false,
+      "ssl_invalid": false,
+      "ssl_expiring": false,
+      "http": {
+        "status": "UP",
+        "code": 200,
+        "final_url": "https://trycopyduck.com/",
+        "server": "cloudflare",
+        "time_ms": 838,
+        "error": null
+      },
+      "ssl": {
+        "ok": true,
+        "days_left": 62,
+        "expires": "2026-08-08",
         "error": null
       },
       "host": "Cloudflare"
@@ -1493,7 +1515,7 @@
         "code": 200,
         "final_url": "https://tryduckcash.com/",
         "server": "cloudflare",
-        "time_ms": 1060,
+        "time_ms": 918,
         "error": null
       },
       "ssl": {
@@ -1505,7 +1527,7 @@
       "host": "Cloudflare"
     },
     {
-      "domain": "tryduckdash.com",
+      "domain": "tryduckdev.com",
       "overall": "OK",
       "down": false,
       "ssl_invalid": false,
@@ -1513,15 +1535,15 @@
       "http": {
         "status": "UP",
         "code": 200,
-        "final_url": "https://tryduckdash.com/",
+        "final_url": "https://tryduckdev.com/",
         "server": "cloudflare",
-        "time_ms": 479,
+        "time_ms": 707,
         "error": null
       },
       "ssl": {
         "ok": true,
-        "days_left": 46,
-        "expires": "2026-07-22",
+        "days_left": 58,
+        "expires": "2026-08-03",
         "error": null
       },
       "host": "Cloudflare"
@@ -1537,35 +1559,13 @@
         "code": 403,
         "final_url": "https://tryducktank.com/",
         "server": "cloudflare",
-        "time_ms": 271,
+        "time_ms": 297,
         "error": null
       },
       "ssl": {
         "ok": true,
         "days_left": 88,
         "expires": "2026-09-02",
-        "error": null
-      },
-      "host": "Cloudflare"
-    },
-    {
-      "domain": "whatzduck.com",
-      "overall": "OK",
-      "down": false,
-      "ssl_invalid": false,
-      "ssl_expiring": false,
-      "http": {
-        "status": "UP",
-        "code": 200,
-        "final_url": "https://whatzduck.com/",
-        "server": "cloudflare",
-        "time_ms": 466,
-        "error": null
-      },
-      "ssl": {
-        "ok": true,
-        "days_left": 56,
-        "expires": "2026-08-02",
         "error": null
       },
       "host": "Cloudflare"
@@ -1581,7 +1581,7 @@
         "code": 200,
         "final_url": "https://zahranppc.com/",
         "server": "cloudflare",
-        "time_ms": 605,
+        "time_ms": 704,
         "error": null
       },
       "ssl": {
