@@ -26,13 +26,13 @@
 </style></head>
 <body><div class="wrap">
   <h1>Domain Monitor</h1>
-  <div class="sub">72 domains · last checked 2026-06-06 17:43 UTC · SSL warn 14d · 41 on Cloudflare Worker · auto every 6h</div>
+  <div class="sub">72 domains · last checked 2026-06-06 17:48 UTC · SSL warn 14d · 42 on Cloudflare Worker · auto every 6h</div>
   <a class="btn" href="https://github.com/growthack88/domain-monitor/actions/workflows/monitor.yml" target="_blank" rel="noopener">🔄 Check now</a>
   <div class="cards">
-      <div class="card down">15<span>Down</span></div>
+      <div class="card down">14<span>Down</span></div>
       <div class="card wrong">0<span>Wrong project</span></div>
       <div class="card act">0<span>Needs action</span></div>
-      <div class="card risk">0<span>At risk</span></div>
+      <div class="card risk">1<span>At risk</span></div>
       <div class="card sslbad">0<span>SSL invalid</span></div>
       <div class="card warn">0<span>SSL expiring</span></div>
       <div class="card ok">56<span>OK</span></div>
@@ -45,8 +45,8 @@
         <td><a href="https://afaqmena.com" target="_blank" rel="noopener">afaqmena.com</a></td>
         <td><span class="badge" style="background:#e5484d">DOWN</span></td>
         <td>connection error: HTTPSConnectionPool(host='afaqmena.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError("HTTPSConnection(host='afaqmena.com', port=4</td>
-        <td>—</td>
-        <td>—</td>
+        <td>⚠ not Worker</td>
+        <td><span class="muted">afaq-gcc-boost</span></td>
         <td>DNS resolution failed</td>
         <td>—</td>
         <td class="muted">—</td>
@@ -81,7 +81,7 @@
         <td>—</td>
         <td>—</td>
         <td>57d → 2026-08-02</td>
-        <td>207 ms</td>
+        <td>285 ms</td>
         <td class="muted">Cloudflare</td>
       </tr>
       <tr>
@@ -92,17 +92,6 @@
         <td>—</td>
         <td>—</td>
         <td>invalid cert: certificate has expired</td>
-        <td>—</td>
-        <td class="muted">—</td>
-      </tr>
-      <tr>
-        <td><span class="dot" style="background:#e5484d"></span></td>
-        <td><a href="https://mujeer.org" target="_blank" rel="noopener">mujeer.org</a></td>
-        <td><span class="badge" style="background:#e5484d">DOWN</span></td>
-        <td>connection error: HTTPSConnectionPool(host='mujeer.org', port=443): Max retries exceeded with url: / (Caused by NameResolutionError("HTTPSConnection(host='mujeer.org', port=443):</td>
-        <td>⚠ not Worker</td>
-        <td><span class="muted">mujeer-legal-arrival</span></td>
-        <td>DNS resolution failed</td>
         <td>—</td>
         <td class="muted">—</td>
       </tr>
@@ -180,7 +169,7 @@
         <td>—</td>
         <td>—</td>
         <td>43d → 2026-07-20</td>
-        <td>439 ms</td>
+        <td>524 ms</td>
         <td class="muted">Cloudflare</td>
       </tr>
       <tr>
@@ -206,6 +195,17 @@
         <td class="muted">—</td>
       </tr>
       <tr>
+        <td><span class="dot" style="background:#f59e0b"></span></td>
+        <td><a href="https://mujeer.org" target="_blank" rel="noopener">mujeer.org</a></td>
+        <td><span class="badge" style="background:#f59e0b">AT RISK</span></td>
+        <td>served but NOT via the Worker — migrate to lovable-proxy (will disconnect)</td>
+        <td>⚠ not Worker</td>
+        <td><span class="muted">mujeer-legal-arrival</span></td>
+        <td>36d → 2026-07-13</td>
+        <td>810 ms</td>
+        <td class="muted">Cloudflare</td>
+      </tr>
+      <tr>
         <td><span class="dot" style="background:#f5a623"></span></td>
         <td><a href="https://bookkhan.com" target="_blank" rel="noopener">bookkhan.com</a></td>
         <td><span class="badge" style="background:#f5a623">DEGRADED</span></td>
@@ -213,7 +213,7 @@
         <td>—</td>
         <td>—</td>
         <td>80d → 2026-08-26</td>
-        <td>398 ms</td>
+        <td>478 ms</td>
         <td class="muted">Shared/WordPress</td>
       </tr>
       <tr>
@@ -224,7 +224,7 @@
         <td>✓ Worker</td>
         <td><span class="muted">asknagaty-editorial-archive</span></td>
         <td>89d → 2026-09-04</td>
-        <td>584 ms</td>
+        <td>735 ms</td>
         <td class="muted">Cloudflare Worker</td>
       </tr>
       <tr>
@@ -235,7 +235,7 @@
         <td>—</td>
         <td>—</td>
         <td>78d → 2026-08-24</td>
-        <td>623 ms</td>
+        <td>795 ms</td>
         <td class="muted">Shared/WordPress</td>
       </tr>
       <tr>
@@ -246,7 +246,7 @@
         <td>—</td>
         <td>—</td>
         <td>63d → 2026-08-09</td>
-        <td>330 ms</td>
+        <td>456 ms</td>
         <td class="muted">Shared/WordPress</td>
       </tr>
       <tr>
@@ -257,7 +257,7 @@
         <td>—</td>
         <td>—</td>
         <td>63d → 2026-08-09</td>
-        <td>412 ms</td>
+        <td>480 ms</td>
         <td class="muted">Shared/WordPress</td>
       </tr>
       <tr>
@@ -268,7 +268,7 @@
         <td>✓ Worker</td>
         <td><span class="muted">arabic-growth-guide</span></td>
         <td>42d → 2026-07-19</td>
-        <td>549 ms</td>
+        <td>714 ms</td>
         <td class="muted">Cloudflare Worker</td>
       </tr>
       <tr>
@@ -279,7 +279,7 @@
         <td>✓ Worker</td>
         <td><span class="muted">build-lead-hub</span></td>
         <td>83d → 2026-08-28</td>
-        <td>606 ms</td>
+        <td>851 ms</td>
         <td class="muted">Cloudflare Worker</td>
       </tr>
       <tr>
@@ -290,7 +290,7 @@
         <td>—</td>
         <td>—</td>
         <td>35d → 2026-07-11</td>
-        <td>1652 ms</td>
+        <td>1775 ms</td>
         <td class="muted">Shared/WordPress</td>
       </tr>
       <tr>
@@ -301,7 +301,7 @@
         <td>✓ Worker</td>
         <td><span class="muted">ahmed-rana-invitation-spark</span></td>
         <td>51d → 2026-07-28</td>
-        <td>904 ms</td>
+        <td>885 ms</td>
         <td class="muted">Cloudflare Worker</td>
       </tr>
       <tr>
@@ -312,7 +312,7 @@
         <td>✓ Worker</td>
         <td><span class="muted">dpb-blueprint-hub</span></td>
         <td>88d → 2026-09-02</td>
-        <td>801 ms</td>
+        <td>925 ms</td>
         <td class="muted">Cloudflare Worker</td>
       </tr>
       <tr>
@@ -323,7 +323,7 @@
         <td>✓ Worker</td>
         <td><span class="muted">duckdoro</span></td>
         <td>89d → 2026-09-04</td>
-        <td>642 ms</td>
+        <td>780 ms</td>
         <td class="muted">Cloudflare Worker</td>
       </tr>
       <tr>
@@ -334,7 +334,7 @@
         <td>✓ Worker</td>
         <td><span class="muted">freeduckter</span></td>
         <td>59d → 2026-08-05</td>
-        <td>664 ms</td>
+        <td>720 ms</td>
         <td class="muted">Cloudflare Worker</td>
       </tr>
       <tr>
@@ -345,7 +345,7 @@
         <td>✓ Worker</td>
         <td><span class="muted">duckmerce</span></td>
         <td>89d → 2026-09-04</td>
-        <td>577 ms</td>
+        <td>6325 ms</td>
         <td class="muted">Cloudflare Worker</td>
       </tr>
       <tr>
@@ -356,7 +356,7 @@
         <td>✓ Worker</td>
         <td><span class="muted">duck-verse-hq</span></td>
         <td>89d → 2026-09-04</td>
-        <td>568 ms</td>
+        <td>714 ms</td>
         <td class="muted">Cloudflare Worker</td>
       </tr>
       <tr>
@@ -367,7 +367,7 @@
         <td>—</td>
         <td>—</td>
         <td>78d → 2026-08-23</td>
-        <td>99 ms</td>
+        <td>152 ms</td>
         <td class="muted">caddy</td>
       </tr>
       <tr>
@@ -378,7 +378,7 @@
         <td>✓ Worker</td>
         <td><span class="muted">mahmoudomar-redirect-hub</span></td>
         <td>69d → 2026-08-15</td>
-        <td>638 ms</td>
+        <td>535 ms</td>
         <td class="muted">Cloudflare Worker</td>
       </tr>
       <tr>
@@ -389,7 +389,7 @@
         <td>—</td>
         <td>—</td>
         <td>82d → 2026-08-28</td>
-        <td>386 ms</td>
+        <td>564 ms</td>
         <td class="muted">Shared/WordPress</td>
       </tr>
       <tr>
@@ -400,7 +400,7 @@
         <td>—</td>
         <td>—</td>
         <td>82d → 2026-08-28</td>
-        <td>176 ms</td>
+        <td>269 ms</td>
         <td class="muted">Cloudflare</td>
       </tr>
       <tr>
@@ -411,7 +411,7 @@
         <td>—</td>
         <td>—</td>
         <td>58d → 2026-08-04</td>
-        <td>530 ms</td>
+        <td>728 ms</td>
         <td class="muted">Cloudflare</td>
       </tr>
       <tr>
@@ -422,7 +422,7 @@
         <td>—</td>
         <td>—</td>
         <td>35d → 2026-07-12</td>
-        <td>619 ms</td>
+        <td>766 ms</td>
         <td class="muted">Cloudflare</td>
       </tr>
       <tr>
@@ -433,7 +433,7 @@
         <td>—</td>
         <td>—</td>
         <td>89d → 2026-09-04</td>
-        <td>561 ms</td>
+        <td>817 ms</td>
         <td class="muted">Cloudflare</td>
       </tr>
       <tr>
@@ -444,7 +444,7 @@
         <td>✓ Worker</td>
         <td><span class="muted">greeverse</span></td>
         <td>88d → 2026-09-03</td>
-        <td>796 ms</td>
+        <td>866 ms</td>
         <td class="muted">Cloudflare Worker</td>
       </tr>
       <tr>
@@ -455,7 +455,7 @@
         <td>✓ Worker</td>
         <td><span class="muted">gristory-lab</span></td>
         <td>51d → 2026-07-28</td>
-        <td>676 ms</td>
+        <td>848 ms</td>
         <td class="muted">Cloudflare Worker</td>
       </tr>
       <tr>
@@ -466,7 +466,7 @@
         <td>—</td>
         <td>—</td>
         <td>83d → 2026-08-28</td>
-        <td>645 ms</td>
+        <td>691 ms</td>
         <td class="muted">Cloudflare</td>
       </tr>
       <tr>
@@ -477,7 +477,7 @@
         <td>✓ Worker</td>
         <td><span class="muted">growthdna-waitlist-dna</span></td>
         <td>67d → 2026-08-12</td>
-        <td>481 ms</td>
+        <td>740 ms</td>
         <td class="muted">Cloudflare Worker</td>
       </tr>
       <tr>
@@ -488,7 +488,7 @@
         <td>✓ Worker</td>
         <td><span class="muted">growthduckup</span></td>
         <td>52d → 2026-07-28</td>
-        <td>666 ms</td>
+        <td>689 ms</td>
         <td class="muted">Cloudflare Worker</td>
       </tr>
       <tr>
@@ -499,7 +499,7 @@
         <td>✓ Worker</td>
         <td><span class="muted">growthhackprostack</span></td>
         <td>89d → 2026-09-04</td>
-        <td>648 ms</td>
+        <td>793 ms</td>
         <td class="muted">Cloudflare Worker</td>
       </tr>
       <tr>
@@ -510,7 +510,7 @@
         <td>✓ Worker</td>
         <td><span class="muted">growthhackacademy</span></td>
         <td>89d → 2026-09-04</td>
-        <td>699 ms</td>
+        <td>835 ms</td>
         <td class="muted">Cloudflare Worker</td>
       </tr>
       <tr>
@@ -521,7 +521,7 @@
         <td>—</td>
         <td>—</td>
         <td>36d → 2026-07-13</td>
-        <td>514 ms</td>
+        <td>1619 ms</td>
         <td class="muted">Cloudflare</td>
       </tr>
       <tr>
@@ -532,7 +532,7 @@
         <td>✓ Worker</td>
         <td><span class="muted">i-geeky-build</span></td>
         <td>86d → 2026-09-01</td>
-        <td>1075 ms</td>
+        <td>831 ms</td>
         <td class="muted">Cloudflare Worker</td>
       </tr>
       <tr>
@@ -543,7 +543,7 @@
         <td>—</td>
         <td>—</td>
         <td>64d → 2026-08-10</td>
-        <td>330 ms</td>
+        <td>514 ms</td>
         <td class="muted">Shared/WordPress</td>
       </tr>
       <tr>
@@ -554,7 +554,7 @@
         <td>✓ Worker</td>
         <td><span class="muted">easy-terms-kit</span></td>
         <td>39d → 2026-07-16</td>
-        <td>570 ms</td>
+        <td>674 ms</td>
         <td class="muted">Cloudflare Worker</td>
       </tr>
       <tr>
@@ -565,7 +565,7 @@
         <td>✓ Worker</td>
         <td><span class="muted">newkidstolead</span></td>
         <td>89d → 2026-09-04</td>
-        <td>613 ms</td>
+        <td>687 ms</td>
         <td class="muted">Cloudflare Worker</td>
       </tr>
       <tr>
@@ -576,7 +576,7 @@
         <td>✓ Worker</td>
         <td><span class="muted">leadtoolkits-growth-engine</span></td>
         <td>60d → 2026-08-06</td>
-        <td>667 ms</td>
+        <td>639 ms</td>
         <td class="muted">Cloudflare Worker</td>
       </tr>
       <tr>
@@ -587,7 +587,7 @@
         <td>✓ Worker</td>
         <td><span class="muted">mahmoud-tel</span></td>
         <td>47d → 2026-07-24</td>
-        <td>623 ms</td>
+        <td>822 ms</td>
         <td class="muted">Cloudflare Worker</td>
       </tr>
       <tr>
@@ -598,7 +598,7 @@
         <td>✓ Worker</td>
         <td><span class="muted">indie-hacker-arabic</span></td>
         <td>88d → 2026-09-03</td>
-        <td>634 ms</td>
+        <td>663 ms</td>
         <td class="muted">Cloudflare Worker</td>
       </tr>
       <tr>
@@ -609,7 +609,7 @@
         <td>✓ Worker</td>
         <td><span class="muted">masaai-vision-hub</span></td>
         <td>88d → 2026-09-02</td>
-        <td>611 ms</td>
+        <td>802 ms</td>
         <td class="muted">Cloudflare Worker</td>
       </tr>
       <tr>
@@ -620,7 +620,7 @@
         <td>✓ Worker</td>
         <td><span class="muted">mempire</span></td>
         <td>89d → 2026-09-04</td>
-        <td>703 ms</td>
+        <td>1691 ms</td>
         <td class="muted">Cloudflare Worker</td>
       </tr>
       <tr>
@@ -631,7 +631,7 @@
         <td>✓ Worker</td>
         <td><span class="muted">mmas89</span></td>
         <td>47d → 2026-07-24</td>
-        <td>640 ms</td>
+        <td>1414 ms</td>
         <td class="muted">Cloudflare Worker</td>
       </tr>
       <tr>
@@ -642,7 +642,7 @@
         <td>✓ Worker</td>
         <td><span class="muted">read-to-lead-glow</span></td>
         <td>89d → 2026-09-04</td>
-        <td>536 ms</td>
+        <td>785 ms</td>
         <td class="muted">Cloudflare Worker</td>
       </tr>
       <tr>
@@ -653,7 +653,7 @@
         <td>✓ Worker</td>
         <td><span class="muted">pluginzio</span></td>
         <td>76d → 2026-08-22</td>
-        <td>1016 ms</td>
+        <td>798 ms</td>
         <td class="muted">Cloudflare Worker</td>
       </tr>
       <tr>
@@ -664,7 +664,7 @@
         <td>—</td>
         <td>—</td>
         <td>22d → 2026-06-29</td>
-        <td>821 ms</td>
+        <td>1094 ms</td>
         <td class="muted">youcan.private.dc/2.0</td>
       </tr>
       <tr>
@@ -675,7 +675,7 @@
         <td>✓ Worker</td>
         <td><span class="muted">read-to-lead-kit</span></td>
         <td>89d → 2026-09-04</td>
-        <td>654 ms</td>
+        <td>936 ms</td>
         <td class="muted">Cloudflare Worker</td>
       </tr>
       <tr>
@@ -686,7 +686,7 @@
         <td>✓ Worker</td>
         <td><span class="muted">read2lead-gate-room</span></td>
         <td>86d → 2026-09-01</td>
-        <td>544 ms</td>
+        <td>743 ms</td>
         <td class="muted">Cloudflare Worker</td>
       </tr>
       <tr>
@@ -697,7 +697,7 @@
         <td>—</td>
         <td>—</td>
         <td>81d → 2026-08-27</td>
-        <td>249 ms</td>
+        <td>239 ms</td>
         <td class="muted">Cloudflare</td>
       </tr>
       <tr>
@@ -708,7 +708,7 @@
         <td>—</td>
         <td>—</td>
         <td>87d → 2026-09-02</td>
-        <td>80 ms</td>
+        <td>147 ms</td>
         <td class="muted">Vercel</td>
       </tr>
       <tr>
@@ -719,7 +719,7 @@
         <td>✓ Worker</td>
         <td><span class="muted">startup-kit-arabic</span></td>
         <td>88d → 2026-09-03</td>
-        <td>1922 ms</td>
+        <td>1868 ms</td>
         <td class="muted">Cloudflare Worker</td>
       </tr>
       <tr>
@@ -730,7 +730,7 @@
         <td>✓ Worker</td>
         <td><span class="muted">stepl-forge</span></td>
         <td>43d → 2026-07-20</td>
-        <td>791 ms</td>
+        <td>663 ms</td>
         <td class="muted">Cloudflare Worker</td>
       </tr>
       <tr>
@@ -741,7 +741,7 @@
         <td>✓ Worker</td>
         <td><span class="muted">templifypro</span></td>
         <td>76d → 2026-08-21</td>
-        <td>533 ms</td>
+        <td>1294 ms</td>
         <td class="muted">Cloudflare Worker</td>
       </tr>
       <tr>
@@ -752,7 +752,7 @@
         <td>—</td>
         <td>—</td>
         <td>57d → 2026-08-03</td>
-        <td>93 ms</td>
+        <td>121 ms</td>
         <td class="muted">Cloudflare</td>
       </tr>
       <tr>
@@ -763,7 +763,7 @@
         <td>✓ Worker</td>
         <td><span class="muted">trycopyduck</span></td>
         <td>62d → 2026-08-08</td>
-        <td>736 ms</td>
+        <td>853 ms</td>
         <td class="muted">Cloudflare Worker</td>
       </tr>
       <tr>
@@ -774,7 +774,7 @@
         <td>✓ Worker</td>
         <td><span class="muted">duckcash-command-center</span></td>
         <td>89d → 2026-09-04</td>
-        <td>1040 ms</td>
+        <td>1071 ms</td>
         <td class="muted">Cloudflare Worker</td>
       </tr>
       <tr>
@@ -785,7 +785,7 @@
         <td>✓ Worker</td>
         <td><span class="muted">duckdash</span></td>
         <td>89d → 2026-09-04</td>
-        <td>598 ms</td>
+        <td>1087 ms</td>
         <td class="muted">Cloudflare Worker</td>
       </tr>
       <tr>
@@ -796,7 +796,7 @@
         <td>✓ Worker</td>
         <td><span class="muted">startup-zen-suite</span></td>
         <td>57d → 2026-08-03</td>
-        <td>903 ms</td>
+        <td>694 ms</td>
         <td class="muted">Cloudflare Worker</td>
       </tr>
       <tr>
@@ -807,7 +807,7 @@
         <td>—</td>
         <td>—</td>
         <td>88d → 2026-09-02</td>
-        <td>273 ms</td>
+        <td>348 ms</td>
         <td class="muted">Cloudflare</td>
       </tr>
       <tr>
@@ -818,7 +818,7 @@
         <td>✓ Worker</td>
         <td><span class="muted">duck-blog-builder</span></td>
         <td>89d → 2026-09-04</td>
-        <td>702 ms</td>
+        <td>724 ms</td>
         <td class="muted">Cloudflare Worker</td>
       </tr>
       <tr>
@@ -829,7 +829,7 @@
         <td>—</td>
         <td>—</td>
         <td>88d → 2026-09-02</td>
-        <td>646 ms</td>
+        <td>702 ms</td>
         <td class="muted">Cloudflare</td>
       </tr></tbody>
   </table>
