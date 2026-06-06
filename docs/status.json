@@ -1,24 +1,28 @@
 {
-  "checked_at": "2026-06-06 13:14 UTC",
+  "checked_at": "2026-06-06 16:54 UTC",
   "counts": {
-    "DOWN": 32,
-    "SSL_INVALID": 0,
-    "SSL_EXPIRING": 0,
+    "DOWN": 24,
+    "NEEDS_ACTION": 9,
     "DEGRADED": 1,
-    "OK": 39
+    "OK": 38
   },
   "results": [
     {
       "domain": "afaqmena.com",
       "overall": "DOWN",
+      "reason": "connection error: HTTPSConnectionPool(host='afaqmena.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='afaqmena.com', port=4",
+      "on_worker": false,
+      "worker_sub": "",
+      "via_worker": false,
       "down": true,
       "ssl_invalid": true,
       "ssl_expiring": false,
       "http": {
-        "status": "DOWN",
         "code": null,
         "final_url": "https://afaqmena.com",
         "server": "",
+        "x_proxy": "",
+        "title": "",
         "time_ms": null,
         "error": "connection error: HTTPSConnectionPool(host='afaqmena.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='afaqmena.com', port=4"
       },
@@ -33,37 +37,20 @@
     {
       "domain": "asknagaty.com",
       "overall": "DOWN",
+      "reason": "Lovable: project not found (not migrated / disconnected)",
+      "on_worker": true,
+      "worker_sub": "nagaty-s-editorial-archive",
+      "via_worker": true,
       "down": true,
       "ssl_invalid": false,
       "ssl_expiring": false,
       "http": {
-        "status": "DOWN",
         "code": 404,
         "final_url": "https://asknagaty.com/",
         "server": "cloudflare",
-        "time_ms": 407,
-        "error": "Lovable: project not found"
-      },
-      "ssl": {
-        "ok": true,
-        "days_left": 88,
-        "expires": "2026-09-02",
-        "error": null
-      },
-      "host": "Cloudflare"
-    },
-    {
-      "domain": "duckdoro.com",
-      "overall": "DOWN",
-      "down": true,
-      "ssl_invalid": false,
-      "ssl_expiring": false,
-      "http": {
-        "status": "DOWN",
-        "code": 503,
-        "final_url": "https://duckdoro.com/",
-        "server": "cloudflare",
-        "time_ms": 644,
+        "x_proxy": "lovable-worker",
+        "title": "Project not found",
+        "time_ms": 472,
         "error": null
       },
       "ssl": {
@@ -72,63 +59,24 @@
         "expires": "2026-09-02",
         "error": null
       },
-      "host": "Cloudflare"
-    },
-    {
-      "domain": "duckmerce.com",
-      "overall": "DOWN",
-      "down": true,
-      "ssl_invalid": false,
-      "ssl_expiring": false,
-      "http": {
-        "status": "DOWN",
-        "code": 503,
-        "final_url": "https://duckmerce.com/",
-        "server": "cloudflare",
-        "time_ms": 630,
-        "error": null
-      },
-      "ssl": {
-        "ok": true,
-        "days_left": 88,
-        "expires": "2026-09-02",
-        "error": null
-      },
-      "host": "Cloudflare"
-    },
-    {
-      "domain": "duckverse.pro",
-      "overall": "DOWN",
-      "down": true,
-      "ssl_invalid": false,
-      "ssl_expiring": false,
-      "http": {
-        "status": "DOWN",
-        "code": 503,
-        "final_url": "https://duckverse.pro/",
-        "server": "cloudflare",
-        "time_ms": 591,
-        "error": null
-      },
-      "ssl": {
-        "ok": true,
-        "days_left": 88,
-        "expires": "2026-09-02",
-        "error": null
-      },
-      "host": "Cloudflare"
+      "host": "Cloudflare Worker"
     },
     {
       "domain": "fitforanime.com",
       "overall": "DOWN",
+      "reason": "TLS handshake failed: HTTPSConnectionPool(host='fitforanime.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError(1, \"[SSL: CERTIFICATE_VERIF",
+      "on_worker": false,
+      "worker_sub": "",
+      "via_worker": false,
       "down": true,
       "ssl_invalid": true,
       "ssl_expiring": false,
       "http": {
-        "status": "DOWN",
         "code": null,
         "final_url": "https://fitforanime.com",
         "server": "",
+        "x_proxy": "",
+        "title": "",
         "time_ms": null,
         "error": "TLS handshake failed: HTTPSConnectionPool(host='fitforanime.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError(1, \"[SSL: CERTIFICATE_VERIF"
       },
@@ -141,16 +89,48 @@
       "host": "\u2014"
     },
     {
+      "domain": "fitformoda.com",
+      "overall": "DOWN",
+      "reason": "HTTP 503",
+      "on_worker": false,
+      "worker_sub": "",
+      "via_worker": false,
+      "down": true,
+      "ssl_invalid": false,
+      "ssl_expiring": false,
+      "http": {
+        "code": 503,
+        "final_url": "https://fitformoda.com/",
+        "server": "cloudflare",
+        "x_proxy": "",
+        "title": "Something went wrong",
+        "time_ms": 162,
+        "error": null
+      },
+      "ssl": {
+        "ok": true,
+        "days_left": 82,
+        "expires": "2026-08-28",
+        "error": null
+      },
+      "host": "Cloudflare"
+    },
+    {
       "domain": "fitforshop.com",
       "overall": "DOWN",
+      "reason": "connection error: HTTPSConnectionPool(host='fitforshop.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='fitforshop.com', po",
+      "on_worker": false,
+      "worker_sub": "",
+      "via_worker": false,
       "down": true,
       "ssl_invalid": true,
       "ssl_expiring": false,
       "http": {
-        "status": "DOWN",
         "code": null,
         "final_url": "https://fitforshop.com",
         "server": "",
+        "x_proxy": "",
+        "title": "",
         "time_ms": null,
         "error": "connection error: HTTPSConnectionPool(host='fitforshop.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='fitforshop.com', po"
       },
@@ -165,16 +145,21 @@
     {
       "domain": "growthduckup.com",
       "overall": "DOWN",
+      "reason": "Lovable: domain/DNS not connected",
+      "on_worker": false,
+      "worker_sub": "",
+      "via_worker": false,
       "down": true,
       "ssl_invalid": false,
       "ssl_expiring": false,
       "http": {
-        "status": "DOWN",
         "code": 421,
         "final_url": "https://growthduckup.com/",
         "server": "cloudflare",
-        "time_ms": 274,
-        "error": "Lovable: domain/DNS not connected"
+        "x_proxy": "",
+        "title": "Project not found",
+        "time_ms": 295,
+        "error": null
       },
       "ssl": {
         "ok": true,
@@ -185,40 +170,23 @@
       "host": "Cloudflare"
     },
     {
-      "domain": "growthhackacademy.com",
-      "overall": "DOWN",
-      "down": true,
-      "ssl_invalid": false,
-      "ssl_expiring": false,
-      "http": {
-        "status": "DOWN",
-        "code": 503,
-        "final_url": "https://growthhackacademy.com/",
-        "server": "cloudflare",
-        "time_ms": 638,
-        "error": null
-      },
-      "ssl": {
-        "ok": true,
-        "days_left": 89,
-        "expires": "2026-09-03",
-        "error": null
-      },
-      "host": "Cloudflare"
-    },
-    {
       "domain": "howakeda.com",
       "overall": "DOWN",
+      "reason": "Lovable: domain/DNS not connected",
+      "on_worker": false,
+      "worker_sub": "",
+      "via_worker": false,
       "down": true,
       "ssl_invalid": false,
       "ssl_expiring": false,
       "http": {
-        "status": "DOWN",
         "code": 421,
         "final_url": "https://howakeda.com/",
         "server": "cloudflare",
-        "time_ms": 275,
-        "error": "Lovable: domain/DNS not connected"
+        "x_proxy": "",
+        "title": "Project not found",
+        "time_ms": 312,
+        "error": null
       },
       "ssl": {
         "ok": true,
@@ -231,20 +199,25 @@
     {
       "domain": "i-geeky.com",
       "overall": "DOWN",
+      "reason": "Lovable: domain/DNS not connected",
+      "on_worker": false,
+      "worker_sub": "",
+      "via_worker": false,
       "down": true,
       "ssl_invalid": false,
       "ssl_expiring": false,
       "http": {
-        "status": "DOWN",
         "code": 421,
         "final_url": "https://i-geeky.com/",
         "server": "cloudflare",
-        "time_ms": 284,
-        "error": "Lovable: domain/DNS not connected"
+        "x_proxy": "",
+        "title": "Project not found",
+        "time_ms": 289,
+        "error": null
       },
       "ssl": {
         "ok": true,
-        "days_left": 87,
+        "days_left": 86,
         "expires": "2026-09-01",
         "error": null
       },
@@ -253,14 +226,19 @@
     {
       "domain": "i-geeky.info",
       "overall": "DOWN",
+      "reason": "TLS handshake failed: HTTPSConnectionPool(host='i-geeky.info', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_F",
+      "on_worker": false,
+      "worker_sub": "",
+      "via_worker": false,
       "down": true,
       "ssl_invalid": true,
       "ssl_expiring": false,
       "http": {
-        "status": "DOWN",
         "code": null,
         "final_url": "https://i-geeky.info",
         "server": "",
+        "x_proxy": "",
+        "title": "",
         "time_ms": null,
         "error": "TLS handshake failed: HTTPSConnectionPool(host='i-geeky.info', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_F"
       },
@@ -273,40 +251,23 @@
       "host": "\u2014"
     },
     {
-      "domain": "kidstolead.com",
-      "overall": "DOWN",
-      "down": true,
-      "ssl_invalid": false,
-      "ssl_expiring": false,
-      "http": {
-        "status": "DOWN",
-        "code": 503,
-        "final_url": "https://kidstolead.com/",
-        "server": "cloudflare",
-        "time_ms": 601,
-        "error": null
-      },
-      "ssl": {
-        "ok": true,
-        "days_left": 89,
-        "expires": "2026-09-03",
-        "error": null
-      },
-      "host": "Cloudflare"
-    },
-    {
       "domain": "mahmoud.tel",
       "overall": "DOWN",
+      "reason": "Lovable: domain/DNS not connected",
+      "on_worker": false,
+      "worker_sub": "",
+      "via_worker": false,
       "down": true,
       "ssl_invalid": false,
       "ssl_expiring": false,
       "http": {
-        "status": "DOWN",
         "code": 421,
         "final_url": "https://mahmoud.tel/",
         "server": "cloudflare",
-        "time_ms": 298,
-        "error": "Lovable: domain/DNS not connected"
+        "x_proxy": "",
+        "title": "Project not found",
+        "time_ms": 335,
+        "error": null
       },
       "ssl": {
         "ok": true,
@@ -319,16 +280,21 @@
     {
       "domain": "mempireangels.com",
       "overall": "DOWN",
+      "reason": "Lovable: project not found (not migrated / disconnected)",
+      "on_worker": true,
+      "worker_sub": "m-empire-genesis",
+      "via_worker": true,
       "down": true,
       "ssl_invalid": false,
       "ssl_expiring": false,
       "http": {
-        "status": "DOWN",
         "code": 404,
         "final_url": "https://mempireangels.com/",
         "server": "cloudflare",
-        "time_ms": 345,
-        "error": "Lovable: project not found"
+        "x_proxy": "lovable-worker",
+        "title": "Project not found",
+        "time_ms": 363,
+        "error": null
       },
       "ssl": {
         "ok": true,
@@ -336,21 +302,26 @@
         "expires": "2026-09-03",
         "error": null
       },
-      "host": "Cloudflare"
+      "host": "Cloudflare Worker"
     },
     {
       "domain": "mmas89.com",
       "overall": "DOWN",
+      "reason": "Lovable: domain/DNS not connected",
+      "on_worker": false,
+      "worker_sub": "",
+      "via_worker": false,
       "down": true,
       "ssl_invalid": false,
       "ssl_expiring": false,
       "http": {
-        "status": "DOWN",
         "code": 421,
         "final_url": "https://mmas89.com/",
         "server": "cloudflare",
-        "time_ms": 313,
-        "error": "Lovable: domain/DNS not connected"
+        "x_proxy": "",
+        "title": "Project not found",
+        "time_ms": 293,
+        "error": null
       },
       "ssl": {
         "ok": true,
@@ -363,14 +334,19 @@
     {
       "domain": "mujeer.org",
       "overall": "DOWN",
+      "reason": "connection error: HTTPSConnectionPool(host='mujeer.org', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='mujeer.org', port=443):",
+      "on_worker": false,
+      "worker_sub": "",
+      "via_worker": false,
       "down": true,
       "ssl_invalid": true,
       "ssl_expiring": false,
       "http": {
-        "status": "DOWN",
         "code": null,
         "final_url": "https://mujeer.org",
         "server": "",
+        "x_proxy": "",
+        "title": "",
         "time_ms": null,
         "error": "connection error: HTTPSConnectionPool(host='mujeer.org', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='mujeer.org', port=443):"
       },
@@ -383,44 +359,27 @@
       "host": "\u2014"
     },
     {
-      "domain": "myreadtolead.com",
-      "overall": "DOWN",
-      "down": true,
-      "ssl_invalid": false,
-      "ssl_expiring": false,
-      "http": {
-        "status": "DOWN",
-        "code": 503,
-        "final_url": "https://myreadtolead.com/",
-        "server": "cloudflare",
-        "time_ms": 604,
-        "error": null
-      },
-      "ssl": {
-        "ok": true,
-        "days_left": 88,
-        "expires": "2026-09-02",
-        "error": null
-      },
-      "host": "Cloudflare"
-    },
-    {
       "domain": "pluginz.io",
       "overall": "DOWN",
+      "reason": "Lovable: domain/DNS not connected",
+      "on_worker": false,
+      "worker_sub": "",
+      "via_worker": false,
       "down": true,
       "ssl_invalid": false,
       "ssl_expiring": false,
       "http": {
-        "status": "DOWN",
         "code": 421,
         "final_url": "https://pluginz.io/",
         "server": "cloudflare",
-        "time_ms": 274,
-        "error": "Lovable: domain/DNS not connected"
+        "x_proxy": "",
+        "title": "Project not found",
+        "time_ms": 266,
+        "error": null
       },
       "ssl": {
         "ok": true,
-        "days_left": 77,
+        "days_left": 76,
         "expires": "2026-08-22",
         "error": null
       },
@@ -429,14 +388,19 @@
     {
       "domain": "publishtolead.pro",
       "overall": "DOWN",
+      "reason": "connection error: HTTPSConnectionPool(host='publishtolead.pro', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='publishtolead.pr",
+      "on_worker": false,
+      "worker_sub": "",
+      "via_worker": false,
       "down": true,
       "ssl_invalid": true,
       "ssl_expiring": false,
       "http": {
-        "status": "DOWN",
         "code": null,
         "final_url": "https://publishtolead.pro",
         "server": "",
+        "x_proxy": "",
+        "title": "",
         "time_ms": null,
         "error": "connection error: HTTPSConnectionPool(host='publishtolead.pro', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='publishtolead.pr"
       },
@@ -451,14 +415,19 @@
     {
       "domain": "rawipress.live",
       "overall": "DOWN",
+      "reason": "connection error: HTTPSConnectionPool(host='rawipress.live', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='rawipress.live', po",
+      "on_worker": false,
+      "worker_sub": "",
+      "via_worker": false,
       "down": true,
       "ssl_invalid": true,
       "ssl_expiring": false,
       "http": {
-        "status": "DOWN",
         "code": null,
         "final_url": "https://rawipress.live",
         "server": "",
+        "x_proxy": "",
+        "title": "",
         "time_ms": null,
         "error": "connection error: HTTPSConnectionPool(host='rawipress.live', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='rawipress.live', po"
       },
@@ -473,14 +442,19 @@
     {
       "domain": "readcast.live",
       "overall": "DOWN",
+      "reason": "connection error: HTTPSConnectionPool(host='readcast.live', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='readcast.live', port",
+      "on_worker": false,
+      "worker_sub": "",
+      "via_worker": false,
       "down": true,
       "ssl_invalid": true,
       "ssl_expiring": false,
       "http": {
-        "status": "DOWN",
         "code": null,
         "final_url": "https://readcast.live",
         "server": "",
+        "x_proxy": "",
+        "title": "",
         "time_ms": null,
         "error": "connection error: HTTPSConnectionPool(host='readcast.live', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='readcast.live', port"
       },
@@ -493,40 +467,23 @@
       "host": "\u2014"
     },
     {
-      "domain": "readtolead.online",
-      "overall": "DOWN",
-      "down": true,
-      "ssl_invalid": false,
-      "ssl_expiring": false,
-      "http": {
-        "status": "DOWN",
-        "code": 503,
-        "final_url": "https://readtolead.online/",
-        "server": "cloudflare",
-        "time_ms": 1171,
-        "error": null
-      },
-      "ssl": {
-        "ok": true,
-        "days_left": 88,
-        "expires": "2026-09-02",
-        "error": null
-      },
-      "host": "Cloudflare"
-    },
-    {
       "domain": "readtolead.pro",
       "overall": "DOWN",
+      "reason": "Lovable: domain/DNS not connected",
+      "on_worker": false,
+      "worker_sub": "",
+      "via_worker": false,
       "down": true,
       "ssl_invalid": false,
       "ssl_expiring": false,
       "http": {
-        "status": "DOWN",
         "code": 421,
         "final_url": "https://readtolead.pro/",
         "server": "cloudflare",
-        "time_ms": 281,
-        "error": "Lovable: domain/DNS not connected"
+        "x_proxy": "",
+        "title": "Project not found",
+        "time_ms": 305,
+        "error": null
       },
       "ssl": {
         "ok": true,
@@ -539,14 +496,19 @@
     {
       "domain": "shopyzilla.com",
       "overall": "DOWN",
+      "reason": "connection error: HTTPSConnectionPool(host='shopyzilla.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='shopyzilla.com', po",
+      "on_worker": false,
+      "worker_sub": "",
+      "via_worker": false,
       "down": true,
       "ssl_invalid": true,
       "ssl_expiring": false,
       "http": {
-        "status": "DOWN",
         "code": null,
         "final_url": "https://shopyzilla.com",
         "server": "",
+        "x_proxy": "",
+        "title": "",
         "time_ms": null,
         "error": "connection error: HTTPSConnectionPool(host='shopyzilla.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='shopyzilla.com', po"
       },
@@ -561,14 +523,19 @@
     {
       "domain": "thegrowthwise.pro",
       "overall": "DOWN",
+      "reason": "connection error: HTTPSConnectionPool(host='thegrowthwise.pro', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='thegrowthwise.pr",
+      "on_worker": false,
+      "worker_sub": "",
+      "via_worker": false,
       "down": true,
       "ssl_invalid": true,
       "ssl_expiring": false,
       "http": {
-        "status": "DOWN",
         "code": null,
         "final_url": "https://thegrowthwise.pro",
         "server": "",
+        "x_proxy": "",
+        "title": "",
         "time_ms": null,
         "error": "connection error: HTTPSConnectionPool(host='thegrowthwise.pro', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='thegrowthwise.pr"
       },
@@ -583,14 +550,19 @@
     {
       "domain": "theictevents.com",
       "overall": "DOWN",
+      "reason": "TLS handshake failed: HTTPSConnectionPool(host='theictevents.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERI",
+      "on_worker": false,
+      "worker_sub": "",
+      "via_worker": false,
       "down": true,
       "ssl_invalid": true,
       "ssl_expiring": false,
       "http": {
-        "status": "DOWN",
         "code": null,
         "final_url": "https://theictevents.com",
         "server": "",
+        "x_proxy": "",
+        "title": "",
         "time_ms": null,
         "error": "TLS handshake failed: HTTPSConnectionPool(host='theictevents.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERI"
       },
@@ -605,15 +577,20 @@
     {
       "domain": "theictjobs.com",
       "overall": "DOWN",
+      "reason": "HTTP 526",
+      "on_worker": false,
+      "worker_sub": "",
+      "via_worker": false,
       "down": true,
       "ssl_invalid": false,
       "ssl_expiring": false,
       "http": {
-        "status": "DOWN",
         "code": 526,
         "final_url": "https://theictjobs.com/",
         "server": "cloudflare",
-        "time_ms": 521,
+        "x_proxy": "",
+        "title": "theictjobs.com | 526: Invalid SSL certificate",
+        "time_ms": 599,
         "error": null
       },
       "ssl": {
@@ -627,14 +604,19 @@
     {
       "domain": "theicttrends.com",
       "overall": "DOWN",
+      "reason": "connection error: HTTPSConnectionPool(host='theicttrends.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='theicttrends.com'",
+      "on_worker": false,
+      "worker_sub": "",
+      "via_worker": false,
       "down": true,
       "ssl_invalid": true,
       "ssl_expiring": false,
       "http": {
-        "status": "DOWN",
         "code": null,
         "final_url": "https://theicttrends.com",
         "server": "",
+        "x_proxy": "",
+        "title": "",
         "time_ms": null,
         "error": "connection error: HTTPSConnectionPool(host='theicttrends.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='theicttrends.com'"
       },
@@ -647,60 +629,21 @@
       "host": "\u2014"
     },
     {
-      "domain": "tryduckdash.com",
-      "overall": "DOWN",
-      "down": true,
-      "ssl_invalid": false,
-      "ssl_expiring": false,
-      "http": {
-        "status": "DOWN",
-        "code": 503,
-        "final_url": "https://tryduckdash.com/",
-        "server": "cloudflare",
-        "time_ms": 615,
-        "error": null
-      },
-      "ssl": {
-        "ok": true,
-        "days_left": 46,
-        "expires": "2026-07-22",
-        "error": null
-      },
-      "host": "Cloudflare"
-    },
-    {
-      "domain": "whatzduck.com",
-      "overall": "DOWN",
-      "down": true,
-      "ssl_invalid": false,
-      "ssl_expiring": false,
-      "http": {
-        "status": "DOWN",
-        "code": 503,
-        "final_url": "https://whatzduck.com/",
-        "server": "cloudflare",
-        "time_ms": 622,
-        "error": null
-      },
-      "ssl": {
-        "ok": true,
-        "days_left": 56,
-        "expires": "2026-08-02",
-        "error": null
-      },
-      "host": "Cloudflare"
-    },
-    {
       "domain": "wooder.store",
       "overall": "DOWN",
+      "reason": "connection error: HTTPSConnectionPool(host='wooder.store', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='wooder.store', port=4",
+      "on_worker": false,
+      "worker_sub": "",
+      "via_worker": false,
       "down": true,
       "ssl_invalid": true,
       "ssl_expiring": false,
       "http": {
-        "status": "DOWN",
         "code": null,
         "final_url": "https://wooder.store",
         "server": "",
+        "x_proxy": "",
+        "title": "",
         "time_ms": null,
         "error": "connection error: HTTPSConnectionPool(host='wooder.store', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='wooder.store', port=4"
       },
@@ -713,17 +656,265 @@
       "host": "\u2014"
     },
     {
-      "domain": "bookkhan.com",
-      "overall": "DEGRADED",
+      "domain": "duckdoro.com",
+      "overall": "NEEDS_ACTION",
+      "reason": "Worker loop-guard \u2014 remove this domain in Lovable project 'duckdoro' (stops its *.lovable.app redirect)",
+      "on_worker": true,
+      "worker_sub": "duckdoro",
+      "via_worker": false,
       "down": false,
       "ssl_invalid": false,
       "ssl_expiring": false,
       "http": {
-        "status": "DEGRADED",
+        "code": 503,
+        "final_url": "https://duckdoro.com/",
+        "server": "cloudflare",
+        "x_proxy": "lovable-worker-loopguard",
+        "title": "Setting up",
+        "time_ms": 986,
+        "error": null
+      },
+      "ssl": {
+        "ok": true,
+        "days_left": 88,
+        "expires": "2026-09-02",
+        "error": null
+      },
+      "host": "Cloudflare"
+    },
+    {
+      "domain": "duckmerce.com",
+      "overall": "NEEDS_ACTION",
+      "reason": "Worker loop-guard \u2014 remove this domain in Lovable project 'duckmerce' (stops its *.lovable.app redirect)",
+      "on_worker": true,
+      "worker_sub": "duckmerce",
+      "via_worker": false,
+      "down": false,
+      "ssl_invalid": false,
+      "ssl_expiring": false,
+      "http": {
+        "code": 503,
+        "final_url": "https://duckmerce.com/",
+        "server": "cloudflare",
+        "x_proxy": "lovable-worker-loopguard",
+        "title": "Setting up",
+        "time_ms": 771,
+        "error": null
+      },
+      "ssl": {
+        "ok": true,
+        "days_left": 88,
+        "expires": "2026-09-02",
+        "error": null
+      },
+      "host": "Cloudflare"
+    },
+    {
+      "domain": "duckverse.pro",
+      "overall": "NEEDS_ACTION",
+      "reason": "Worker loop-guard \u2014 remove this domain in Lovable project 'duck-verse-hq' (stops its *.lovable.app redirect)",
+      "on_worker": true,
+      "worker_sub": "duck-verse-hq",
+      "via_worker": false,
+      "down": false,
+      "ssl_invalid": false,
+      "ssl_expiring": false,
+      "http": {
+        "code": 503,
+        "final_url": "https://duckverse.pro/",
+        "server": "cloudflare",
+        "x_proxy": "lovable-worker-loopguard",
+        "title": "Setting up",
+        "time_ms": 708,
+        "error": null
+      },
+      "ssl": {
+        "ok": true,
+        "days_left": 88,
+        "expires": "2026-09-02",
+        "error": null
+      },
+      "host": "Cloudflare"
+    },
+    {
+      "domain": "growthhackacademy.com",
+      "overall": "NEEDS_ACTION",
+      "reason": "Worker loop-guard \u2014 remove this domain in Lovable project 'growthhackacademy' (stops its *.lovable.app redirect)",
+      "on_worker": true,
+      "worker_sub": "growthhackacademy",
+      "via_worker": false,
+      "down": false,
+      "ssl_invalid": false,
+      "ssl_expiring": false,
+      "http": {
+        "code": 503,
+        "final_url": "https://growthhackacademy.com/",
+        "server": "cloudflare",
+        "x_proxy": "lovable-worker-loopguard",
+        "title": "Setting up",
+        "time_ms": 878,
+        "error": null
+      },
+      "ssl": {
+        "ok": true,
+        "days_left": 88,
+        "expires": "2026-09-03",
+        "error": null
+      },
+      "host": "Cloudflare"
+    },
+    {
+      "domain": "kidstolead.com",
+      "overall": "NEEDS_ACTION",
+      "reason": "Worker loop-guard \u2014 remove this domain in Lovable project 'newkidstolead' (stops its *.lovable.app redirect)",
+      "on_worker": true,
+      "worker_sub": "newkidstolead",
+      "via_worker": false,
+      "down": false,
+      "ssl_invalid": false,
+      "ssl_expiring": false,
+      "http": {
+        "code": 503,
+        "final_url": "https://kidstolead.com/",
+        "server": "cloudflare",
+        "x_proxy": "lovable-worker-loopguard",
+        "title": "Setting up",
+        "time_ms": 757,
+        "error": null
+      },
+      "ssl": {
+        "ok": true,
+        "days_left": 88,
+        "expires": "2026-09-03",
+        "error": null
+      },
+      "host": "Cloudflare"
+    },
+    {
+      "domain": "myreadtolead.com",
+      "overall": "NEEDS_ACTION",
+      "reason": "Worker loop-guard \u2014 remove this domain in Lovable project 'read-to-lead-glow' (stops its *.lovable.app redirect)",
+      "on_worker": true,
+      "worker_sub": "read-to-lead-glow",
+      "via_worker": false,
+      "down": false,
+      "ssl_invalid": false,
+      "ssl_expiring": false,
+      "http": {
+        "code": 503,
+        "final_url": "https://myreadtolead.com/",
+        "server": "cloudflare",
+        "x_proxy": "lovable-worker-loopguard",
+        "title": "Setting up",
+        "time_ms": 714,
+        "error": null
+      },
+      "ssl": {
+        "ok": true,
+        "days_left": 88,
+        "expires": "2026-09-02",
+        "error": null
+      },
+      "host": "Cloudflare"
+    },
+    {
+      "domain": "readtolead.online",
+      "overall": "NEEDS_ACTION",
+      "reason": "Worker loop-guard \u2014 remove this domain in Lovable project 'read-to-lead-kit' (stops its *.lovable.app redirect)",
+      "on_worker": true,
+      "worker_sub": "read-to-lead-kit",
+      "via_worker": false,
+      "down": false,
+      "ssl_invalid": false,
+      "ssl_expiring": false,
+      "http": {
+        "code": 503,
+        "final_url": "https://readtolead.online/",
+        "server": "cloudflare",
+        "x_proxy": "lovable-worker-loopguard",
+        "title": "Setting up",
+        "time_ms": 697,
+        "error": null
+      },
+      "ssl": {
+        "ok": true,
+        "days_left": 88,
+        "expires": "2026-09-02",
+        "error": null
+      },
+      "host": "Cloudflare"
+    },
+    {
+      "domain": "tryduckdash.com",
+      "overall": "NEEDS_ACTION",
+      "reason": "Worker loop-guard \u2014 remove this domain in Lovable project 'duckdash' (stops its *.lovable.app redirect)",
+      "on_worker": true,
+      "worker_sub": "duckdash",
+      "via_worker": false,
+      "down": false,
+      "ssl_invalid": false,
+      "ssl_expiring": false,
+      "http": {
+        "code": 503,
+        "final_url": "https://tryduckdash.com/",
+        "server": "cloudflare",
+        "x_proxy": "lovable-worker-loopguard",
+        "title": "Setting up",
+        "time_ms": 705,
+        "error": null
+      },
+      "ssl": {
+        "ok": true,
+        "days_left": 46,
+        "expires": "2026-07-22",
+        "error": null
+      },
+      "host": "Cloudflare"
+    },
+    {
+      "domain": "whatzduck.com",
+      "overall": "NEEDS_ACTION",
+      "reason": "Worker loop-guard \u2014 remove this domain in Lovable project 'duck-blog-builder' (stops its *.lovable.app redirect)",
+      "on_worker": true,
+      "worker_sub": "duck-blog-builder",
+      "via_worker": false,
+      "down": false,
+      "ssl_invalid": false,
+      "ssl_expiring": false,
+      "http": {
+        "code": 503,
+        "final_url": "https://whatzduck.com/",
+        "server": "cloudflare",
+        "x_proxy": "lovable-worker-loopguard",
+        "title": "Setting up",
+        "time_ms": 711,
+        "error": null
+      },
+      "ssl": {
+        "ok": true,
+        "days_left": 56,
+        "expires": "2026-08-02",
+        "error": null
+      },
+      "host": "Cloudflare"
+    },
+    {
+      "domain": "bookkhan.com",
+      "overall": "DEGRADED",
+      "reason": "HTTP 404",
+      "on_worker": false,
+      "worker_sub": "",
+      "via_worker": false,
+      "down": false,
+      "ssl_invalid": false,
+      "ssl_expiring": false,
+      "http": {
         "code": 404,
         "final_url": "https://bookkhan.com/",
         "server": "LiteSpeed",
-        "time_ms": 483,
+        "x_proxy": "",
+        "title": "404 Not Found",
+        "time_ms": 520,
         "error": null
       },
       "ssl": {
@@ -737,15 +928,20 @@
     {
       "domain": "bdealz.com",
       "overall": "OK",
+      "reason": null,
+      "on_worker": false,
+      "worker_sub": "",
+      "via_worker": false,
       "down": false,
       "ssl_invalid": false,
       "ssl_expiring": false,
       "http": {
-        "status": "UP",
         "code": 200,
         "final_url": "https://bdealz.com/",
         "server": "LiteSpeed",
-        "time_ms": 780,
+        "x_proxy": "",
+        "title": "Bundle Dealz | Never Pay Full Price Again",
+        "time_ms": 764,
         "error": null
       },
       "ssl": {
@@ -759,15 +955,20 @@
     {
       "domain": "bookyol.com",
       "overall": "OK",
+      "reason": null,
+      "on_worker": false,
+      "worker_sub": "",
+      "via_worker": false,
       "down": false,
       "ssl_invalid": false,
       "ssl_expiring": false,
       "http": {
-        "status": "UP",
         "code": 200,
         "final_url": "https://bookzad.com/",
         "server": "LiteSpeed",
-        "time_ms": 426,
+        "x_proxy": "",
+        "title": "",
+        "time_ms": 503,
         "error": null
       },
       "ssl": {
@@ -781,15 +982,20 @@
     {
       "domain": "bookzad.com",
       "overall": "OK",
+      "reason": null,
+      "on_worker": false,
+      "worker_sub": "",
+      "via_worker": false,
       "down": false,
       "ssl_invalid": false,
       "ssl_expiring": false,
       "http": {
-        "status": "UP",
         "code": 200,
         "final_url": "https://bookzad.com/",
         "server": "LiteSpeed",
-        "time_ms": 481,
+        "x_proxy": "",
+        "title": "",
+        "time_ms": 520,
         "error": null
       },
       "ssl": {
@@ -803,15 +1009,20 @@
     {
       "domain": "buildinggrowthmachine.com",
       "overall": "OK",
+      "reason": null,
+      "on_worker": true,
+      "worker_sub": "arabic-growth-guide",
+      "via_worker": true,
       "down": false,
       "ssl_invalid": false,
       "ssl_expiring": false,
       "http": {
-        "status": "UP",
         "code": 200,
         "final_url": "https://buildinggrowthmachine.com/",
         "server": "cloudflare",
-        "time_ms": 762,
+        "x_proxy": "lovable-worker",
+        "title": "\u0645\u0627\u0643\u064a\u0646\u0629 \u0627\u0644\u0646\u0645\u0648 | Building Growth Machine",
+        "time_ms": 817,
         "error": null
       },
       "ssl": {
@@ -820,20 +1031,25 @@
         "expires": "2026-07-19",
         "error": null
       },
-      "host": "Cloudflare"
+      "host": "Cloudflare Worker"
     },
     {
       "domain": "buildtolead.pro",
       "overall": "OK",
+      "reason": null,
+      "on_worker": false,
+      "worker_sub": "",
+      "via_worker": false,
       "down": false,
       "ssl_invalid": false,
       "ssl_expiring": false,
       "http": {
-        "status": "UP",
         "code": 200,
         "final_url": "https://buildtolead.pro/",
         "server": "cloudflare",
-        "time_ms": 799,
+        "x_proxy": "",
+        "title": "Build to Lead - \u0645\u0646\u0638\u0648\u0645\u0629 \u0627\u0644\u0634\u0631\u0643\u0627\u062a \u0627\u0644\u0646\u0627\u0634\u0626\u0629 \u0641\u064a MENA",
+        "time_ms": 877,
         "error": null
       },
       "ssl": {
@@ -847,15 +1063,20 @@
     {
       "domain": "diguply.com",
       "overall": "OK",
+      "reason": null,
+      "on_worker": false,
+      "worker_sub": "",
+      "via_worker": false,
       "down": false,
       "ssl_invalid": false,
       "ssl_expiring": false,
       "http": {
-        "status": "UP",
         "code": 200,
         "final_url": "https://diguply.com/",
         "server": "LiteSpeed",
-        "time_ms": 1822,
+        "x_proxy": "",
+        "title": "Home - DigUpLy - \u0627\u0641\u0647\u0645. \u0627\u062a\u062d\u0631\u0643. \u0627\u0643\u0628\u0631.",
+        "time_ms": 744,
         "error": null
       },
       "ssl": {
@@ -869,15 +1090,20 @@
     {
       "domain": "doojr62.art",
       "overall": "OK",
+      "reason": null,
+      "on_worker": false,
+      "worker_sub": "",
+      "via_worker": false,
       "down": false,
       "ssl_invalid": false,
       "ssl_expiring": false,
       "http": {
-        "status": "UP",
         "code": 200,
         "final_url": "https://doojr62.art/",
         "server": "cloudflare",
-        "time_ms": 839,
+        "x_proxy": "",
+        "title": "Ahmed Adel | Art Director &amp; Creative Thinking Architect",
+        "time_ms": 782,
         "error": null
       },
       "ssl": {
@@ -891,15 +1117,20 @@
     {
       "domain": "dpblueprint.com",
       "overall": "OK",
+      "reason": null,
+      "on_worker": true,
+      "worker_sub": "dpb-blueprint-hub",
+      "via_worker": true,
       "down": false,
       "ssl_invalid": false,
       "ssl_expiring": false,
       "http": {
-        "status": "UP",
         "code": 200,
         "final_url": "https://dpblueprint.com/",
         "server": "cloudflare",
-        "time_ms": 955,
+        "x_proxy": "lovable-worker",
+        "title": "Digital Product Blueprint \u00e2\u0080\u0094 Make. Market. Monetize.",
+        "time_ms": 903,
         "error": null
       },
       "ssl": {
@@ -908,20 +1139,25 @@
         "expires": "2026-09-02",
         "error": null
       },
-      "host": "Cloudflare"
+      "host": "Cloudflare Worker"
     },
     {
       "domain": "ducklancer.com",
       "overall": "OK",
+      "reason": null,
+      "on_worker": true,
+      "worker_sub": "freeduckter",
+      "via_worker": true,
       "down": false,
       "ssl_invalid": false,
       "ssl_expiring": false,
       "http": {
-        "status": "UP",
         "code": 200,
         "final_url": "https://ducklancer.com/",
         "server": "cloudflare",
-        "time_ms": 687,
+        "x_proxy": "lovable-worker",
+        "title": "DuckLancer \u2014 The Freelancer OS | Invoice, CRM, Projects",
+        "time_ms": 768,
         "error": null
       },
       "ssl": {
@@ -930,20 +1166,25 @@
         "expires": "2026-08-05",
         "error": null
       },
-      "host": "Cloudflare"
+      "host": "Cloudflare Worker"
     },
     {
       "domain": "duckverse.store",
       "overall": "OK",
+      "reason": null,
+      "on_worker": false,
+      "worker_sub": "",
+      "via_worker": false,
       "down": false,
       "ssl_invalid": false,
       "ssl_expiring": false,
       "http": {
-        "status": "UP",
         "code": 200,
         "final_url": "https://duckverse.store/en",
         "server": "Caddy",
-        "time_ms": 264,
+        "x_proxy": "",
+        "title": "Homepage | Duckverse Store | Smart Duck Merch, Books &amp; Gifts",
+        "time_ms": 173,
         "error": null
       },
       "ssl": {
@@ -957,15 +1198,20 @@
     {
       "domain": "ecomhouse.pro",
       "overall": "OK",
+      "reason": null,
+      "on_worker": false,
+      "worker_sub": "",
+      "via_worker": false,
       "down": false,
       "ssl_invalid": false,
       "ssl_expiring": false,
       "http": {
-        "status": "UP",
         "code": 200,
         "final_url": "https://ecomhouse.pro/",
         "server": "cloudflare",
-        "time_ms": 670,
+        "x_proxy": "",
+        "title": "eComHouse.pro - Mahmoud Omar Project",
+        "time_ms": 733,
         "error": null
       },
       "ssl": {
@@ -979,15 +1225,20 @@
     {
       "domain": "eltizam.net",
       "overall": "OK",
+      "reason": null,
+      "on_worker": false,
+      "worker_sub": "",
+      "via_worker": false,
       "down": false,
       "ssl_invalid": false,
       "ssl_expiring": false,
       "http": {
-        "status": "UP",
         "code": 200,
         "final_url": "https://eltizam.net/",
         "server": "LiteSpeed",
-        "time_ms": 568,
+        "x_proxy": "",
+        "title": "\u0645\u0639\u0647\u062f \u0627\u0644\u062a\u0632\u0627\u0645 \u0644\u0644\u062a\u062f\u0631\u064a\u0628 \u0648 \u0627\u0644\u062a\u0637\u0648\u064a\u0631",
+        "time_ms": 515,
         "error": null
       },
       "ssl": {
@@ -999,39 +1250,22 @@
       "host": "Shared/WordPress"
     },
     {
-      "domain": "fitformoda.com",
-      "overall": "OK",
-      "down": false,
-      "ssl_invalid": false,
-      "ssl_expiring": false,
-      "http": {
-        "status": "UP",
-        "code": 200,
-        "final_url": "https://fitformoda.com/",
-        "server": "cloudflare",
-        "time_ms": 592,
-        "error": null
-      },
-      "ssl": {
-        "ok": true,
-        "days_left": 82,
-        "expires": "2026-08-28",
-        "error": null
-      },
-      "host": "Cloudflare"
-    },
-    {
       "domain": "freeduckter.com",
       "overall": "OK",
+      "reason": null,
+      "on_worker": false,
+      "worker_sub": "",
+      "via_worker": false,
       "down": false,
       "ssl_invalid": false,
       "ssl_expiring": false,
       "http": {
-        "status": "UP",
         "code": 200,
         "final_url": "https://freeduckter.com/",
         "server": "cloudflare",
-        "time_ms": 836,
+        "x_proxy": "",
+        "title": "DuckLancer \u2014 The Freelancer OS | Invoice, CRM, Projects",
+        "time_ms": 860,
         "error": null
       },
       "ssl": {
@@ -1045,15 +1279,20 @@
     {
       "domain": "gadzilla.diy",
       "overall": "OK",
+      "reason": null,
+      "on_worker": false,
+      "worker_sub": "",
+      "via_worker": false,
       "down": false,
       "ssl_invalid": false,
       "ssl_expiring": false,
       "http": {
-        "status": "UP",
         "code": 200,
         "final_url": "https://gadzilla.diy/",
         "server": "cloudflare",
-        "time_ms": 728,
+        "x_proxy": "",
+        "title": "GadZilla.DIY - Smart Gadgets for DIY Lifestyle | Coming Soon",
+        "time_ms": 870,
         "error": null
       },
       "ssl": {
@@ -1067,15 +1306,20 @@
     {
       "domain": "getduckdoro.com",
       "overall": "OK",
+      "reason": null,
+      "on_worker": false,
+      "worker_sub": "",
+      "via_worker": false,
       "down": false,
       "ssl_invalid": false,
       "ssl_expiring": false,
       "http": {
-        "status": "UP",
         "code": 200,
         "final_url": "https://getduckdoro.com/",
         "server": "cloudflare",
-        "time_ms": 636,
+        "x_proxy": "",
+        "title": "\u0644\u064a\u062f\u0628\u0648\u062f \u00b7 \u0645\u0646 \u0627\u0644\u0643\u062a\u0627\u0628\u060c \u0625\u0644\u0649 \u0645\u0643\u062a\u0628\u0643 \u2014 Read to Lead \u00d7 Duckdoro",
+        "time_ms": 710,
         "error": null
       },
       "ssl": {
@@ -1089,15 +1333,20 @@
     {
       "domain": "greenverse.lol",
       "overall": "OK",
+      "reason": null,
+      "on_worker": true,
+      "worker_sub": "greeverse",
+      "via_worker": true,
       "down": false,
       "ssl_invalid": false,
       "ssl_expiring": false,
       "http": {
-        "status": "UP",
         "code": 200,
         "final_url": "https://greenverse.lol/",
         "server": "cloudflare",
-        "time_ms": 849,
+        "x_proxy": "lovable-worker",
+        "title": "Green Verse | Mohamed Green - Entrepreneurship Educator & Digital Business Consu",
+        "time_ms": 956,
         "error": null
       },
       "ssl": {
@@ -1106,42 +1355,52 @@
         "expires": "2026-09-03",
         "error": null
       },
-      "host": "Cloudflare"
+      "host": "Cloudflare Worker"
     },
     {
       "domain": "gristory.com",
       "overall": "OK",
+      "reason": null,
+      "on_worker": true,
+      "worker_sub": "gristory-lab",
+      "via_worker": true,
       "down": false,
       "ssl_invalid": false,
       "ssl_expiring": false,
       "http": {
-        "status": "UP",
         "code": 200,
         "final_url": "https://gristory.com/",
         "server": "cloudflare",
-        "time_ms": 1246,
+        "x_proxy": "lovable-worker",
+        "title": "DesignOS \u00e2\u0080\u0094 Run Your Design Business Like a Professional",
+        "time_ms": 980,
         "error": null
       },
       "ssl": {
         "ok": true,
-        "days_left": 52,
+        "days_left": 51,
         "expires": "2026-07-28",
         "error": null
       },
-      "host": "Cloudflare"
+      "host": "Cloudflare Worker"
     },
     {
       "domain": "growthack.info",
       "overall": "OK",
+      "reason": null,
+      "on_worker": false,
+      "worker_sub": "",
+      "via_worker": false,
       "down": false,
       "ssl_invalid": false,
       "ssl_expiring": false,
       "http": {
-        "status": "UP",
         "code": 200,
         "final_url": "https://growthack.info/",
         "server": "cloudflare",
-        "time_ms": 717,
+        "x_proxy": "",
+        "title": "Mahmoud Omar - Growth Marketing Specialist",
+        "time_ms": 799,
         "error": null
       },
       "ssl": {
@@ -1155,15 +1414,20 @@
     {
       "domain": "growthdna.pro",
       "overall": "OK",
+      "reason": null,
+      "on_worker": true,
+      "worker_sub": "growthdna-waitlist-dna",
+      "via_worker": true,
       "down": false,
       "ssl_invalid": false,
       "ssl_expiring": false,
       "http": {
-        "status": "UP",
         "code": 200,
         "final_url": "https://growthdna.pro/",
         "server": "cloudflare",
-        "time_ms": 547,
+        "x_proxy": "lovable-worker",
+        "title": "GrowthDNA \u2014 \u0627\u0643\u062a\u0634\u0641 \u0646\u0645\u0637\u0643 \u0641\u064a \u0627\u0644\u062a\u0633\u0648\u064a\u0642",
+        "time_ms": 836,
         "error": null
       },
       "ssl": {
@@ -1172,20 +1436,25 @@
         "expires": "2026-08-12",
         "error": null
       },
-      "host": "Cloudflare"
+      "host": "Cloudflare Worker"
     },
     {
       "domain": "growthhack.pro",
       "overall": "OK",
+      "reason": null,
+      "on_worker": false,
+      "worker_sub": "",
+      "via_worker": false,
       "down": false,
       "ssl_invalid": false,
       "ssl_expiring": false,
       "http": {
-        "status": "UP",
         "code": 200,
         "final_url": "https://growthhack.pro/",
         "server": "cloudflare",
-        "time_ms": 686,
+        "x_proxy": "",
+        "title": "Growth Hack Stack | Launch Your Growth with Expert Diagnosis",
+        "time_ms": 765,
         "error": null
       },
       "ssl": {
@@ -1199,15 +1468,20 @@
     {
       "domain": "growthhacktoolkit.com",
       "overall": "OK",
+      "reason": null,
+      "on_worker": false,
+      "worker_sub": "",
+      "via_worker": false,
       "down": false,
       "ssl_invalid": false,
       "ssl_expiring": false,
       "http": {
-        "status": "UP",
         "code": 200,
         "final_url": "https://growthhacktoolkit.com/",
         "server": "cloudflare",
-        "time_ms": 613,
+        "x_proxy": "",
+        "title": "GrowthHackToolkit \u2013 Discover the Best Growth Tools by Funnel Stage",
+        "time_ms": 733,
         "error": null
       },
       "ssl": {
@@ -1221,15 +1495,20 @@
     {
       "domain": "infosfere.com",
       "overall": "OK",
+      "reason": null,
+      "on_worker": false,
+      "worker_sub": "",
+      "via_worker": false,
       "down": false,
       "ssl_invalid": false,
       "ssl_expiring": false,
       "http": {
-        "status": "UP",
         "code": 200,
         "final_url": "https://infosfere.com/",
         "server": "LiteSpeed",
-        "time_ms": 541,
+        "x_proxy": "",
+        "title": "",
+        "time_ms": 489,
         "error": null
       },
       "ssl": {
@@ -1243,15 +1522,20 @@
     {
       "domain": "interms.pro",
       "overall": "OK",
+      "reason": null,
+      "on_worker": true,
+      "worker_sub": "easy-terms-kit",
+      "via_worker": true,
       "down": false,
       "ssl_invalid": false,
       "ssl_expiring": false,
       "http": {
-        "status": "UP",
         "code": 200,
         "final_url": "https://interms.pro/",
         "server": "cloudflare",
-        "time_ms": 719,
+        "x_proxy": "lovable-worker",
+        "title": "INTerms \u2014 Generate Professional Contracts in Minutes",
+        "time_ms": 865,
         "error": null
       },
       "ssl": {
@@ -1260,42 +1544,52 @@
         "expires": "2026-07-16",
         "error": null
       },
-      "host": "Cloudflare"
+      "host": "Cloudflare Worker"
     },
     {
       "domain": "leadtoolkits.com",
       "overall": "OK",
+      "reason": null,
+      "on_worker": true,
+      "worker_sub": "leadtoolkits-growth-engine",
+      "via_worker": true,
       "down": false,
       "ssl_invalid": false,
       "ssl_expiring": false,
       "http": {
-        "status": "UP",
         "code": 200,
         "final_url": "https://leadtoolkits.com/",
         "server": "cloudflare",
-        "time_ms": 763,
+        "x_proxy": "lovable-worker",
+        "title": "LeadToolkits - Business Growth, Simplified",
+        "time_ms": 897,
         "error": null
       },
       "ssl": {
         "ok": true,
-        "days_left": 61,
+        "days_left": 60,
         "expires": "2026-08-06",
         "error": null
       },
-      "host": "Cloudflare"
+      "host": "Cloudflare Worker"
     },
     {
       "domain": "mahmoudomar.com",
       "overall": "OK",
+      "reason": null,
+      "on_worker": true,
+      "worker_sub": "indie-hacker-arabic",
+      "via_worker": true,
       "down": false,
       "ssl_invalid": false,
       "ssl_expiring": false,
       "http": {
-        "status": "UP",
         "code": 200,
         "final_url": "https://mahmoudomar.com/",
         "server": "cloudflare",
-        "time_ms": 717,
+        "x_proxy": "lovable-worker",
+        "title": "\u0645\u062d\u0645\u0648\u062f \u0639\u0645\u0631 | Indie Hacker & Author",
+        "time_ms": 762,
         "error": null
       },
       "ssl": {
@@ -1304,20 +1598,25 @@
         "expires": "2026-09-03",
         "error": null
       },
-      "host": "Cloudflare"
+      "host": "Cloudflare Worker"
     },
     {
       "domain": "masaai2030.com",
       "overall": "OK",
+      "reason": null,
+      "on_worker": true,
+      "worker_sub": "masaai-vision-hub",
+      "via_worker": true,
       "down": false,
       "ssl_invalid": false,
       "ssl_expiring": false,
       "http": {
-        "status": "UP",
         "code": 200,
         "final_url": "https://masaai2030.com/",
         "server": "cloudflare",
-        "time_ms": 876,
+        "x_proxy": "lovable-worker",
+        "title": "Masaai2030 | \u00d9\u0085\u00d9\u0086\u00d8\u00b5\u00d8\u00a9 \u00d8\u00b3\u00d8\u00b9\u00d9\u0088\u00d8\u00af\u00d9\u008a\u00d8\u00a9 \u00d9\u0084\u00d8\u00b5\u00d9\u0086\u00d8\u00a7\u00d8\u00b9 \u00d8\u00a7\u00d9\u0084\u00d9\u0085\u00d8\u00b3\u00d8\u00aa\u00d9\u0082\u00d8\u00a8\u00d9\u0084 \u00d9\u0088\u00d8\u00b1\u00d8\u00a4\u00d9\u008a\u00d8\u00a9 2030",
+        "time_ms": 903,
         "error": null
       },
       "ssl": {
@@ -1326,20 +1625,25 @@
         "expires": "2026-09-02",
         "error": null
       },
-      "host": "Cloudflare"
+      "host": "Cloudflare Worker"
     },
     {
       "domain": "read-summary.com",
       "overall": "OK",
+      "reason": null,
+      "on_worker": false,
+      "worker_sub": "",
+      "via_worker": false,
       "down": false,
       "ssl_invalid": false,
       "ssl_expiring": false,
       "http": {
-        "status": "UP",
         "code": 200,
         "final_url": "https://read-summary.com/",
         "server": "Youcan.Private.DC/2.0",
-        "time_ms": 1021,
+        "x_proxy": "",
+        "title": "readsummary",
+        "time_ms": 1084,
         "error": null
       },
       "ssl": {
@@ -1353,15 +1657,20 @@
     {
       "domain": "readtolead.store",
       "overall": "OK",
+      "reason": null,
+      "on_worker": false,
+      "worker_sub": "",
+      "via_worker": false,
       "down": false,
       "ssl_invalid": false,
       "ssl_expiring": false,
       "http": {
-        "status": "UP",
         "code": 200,
         "final_url": "https://readtolead.store/",
         "server": "cloudflare",
-        "time_ms": 448,
+        "x_proxy": "",
+        "title": "Read to Lead - \u0627\u0642\u0631\u0623 \u0644\u062a\u0642\u0648\u062f  &ndash; Read to Lead - Egypt Store",
+        "time_ms": 265,
         "error": null
       },
       "ssl": {
@@ -1375,15 +1684,20 @@
     {
       "domain": "startupkit.pro",
       "overall": "OK",
+      "reason": null,
+      "on_worker": false,
+      "worker_sub": "",
+      "via_worker": false,
       "down": false,
       "ssl_invalid": false,
       "ssl_expiring": false,
       "http": {
-        "status": "UP",
         "code": 200,
         "final_url": "https://www.startupkit.pro/",
         "server": "Vercel",
-        "time_ms": 158,
+        "x_proxy": "",
+        "title": "StartupKit.pro \u2014 Founder OS for MENA Startups",
+        "time_ms": 111,
         "error": null
       },
       "ssl": {
@@ -1397,15 +1711,20 @@
     {
       "domain": "startupkitpro.com",
       "overall": "OK",
+      "reason": null,
+      "on_worker": true,
+      "worker_sub": "startup-kit-arabic",
+      "via_worker": true,
       "down": false,
       "ssl_invalid": false,
       "ssl_expiring": false,
       "http": {
-        "status": "UP",
         "code": 200,
         "final_url": "https://startupkitpro.com/",
         "server": "cloudflare",
-        "time_ms": 1770,
+        "x_proxy": "lovable-worker",
+        "title": "\u0633\u062a\u0627\u0631\u062a \u0623\u0628 \u0643\u064a\u062a \u0628\u0631\u0648 \u2014 \u0623\u062f\u0648\u0627\u062a \u0648\u0645\u0642\u0627\u0644\u0627\u062a \u0644\u0644\u0645\u0624\u0633\u0633\u064a\u0646 \u0627\u0644\u0639\u0631\u0628",
+        "time_ms": 1713,
         "error": null
       },
       "ssl": {
@@ -1414,20 +1733,25 @@
         "expires": "2026-09-03",
         "error": null
       },
-      "host": "Cloudflare"
+      "host": "Cloudflare Worker"
     },
     {
       "domain": "steplead.org",
       "overall": "OK",
+      "reason": null,
+      "on_worker": true,
+      "worker_sub": "stepl-forge",
+      "via_worker": true,
       "down": false,
       "ssl_invalid": false,
       "ssl_expiring": false,
       "http": {
-        "status": "UP",
         "code": 200,
         "final_url": "https://steplead.org/",
         "server": "cloudflare",
-        "time_ms": 855,
+        "x_proxy": "lovable-worker",
+        "title": "Steplead - Professional Training & Development Excellence",
+        "time_ms": 808,
         "error": null
       },
       "ssl": {
@@ -1436,20 +1760,25 @@
         "expires": "2026-07-20",
         "error": null
       },
-      "host": "Cloudflare"
+      "host": "Cloudflare Worker"
     },
     {
       "domain": "templify.pro",
       "overall": "OK",
+      "reason": null,
+      "on_worker": true,
+      "worker_sub": "templifypro",
+      "via_worker": true,
       "down": false,
       "ssl_invalid": false,
       "ssl_expiring": false,
       "http": {
-        "status": "UP",
         "code": 200,
         "final_url": "https://templify.pro/",
         "server": "cloudflare",
-        "time_ms": 688,
+        "x_proxy": "lovable-worker",
+        "title": "Templify - The Ultimate Growth Marketing Library",
+        "time_ms": 871,
         "error": null
       },
       "ssl": {
@@ -1458,25 +1787,30 @@
         "expires": "2026-08-21",
         "error": null
       },
-      "host": "Cloudflare"
+      "host": "Cloudflare Worker"
     },
     {
       "domain": "templify.store",
       "overall": "OK",
+      "reason": null,
+      "on_worker": false,
+      "worker_sub": "",
+      "via_worker": false,
       "down": false,
       "ssl_invalid": false,
       "ssl_expiring": false,
       "http": {
-        "status": "UP",
         "code": 403,
         "final_url": "https://payhip.com/global-identity?redirect=https%3A%2F%2Ftemplify.store%2F",
         "server": "cloudflare",
-        "time_ms": 134,
+        "x_proxy": "",
+        "title": "Just a moment...",
+        "time_ms": 104,
         "error": null
       },
       "ssl": {
         "ok": true,
-        "days_left": 58,
+        "days_left": 57,
         "expires": "2026-08-03",
         "error": null
       },
@@ -1485,15 +1819,20 @@
     {
       "domain": "trycopyduck.com",
       "overall": "OK",
+      "reason": null,
+      "on_worker": true,
+      "worker_sub": "trycopyduck",
+      "via_worker": true,
       "down": false,
       "ssl_invalid": false,
       "ssl_expiring": false,
       "http": {
-        "status": "UP",
         "code": 200,
         "final_url": "https://trycopyduck.com/",
         "server": "cloudflare",
-        "time_ms": 838,
+        "x_proxy": "lovable-worker",
+        "title": "TryCopyDuck \u00e2\u0080\u0094 AI Plagiarism Checker, AI Detector & Content Humanizer",
+        "time_ms": 898,
         "error": null
       },
       "ssl": {
@@ -1502,20 +1841,25 @@
         "expires": "2026-08-08",
         "error": null
       },
-      "host": "Cloudflare"
+      "host": "Cloudflare Worker"
     },
     {
       "domain": "tryduckcash.com",
       "overall": "OK",
+      "reason": null,
+      "on_worker": false,
+      "worker_sub": "",
+      "via_worker": false,
       "down": false,
       "ssl_invalid": false,
       "ssl_expiring": false,
       "http": {
-        "status": "UP",
         "code": 200,
         "final_url": "https://tryduckcash.com/",
         "server": "cloudflare",
-        "time_ms": 918,
+        "x_proxy": "",
+        "title": "DuckCash \u2014 \u0625\u062f\u0627\u0631\u0629 \u062d\u0633\u0627\u0628\u0627\u062a\u0643 \u0648\u0645\u0635\u0631\u0648\u0641\u0627\u062a\u0643 \u0641\u064a \u0645\u0643\u0627\u0646 \u0648\u0627\u062d\u062f",
+        "time_ms": 1035,
         "error": null
       },
       "ssl": {
@@ -1529,15 +1873,20 @@
     {
       "domain": "tryduckdev.com",
       "overall": "OK",
+      "reason": null,
+      "on_worker": true,
+      "worker_sub": "startup-zen-suite",
+      "via_worker": true,
       "down": false,
       "ssl_invalid": false,
       "ssl_expiring": false,
       "http": {
-        "status": "UP",
         "code": 200,
         "final_url": "https://tryduckdev.com/",
         "server": "cloudflare",
-        "time_ms": 707,
+        "x_proxy": "lovable-worker",
+        "title": "DuckDev \u2014 Business Development OS | 17 BD Tools in One App",
+        "time_ms": 764,
         "error": null
       },
       "ssl": {
@@ -1546,20 +1895,25 @@
         "expires": "2026-08-03",
         "error": null
       },
-      "host": "Cloudflare"
+      "host": "Cloudflare Worker"
     },
     {
       "domain": "tryducktank.com",
       "overall": "OK",
+      "reason": null,
+      "on_worker": false,
+      "worker_sub": "",
+      "via_worker": false,
       "down": false,
       "ssl_invalid": false,
       "ssl_expiring": false,
       "http": {
-        "status": "UP",
         "code": 403,
         "final_url": "https://tryducktank.com/",
         "server": "cloudflare",
-        "time_ms": 297,
+        "x_proxy": "",
+        "title": "DNS points to prohibited IP | tryducktank.com | Cloudflare",
+        "time_ms": 317,
         "error": null
       },
       "ssl": {
@@ -1573,15 +1927,20 @@
     {
       "domain": "zahranppc.com",
       "overall": "OK",
+      "reason": null,
+      "on_worker": false,
+      "worker_sub": "",
+      "via_worker": false,
       "down": false,
       "ssl_invalid": false,
       "ssl_expiring": false,
       "http": {
-        "status": "UP",
         "code": 200,
         "final_url": "https://zahranppc.com/",
         "server": "cloudflare",
-        "time_ms": 704,
+        "x_proxy": "",
+        "title": "Ahmed Zahran | Mobile App Growth Strategist",
+        "time_ms": 735,
         "error": null
       },
       "ssl": {
