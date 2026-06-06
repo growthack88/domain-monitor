@@ -1,0 +1,31 @@
+{
+  "_comment": "Lovable custom domains served via the Cloudflare 'lovable-proxy' Worker. domain -> the project's *.lovable.app subdomain (without .lovable.app). The monitor checks each domain is (a) reachable, (b) served via the Worker (x-proxy: lovable-worker), and (c) NOT showing a broken/loop-guard/stranger page. Add new domains here as they are migrated.",
+  "map": {
+    "interms.pro": "easy-terms-kit",
+    "startupkitpro.com": "startup-kit-arabic",
+    "greenverse.lol": "greeverse",
+    "mahmoudomar.com": "indie-hacker-arabic",
+    "buildinggrowthmachine.com": "arabic-growth-guide",
+    "growthdna.pro": "growthdna-waitlist-dna",
+    "leadtoolkits.com": "leadtoolkits-growth-engine",
+    "steplead.org": "stepl-forge",
+    "duckdoro.com": "duckdoro",
+    "growthhackacademy.com": "growthhackacademy",
+    "asknagaty.com": "nagaty-s-editorial-archive",
+    "duckmerce.com": "duckmerce",
+    "duckverse.pro": "duck-verse-hq",
+    "mempireangels.com": "m-empire-genesis",
+    "tryduckdash.com": "duckdash",
+    "whatzduck.com": "duck-blog-builder",
+    "myreadtolead.com": "read-to-lead-glow",
+    "readtolead.online": "read-to-lead-kit",
+    "kidstolead.com": "newkidstolead",
+    "dpblueprint.com": "dpb-blueprint-hub",
+    "ducklancer.com": "freeduckter",
+    "gristory.com": "gristory-lab",
+    "masaai2030.com": "masaai-vision-hub",
+    "templify.pro": "templifypro",
+    "trycopyduck.com": "trycopyduck",
+    "tryduckdev.com": "startup-zen-suite"
+  }
+}
