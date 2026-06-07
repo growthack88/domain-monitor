@@ -386,12 +386,455 @@ def send_status_summary(results, checked_at):
 
 
 # ----------------------------- dashboard -----------------------------
-SEV_COLOR = {"DOWN": "#e5484d", "WRONG_PROJECT": "#a855f7", "SSL_INVALID": "#e5484d",
-             "NEEDS_ACTION": "#3b82f6", "SSL_EXPIRING": "#f5a623", "AT_RISK": "#f59e0b",
-             "DEGRADED": "#f5a623", "OK": "#30a46c"}
+SEV_COLOR = {"DOWN": "#ef4444", "WRONG_PROJECT": "#a855f7", "SSL_INVALID": "#ef4444",
+             "NEEDS_ACTION": "#3b82f6", "SSL_EXPIRING": "#f59e0b", "AT_RISK": "#f59e0b",
+             "DEGRADED": "#f59e0b", "OK": "#22c55e"}
 SEV_LABEL = {"DOWN": "DOWN", "WRONG_PROJECT": "WRONG PROJECT", "SSL_INVALID": "SSL INVALID",
              "NEEDS_ACTION": "NEEDS ACTION", "SSL_EXPIRING": "SSL EXPIRING",
              "AT_RISK": "AT RISK", "DEGRADED": "DEGRADED", "OK": "OK"}
+SEV_BADGE_CLASS = {"DOWN": "b-down", "WRONG_PROJECT": "b-wrong", "SSL_INVALID": "b-sslbad",
+                   "NEEDS_ACTION": "b-act", "SSL_EXPIRING": "b-warn", "AT_RISK": "b-risk",
+                   "DEGRADED": "b-degraded", "OK": "b-ok"}
+
+
+DASHBOARD_TEMPLATE = """<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Domain Monitor — Live Status</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root {{
+    color-scheme: dark;
+    --bg: #0a0d14;
+    --bg-elev: #131826;
+    --bg-elev-2: #1a2033;
+    --border: #1f2638;
+    --border-strong: #2a3349;
+    --text: #e8ecf3;
+    --text-muted: #8b94a8;
+    --text-dim: #5d6580;
+    --accent: #6366f1;
+    --accent-2: #8b5cf6;
+    --green: #22c55e;
+    --green-soft: rgba(34, 197, 94, 0.12);
+    --red: #ef4444;
+    --red-soft: rgba(239, 68, 68, 0.12);
+    --amber: #f59e0b;
+    --amber-soft: rgba(245, 158, 11, 0.12);
+    --blue: #3b82f6;
+    --blue-soft: rgba(59, 130, 246, 0.12);
+    --purple: #a855f7;
+    --purple-soft: rgba(168, 85, 247, 0.12);
+  }}
+  * {{ box-sizing: border-box; }}
+  html, body {{ height: 100%; }}
+  body {{
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    margin: 0;
+    background: var(--bg);
+    background-image:
+      radial-gradient(circle at 15% -5%, rgba(99, 102, 241, 0.18) 0%, transparent 40%),
+      radial-gradient(circle at 85% -5%, rgba(139, 92, 246, 0.12) 0%, transparent 40%);
+    background-attachment: fixed;
+    color: var(--text);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }}
+  .wrap {{ max-width: 1280px; margin: 0 auto; padding: 32px 24px 64px; }}
+
+  /* Header */
+  .header {{ display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 28px; gap: 20px; flex-wrap: wrap; }}
+  .title-block h1 {{
+    font-size: 30px; font-weight: 800; margin: 0 0 8px; letter-spacing: -0.025em;
+    background: linear-gradient(135deg, #ffffff 0%, #94a3b8 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  }}
+  .meta {{ color: var(--text-muted); font-size: 13.5px; display: flex; gap: 18px; flex-wrap: wrap; align-items: center; }}
+  .meta span {{ display: inline-flex; align-items: center; gap: 7px; }}
+  .meta .sep {{ color: var(--text-dim); }}
+  .pulse {{ display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--green); box-shadow: 0 0 0 0 rgba(34,197,94,0.6); animation: pulse 2s infinite; }}
+  @keyframes pulse {{
+    0% {{ box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.55); }}
+    70% {{ box-shadow: 0 0 0 8px rgba(34, 197, 94, 0); }}
+    100% {{ box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }}
+  }}
+  .actions {{ display: flex; gap: 10px; align-items: center; }}
+  .btn {{
+    display: inline-flex; align-items: center; gap: 8px;
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
+    color: #fff; font-weight: 600; font-size: 13.5px; padding: 10px 18px; border-radius: 10px;
+    text-decoration: none; border: none; cursor: pointer;
+    box-shadow: 0 6px 20px -4px rgba(99, 102, 241, 0.5);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }}
+  .btn:hover {{ transform: translateY(-1px); box-shadow: 0 8px 24px -4px rgba(99, 102, 241, 0.65); }}
+  .btn-ghost {{ background: var(--bg-elev); color: var(--text); border: 1px solid var(--border); box-shadow: none; }}
+  .btn-ghost:hover {{ background: var(--bg-elev-2); transform: none; box-shadow: none; border-color: var(--border-strong); }}
+
+  /* Overview */
+  .overview {{ display: grid; grid-template-columns: 340px 1fr; gap: 20px; margin-bottom: 22px; }}
+  @media (max-width: 900px) {{ .overview {{ grid-template-columns: 1fr; }} }}
+  .health-card {{
+    background: linear-gradient(180deg, var(--bg-elev) 0%, var(--bg-elev-2) 100%);
+    border: 1px solid var(--border); border-radius: 18px; padding: 26px;
+    display: flex; flex-direction: column; align-items: center; gap: 18px;
+  }}
+  .health-ring {{ position: relative; width: 188px; height: 188px; }}
+  .health-ring svg {{ transform: rotate(-90deg); display: block; }}
+  .health-ring .pct {{ position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; }}
+  .health-ring .pct .big {{ font-size: 42px; font-weight: 800; letter-spacing: -0.03em; line-height: 1; }}
+  .health-ring .pct .lbl {{ font-size: 10.5px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.12em; margin-top: 6px; font-weight: 600; }}
+  .summary-text {{ font-size: 13.5px; color: var(--text-muted); text-align: center; line-height: 1.6; }}
+  .summary-text strong {{ color: var(--text); font-weight: 700; }}
+
+  .stats {{ display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; align-content: start; }}
+  .stat {{
+    background: var(--bg-elev); border: 1px solid var(--border); border-radius: 14px; padding: 16px 18px;
+    transition: border-color 0.15s ease, transform 0.15s ease;
+    position: relative; overflow: hidden;
+  }}
+  .stat:hover {{ border-color: var(--border-strong); transform: translateY(-1px); }}
+  .stat .num {{ font-size: 30px; font-weight: 800; line-height: 1; margin-bottom: 6px; letter-spacing: -0.025em; font-variant-numeric: tabular-nums; }}
+  .stat .lbl {{ font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; display: flex; align-items: center; gap: 7px; }}
+  .stat .lbl::before {{ content: ''; width: 6px; height: 6px; border-radius: 50%; background: currentColor; opacity: 0.85; }}
+  .stat.s-ok {{ background: linear-gradient(135deg, var(--green-soft), transparent 80%); }}
+  .stat.s-ok .num, .stat.s-ok .lbl {{ color: var(--green); }}
+  .stat.s-down, .stat.s-sslbad {{ background: linear-gradient(135deg, var(--red-soft), transparent 80%); }}
+  .stat.s-down .num, .stat.s-down .lbl, .stat.s-sslbad .num, .stat.s-sslbad .lbl {{ color: var(--red); }}
+  .stat.s-wrong {{ background: linear-gradient(135deg, var(--purple-soft), transparent 80%); }}
+  .stat.s-wrong .num, .stat.s-wrong .lbl {{ color: var(--purple); }}
+  .stat.s-act {{ background: linear-gradient(135deg, var(--blue-soft), transparent 80%); }}
+  .stat.s-act .num, .stat.s-act .lbl {{ color: var(--blue); }}
+  .stat.s-risk, .stat.s-warn {{ background: linear-gradient(135deg, var(--amber-soft), transparent 80%); }}
+  .stat.s-risk .num, .stat.s-risk .lbl, .stat.s-warn .num, .stat.s-warn .lbl {{ color: var(--amber); }}
+
+  /* Toolbar */
+  .toolbar {{
+    background: var(--bg-elev); border: 1px solid var(--border); border-radius: 14px;
+    padding: 12px 14px; display: flex; gap: 12px; align-items: center; flex-wrap: wrap; margin-bottom: 14px;
+  }}
+  .search {{ flex: 1; min-width: 220px; position: relative; display: flex; align-items: center; }}
+  .search input {{
+    width: 100%; background: var(--bg); border: 1px solid var(--border); color: var(--text);
+    border-radius: 10px; padding: 10px 14px 10px 38px; font-size: 13.5px; outline: none;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    font-family: inherit;
+  }}
+  .search input::placeholder {{ color: var(--text-dim); }}
+  .search input:focus {{ border-color: var(--accent); box-shadow: 0 0 0 3px rgba(99,102,241,0.18); }}
+  .search svg {{ position: absolute; left: 12px; width: 16px; height: 16px; color: var(--text-dim); pointer-events: none; }}
+  .filters {{ display: flex; gap: 6px; flex-wrap: wrap; }}
+  .chip {{
+    padding: 7px 13px; border-radius: 999px; font-size: 12px; font-weight: 600;
+    border: 1px solid var(--border); background: var(--bg); color: var(--text-muted);
+    cursor: pointer; transition: all 0.15s ease; user-select: none;
+    display: inline-flex; align-items: center; gap: 6px;
+  }}
+  .chip:hover {{ color: var(--text); border-color: var(--border-strong); }}
+  .chip.active {{ background: var(--text); color: var(--bg); border-color: var(--text); }}
+  .chip .count {{ font-size: 10.5px; padding: 1px 6px; background: rgba(255,255,255,0.08); border-radius: 999px; }}
+  .chip.active .count {{ background: rgba(0,0,0,0.18); }}
+  .visible-count {{ margin-left: auto; color: var(--text-dim); font-size: 12px; font-variant-numeric: tabular-nums; }}
+
+  /* Table */
+  .table-wrap {{ background: var(--bg-elev); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; }}
+  table {{ width: 100%; border-collapse: collapse; font-size: 13.5px; }}
+  th, td {{ text-align: left; padding: 12px 14px; border-bottom: 1px solid var(--border); }}
+  th {{ color: var(--text-muted); font-weight: 600; font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.06em; background: var(--bg-elev-2); user-select: none; white-space: nowrap; }}
+  th.sortable {{ cursor: pointer; }}
+  th.sortable:hover {{ color: var(--text); }}
+  th.sortable::after {{ content: ' ⇅'; opacity: 0.35; font-size: 10px; }}
+  th.sort-asc::after {{ content: ' ↑'; opacity: 1; color: var(--accent); }}
+  th.sort-desc::after {{ content: ' ↓'; opacity: 1; color: var(--accent); }}
+  tbody tr {{ transition: background 0.1s ease; }}
+  tbody tr:hover {{ background: rgba(255,255,255,0.025); }}
+  tbody tr:last-child td {{ border-bottom: none; }}
+  td.domain {{ font-weight: 500; }}
+  td.domain a {{ color: var(--text); text-decoration: none; }}
+  td.domain a:hover {{ color: var(--accent); }}
+  td.dim, .muted, .dim {{ color: var(--text-muted); }}
+  td.detail {{ color: var(--text-muted); max-width: 260px; }}
+  .mono {{ font-family: 'JetBrains Mono', ui-monospace, "SF Mono", Menlo, monospace; font-size: 12px; }}
+  .dot {{ display: inline-block; width: 8px; height: 8px; border-radius: 50%; }}
+
+  /* Badges */
+  .badge {{
+    display: inline-flex; align-items: center; gap: 6px;
+    font-weight: 700; font-size: 10.5px; letter-spacing: 0.04em;
+    padding: 4px 10px; border-radius: 999px; text-transform: uppercase; white-space: nowrap;
+  }}
+  .badge::before {{ content: ''; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }}
+  .b-ok {{ color: var(--green); background: var(--green-soft); }}
+  .b-down, .b-sslbad {{ color: var(--red); background: var(--red-soft); }}
+  .b-wrong {{ color: var(--purple); background: var(--purple-soft); }}
+  .b-act {{ color: var(--blue); background: var(--blue-soft); }}
+  .b-risk, .b-warn, .b-degraded {{ color: var(--amber); background: var(--amber-soft); }}
+
+  .served-yes {{ color: var(--green); font-weight: 600; }}
+  .served-no {{ color: var(--amber); font-weight: 600; }}
+
+  /* SSL bar */
+  .ssl-pill {{ display: inline-flex; align-items: center; gap: 10px; font-variant-numeric: tabular-nums; white-space: nowrap; }}
+  .ssl-bar {{ width: 56px; height: 5px; background: var(--border); border-radius: 999px; overflow: hidden; }}
+  .ssl-bar > span {{ display: block; height: 100%; border-radius: 999px; }}
+  .ssl-days {{ font-size: 12.5px; color: var(--text-muted); }}
+
+  /* Response */
+  .resp {{ font-variant-numeric: tabular-nums; font-weight: 500; }}
+  .resp-fast {{ color: var(--green); }}
+  .resp-mid {{ color: var(--amber); }}
+  .resp-slow {{ color: var(--red); }}
+
+  /* Footer */
+  .legend {{
+    margin-top: 20px; padding: 18px 20px; background: var(--bg-elev); border: 1px solid var(--border); border-radius: 14px;
+    color: var(--text-muted); font-size: 12.5px; line-height: 1.7;
+  }}
+  .legend b {{ color: var(--text); font-weight: 700; }}
+  .legend .legend-title {{ color: var(--text); font-weight: 700; font-size: 13px; margin-bottom: 8px; display: block; }}
+  .legend ul {{ margin: 0; padding-left: 18px; }}
+  .legend li {{ margin-bottom: 4px; }}
+
+  .empty {{ padding: 56px 20px; text-align: center; color: var(--text-muted); display: none; }}
+  .empty.show {{ display: block; }}
+
+  ::selection {{ background: rgba(99,102,241,0.35); color: #fff; }}
+</style></head>
+<body><div class="wrap">
+
+  <header class="header">
+    <div class="title-block">
+      <h1>Domain Monitor</h1>
+      <div class="meta">
+        <span><span class="pulse"></span> Live</span>
+        <span class="sep">·</span>
+        <span>Last check <span class="mono">{checked_at}</span></span>
+        <span class="sep">·</span>
+        <span><strong style="color:var(--text);">{total}</strong> domains</span>
+        <span class="sep">·</span>
+        <span><strong style="color:var(--text);">{workers}</strong> on Worker</span>
+        <span class="sep">·</span>
+        <span>SSL warn {ssl_warn}d</span>
+        <span class="sep">·</span>
+        <span>auto every 6h</span>
+      </div>
+    </div>
+    <div class="actions">
+      <a class="btn btn-ghost" href="https://github.com/growthack88/domain-monitor" target="_blank" rel="noopener">⌥ Repo</a>
+      <a class="btn" href="{actions_url}" target="_blank" rel="noopener">↻ Check now</a>
+    </div>
+  </header>
+
+  <section class="overview">
+    <div class="health-card">
+      <div class="health-ring">
+        <svg viewBox="0 0 100 100" width="188" height="188">
+          <defs>
+            <linearGradient id="ring-grad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="{ring_start}"/>
+              <stop offset="100%" stop-color="{ring_end}"/>
+            </linearGradient>
+          </defs>
+          <circle cx="50" cy="50" r="42" fill="none" stroke="var(--border)" stroke-width="8"/>
+          <circle cx="50" cy="50" r="42" fill="none" stroke="url(#ring-grad)" stroke-width="8"
+            stroke-linecap="round" stroke-dasharray="{ring_visible} {ring_remainder}"/>
+        </svg>
+        <div class="pct">
+          <div class="big" style="color:{ring_end};">{pct}%</div>
+          <div class="lbl">Healthy</div>
+        </div>
+      </div>
+      <div class="summary-text"><strong>{ok}</strong> of <strong>{total}</strong> domains operational<br>{issues_text}</div>
+    </div>
+
+    <div class="stats">{stat_cards}</div>
+  </section>
+
+  <div class="toolbar">
+    <div class="search">
+      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7" stroke-width="2"/><path d="M21 21l-4.3-4.3" stroke-width="2" stroke-linecap="round"/></svg>
+      <input id="searchInput" placeholder="Search domain, project, host…" autocomplete="off" spellcheck="false"/>
+    </div>
+    <div class="filters" id="filterChips">
+      <div class="chip active" data-filter="all">All <span class="count">{total}</span></div>
+      <div class="chip" data-filter="issues">Issues <span class="count">{issues_count}</span></div>
+      <div class="chip" data-filter="ok">OK <span class="count">{ok}</span></div>
+      <div class="chip" data-filter="ssl">SSL <span class="count">{ssl_count}</span></div>
+      <div class="chip" data-filter="worker">Worker <span class="count">{workers}</span></div>
+    </div>
+    <span class="visible-count" id="visibleCount"></span>
+  </div>
+
+  <div class="table-wrap">
+    <table id="domainTable">
+      <thead>
+        <tr>
+          <th></th>
+          <th class="sortable" data-sort="domain">Domain</th>
+          <th class="sortable" data-sort="status">Status</th>
+          <th>Detail</th>
+          <th>Served</th>
+          <th>Project</th>
+          <th class="sortable" data-sort="ssl">SSL</th>
+          <th class="sortable" data-sort="resp">Response</th>
+          <th>Host</th>
+        </tr>
+      </thead>
+      <tbody>{rows}</tbody>
+    </table>
+    <div class="empty" id="emptyState">No domains match the current filter.</div>
+  </div>
+
+  <div class="legend">
+    <span class="legend-title">Status legend</span>
+    Worker-aware monitor using the Lovable proxy methodology.
+    <ul>
+      <li><b>AT RISK</b> — loads but not via the Worker (still on the old path; Lovable will disconnect it).</li>
+      <li><b>NEEDS ACTION</b> — Worker loop-guard; remove the custom domain inside that Lovable project so its <span class="mono">*.lovable.app</span> stops redirecting.</li>
+      <li><b>WRONG PROJECT</b> — served via Worker but content doesn't match the expected project (check <span class="mono">worker_map.json</span>).</li>
+    </ul>
+  </div>
+</div>
+
+<script>
+  const rows = Array.from(document.querySelectorAll('#domainTable tbody tr'));
+  const searchInput = document.getElementById('searchInput');
+  const chips = document.querySelectorAll('#filterChips .chip');
+  const emptyState = document.getElementById('emptyState');
+  const visibleCount = document.getElementById('visibleCount');
+  let currentFilter = 'all';
+
+  function applyFilters() {{
+    const q = searchInput.value.trim().toLowerCase();
+    let visible = 0;
+    rows.forEach(tr => {{
+      const hay = (tr.dataset.domain + ' ' + (tr.dataset.project || '') + ' ' + (tr.dataset.host || '')).toLowerCase();
+      const matchesSearch = !q || hay.includes(q);
+      const status = tr.dataset.status;
+      const onWorker = tr.dataset.worker === '1';
+      let matchesFilter = true;
+      if (currentFilter === 'issues') matchesFilter = status !== 'OK';
+      else if (currentFilter === 'ok') matchesFilter = status === 'OK';
+      else if (currentFilter === 'ssl') matchesFilter = status === 'SSL_INVALID' || status === 'SSL_EXPIRING';
+      else if (currentFilter === 'worker') matchesFilter = onWorker;
+      const show = matchesSearch && matchesFilter;
+      tr.style.display = show ? '' : 'none';
+      if (show) visible++;
+    }});
+    emptyState.classList.toggle('show', visible === 0);
+    visibleCount.textContent = visible + ' shown';
+  }}
+
+  searchInput.addEventListener('input', applyFilters);
+  chips.forEach(c => c.addEventListener('click', () => {{
+    chips.forEach(x => x.classList.remove('active'));
+    c.classList.add('active');
+    currentFilter = c.dataset.filter;
+    applyFilters();
+  }}));
+
+  // Sortable columns
+  const ths = document.querySelectorAll('th.sortable');
+  const tbody = document.querySelector('#domainTable tbody');
+  ths.forEach(th => th.addEventListener('click', () => {{
+    const key = th.dataset.sort;
+    const asc = !th.classList.contains('sort-asc');
+    ths.forEach(x => x.classList.remove('sort-asc', 'sort-desc'));
+    th.classList.add(asc ? 'sort-asc' : 'sort-desc');
+    const sorted = rows.slice().sort((a, b) => {{
+      const va = a.dataset[key], vb = b.dataset[key];
+      const na = parseFloat(va), nb = parseFloat(vb);
+      if (!isNaN(na) && !isNaN(nb)) return asc ? na - nb : nb - na;
+      return asc ? String(va).localeCompare(vb) : String(vb).localeCompare(va);
+    }});
+    sorted.forEach(tr => tbody.appendChild(tr));
+  }}));
+
+  // Keyboard shortcut: "/" focuses search
+  document.addEventListener('keydown', (e) => {{
+    if (e.key === '/' && document.activeElement !== searchInput) {{
+      e.preventDefault();
+      searchInput.focus();
+    }}
+  }});
+
+  applyFilters();
+</script>
+</body></html>"""
+
+
+def _build_row(r):
+    sev = r["overall"]
+    badge_class = SEV_BADGE_CLASS.get(sev, "b-ok")
+    dot_color = SEV_COLOR.get(sev, "#888")
+    detail = r.get("reason") or r["http"].get("error") or r["http"].get("code")
+    detail = "—" if detail is None else str(detail)
+
+    if r["ssl"]["ok"]:
+        days = r["ssl"]["days_left"]
+        expires = r["ssl"]["expires"]
+        if days <= SSL_WARN_DAYS:
+            bar_color = "var(--red)"
+        elif days <= 30:
+            bar_color = "var(--amber)"
+        else:
+            bar_color = "var(--green)"
+        bar_width = max(0, min(days, 90)) / 90 * 100
+        ssl_html = (
+            f'<div class="ssl-pill" title="Expires {expires}">'
+            f'<div class="ssl-bar"><span style="width:{bar_width:.0f}%;background:{bar_color}"></span></div>'
+            f'<span class="ssl-days">{days}d</span></div>'
+        )
+        ssl_sort = days
+    else:
+        err = r["ssl"]["error"] or "invalid"
+        ssl_html = f'<span style="color:var(--red);font-weight:600;">{err}</span>'
+        ssl_sort = -1
+
+    tms = r["http"]["time_ms"]
+    if tms is None:
+        resp_html = '<span class="dim">—</span>'
+        resp_sort = 99999
+    else:
+        if tms < 500:
+            cls = "resp-fast"
+        elif tms < 1500:
+            cls = "resp-mid"
+        else:
+            cls = "resp-slow"
+        resp_html = f'<span class="resp {cls}">{tms} ms</span>'
+        resp_sort = tms
+
+    if r["via_worker"]:
+        served = '<span class="served-yes">✓ Worker</span>'
+    elif r["on_worker"]:
+        served = '<span class="served-no">⚠ not Worker</span>'
+    else:
+        served = '<span class="dim">—</span>'
+
+    project_name = r["worker_sub"] if r["on_worker"] else ""
+    project_html = f'<span class="dim mono">{project_name}</span>' if project_name else '<span class="dim">—</span>'
+
+    # status sort: severity rank (lower number = worse, shows first when ascending)
+    status_sort = SEV_ORDER.get(sev, 9)
+
+    return (
+        f'\n      <tr data-domain="{r["domain"].lower()}" data-status="{sev}" '
+        f'data-worker="{1 if r["on_worker"] else 0}" data-project="{project_name.lower()}" '
+        f'data-host="{r["host"].lower()}" data-ssl="{ssl_sort}" data-resp="{resp_sort}">'
+        f'\n        <td><span class="dot" style="background:{dot_color}"></span></td>'
+        f'\n        <td class="domain"><a href="https://{r["domain"]}" target="_blank" rel="noopener">{r["domain"]}</a></td>'
+        f'\n        <td data-status-sort="{status_sort}"><span class="badge {badge_class}">{SEV_LABEL.get(sev, sev)}</span></td>'
+        f'\n        <td class="detail">{detail}</td>'
+        f'\n        <td>{served}</td>'
+        f'\n        <td>{project_html}</td>'
+        f'\n        <td>{ssl_html}</td>'
+        f'\n        <td>{resp_html}</td>'
+        f'\n        <td class="dim">{r["host"]}</td>'
+        f'\n      </tr>'
+    )
 
 
 def write_dashboard(results, checked_at):
@@ -404,80 +847,72 @@ def write_dashboard(results, checked_at):
     for r in results:
         counts[r["overall"]] = counts.get(r["overall"], 0) + 1
 
-    rows = []
-    for r in results:
-        color = SEV_COLOR.get(r["overall"], "#888")
-        detail = r.get("reason") or r["http"].get("error") or (r["http"].get("code") if r["http"].get("code") is not None else "—")
-        ssl_txt = f"{r['ssl']['days_left']}d → {r['ssl']['expires']}" if r["ssl"]["ok"] else (r["ssl"]["error"] or "invalid")
-        tms = r["http"]["time_ms"]
-        tms_txt = f"{tms} ms" if tms is not None else "—"
-        served = ("✓ Worker" if r["via_worker"] else ("⚠ not Worker" if r["on_worker"] else "—"))
-        proj = f'<span class="muted">{r["worker_sub"]}</span>' if r["on_worker"] else "—"
-        rows.append(f"""
-      <tr>
-        <td><span class="dot" style="background:{color}"></span></td>
-        <td><a href="https://{r['domain']}" target="_blank" rel="noopener">{r['domain']}</a></td>
-        <td><span class="badge" style="background:{color}">{SEV_LABEL.get(r['overall'], r['overall'])}</span></td>
-        <td>{detail}</td>
-        <td>{served}</td>
-        <td>{proj}</td>
-        <td>{ssl_txt}</td>
-        <td>{tms_txt}</td>
-        <td class="muted">{r['host']}</td>
-      </tr>""")
+    total = len(results)
+    ok_count = counts.get("OK", 0)
+    issues_count = total - ok_count
+    pct = round((ok_count / total) * 100) if total else 0
+    workers_count = sum(1 for r in results if r["on_worker"])
+    ssl_count = counts.get("SSL_INVALID", 0) + counts.get("SSL_EXPIRING", 0)
 
-    summary = f"""
-      <div class="card down">{counts.get('DOWN',0)}<span>Down</span></div>
-      <div class="card wrong">{counts.get('WRONG_PROJECT',0)}<span>Wrong project</span></div>
-      <div class="card act">{counts.get('NEEDS_ACTION',0)}<span>Needs action</span></div>
-      <div class="card risk">{counts.get('AT_RISK',0)}<span>At risk</span></div>
-      <div class="card sslbad">{counts.get('SSL_INVALID',0)}<span>SSL invalid</span></div>
-      <div class="card warn">{counts.get('SSL_EXPIRING',0)}<span>SSL expiring</span></div>
-      <div class="card ok">{counts.get('OK',0)}<span>OK</span></div>
-    """
+    # Donut gradient color depends on health
+    if pct >= 95:
+        ring_start, ring_end = "#22c55e", "#34d399"
+    elif pct >= 80:
+        ring_start, ring_end = "#f59e0b", "#fbbf24"
+    else:
+        ring_start, ring_end = "#ef4444", "#f87171"
 
-    html = f"""<!DOCTYPE html>
-<html lang="en"><head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Domain Monitor</title>
-<style>
-  :root {{ color-scheme: light dark; }}
-  body {{ font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; margin:0; background:#0f1115; color:#e6e8eb; }}
-  .wrap {{ max-width:1180px; margin:0 auto; padding:28px 20px 60px; }}
-  h1 {{ font-size:22px; margin:0 0 4px; }}
-  .sub {{ color:#9aa0a6; font-size:13px; margin-bottom:22px; }}
-  .cards {{ display:flex; gap:12px; flex-wrap:wrap; margin-bottom:24px; }}
-  .card {{ flex:1; min-width:104px; background:#171a21; border:1px solid #232833; border-radius:12px; padding:16px; font-size:28px; font-weight:700; }}
-  .card span {{ display:block; font-size:12px; font-weight:500; color:#9aa0a6; margin-top:4px; }}
-  .card.down,.card.sslbad {{ color:#ff6b6f; }} .card.wrong {{ color:#c084fc; }}
-  .card.act {{ color:#60a5fa; }} .card.risk,.card.warn {{ color:#f5a623; }} .card.ok {{ color:#30a46c; }}
-  table {{ width:100%; border-collapse:collapse; background:#171a21; border:1px solid #232833; border-radius:12px; overflow:hidden; }}
-  th,td {{ text-align:left; padding:10px 12px; font-size:13px; border-bottom:1px solid #232833; }}
-  th {{ color:#9aa0a6; font-weight:600; position:sticky; top:0; background:#13161c; }}
-  tr:last-child td {{ border-bottom:none; }}
-  a {{ color:#7cc0ff; text-decoration:none; }} a:hover {{ text-decoration:underline; }}
-  .muted {{ color:#9aa0a6; }}
-  .dot {{ display:inline-block; width:10px; height:10px; border-radius:50%; }}
-  .badge {{ color:#0f1115; font-weight:700; font-size:11px; padding:2px 8px; border-radius:20px; }}
-  .foot {{ margin-top:18px; color:#6b7280; font-size:12px; line-height:1.6; }}
-  .btn {{ display:inline-block; margin:0 0 22px; background:#7cc0ff; color:#0f1115; font-weight:700; font-size:14px; padding:10px 18px; border-radius:8px; text-decoration:none; }}
-</style></head>
-<body><div class="wrap">
-  <h1>Domain Monitor</h1>
-  <div class="sub">{len(results)} domains · last checked {checked_at} · SSL warn {SSL_WARN_DAYS}d · {sum(1 for r in results if r['on_worker'])} on Cloudflare Worker · auto every 6h</div>
-  <a class="btn" href="{actions_url}" target="_blank" rel="noopener">🔄 Check now</a>
-  <div class="cards">{summary}</div>
-  <table>
-    <thead><tr><th></th><th>Domain</th><th>Status</th><th>Detail</th><th>Served</th><th>Project</th><th>SSL</th><th>Resp</th><th>Host</th></tr></thead>
-    <tbody>{''.join(rows)}</tbody>
-  </table>
-  <div class="foot">
-    Worker-aware monitor (Lovable proxy methodology).
-    <b>AT RISK</b> = loads but not via the Worker (still on the old path — Lovable will disconnect it).
-    <b>NEEDS ACTION</b> = Worker loop-guard; remove the custom domain inside that Lovable project so its *.lovable.app stops redirecting.
-    <b>WRONG PROJECT</b> = served via Worker but content doesn't match the expected project (check worker_map.json).
-  </div>
-</div></body></html>"""
+    circ = 263.89  # 2 * pi * 42
+    ring_visible = round(circ * pct / 100, 2)
+    ring_remainder = round(circ - ring_visible, 2)
+
+    if issues_count == 0:
+        issues_text = "All systems operational"
+    else:
+        word = "issue" if issues_count == 1 else "issues"
+        issues_text = f"<strong style='color:var(--amber);'>{issues_count}</strong> {word} need attention"
+
+    # Stat cards — show all problem buckets even if 0; OK always shown
+    stat_specs = [
+        ("OK", "OK", "s-ok", True),
+        ("DOWN", "Down", "s-down", False),
+        ("WRONG_PROJECT", "Wrong project", "s-wrong", False),
+        ("NEEDS_ACTION", "Needs action", "s-act", False),
+        ("AT_RISK", "At risk", "s-risk", False),
+        ("SSL_INVALID", "SSL invalid", "s-sslbad", False),
+        ("SSL_EXPIRING", "SSL expiring", "s-warn", False),
+        ("DEGRADED", "Degraded", "s-warn", False),
+    ]
+    stat_cards_parts = []
+    for key, label, cls, always in stat_specs:
+        n = counts.get(key, 0)
+        if not always and n == 0:
+            continue
+        stat_cards_parts.append(
+            f'<div class="stat {cls}"><div class="num">{n}</div><div class="lbl">{label}</div></div>'
+        )
+    stat_cards = "".join(stat_cards_parts)
+
+    rows_html = "".join(_build_row(r) for r in results)
+
+    html = DASHBOARD_TEMPLATE.format(
+        checked_at=checked_at,
+        total=total,
+        ok=ok_count,
+        issues_count=issues_count,
+        pct=pct,
+        workers=workers_count,
+        ssl_warn=SSL_WARN_DAYS,
+        ssl_count=ssl_count,
+        actions_url=actions_url,
+        stat_cards=stat_cards,
+        rows=rows_html,
+        issues_text=issues_text,
+        ring_start=ring_start,
+        ring_end=ring_end,
+        ring_visible=ring_visible,
+        ring_remainder=ring_remainder,
+    )
 
     with open(DASHBOARD_FILE, "w", encoding="utf-8") as f:
         f.write(html)
