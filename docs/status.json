@@ -1,37 +1,9 @@
 {
-  "checked_at": "2026-06-11 20:12 UTC",
+  "checked_at": "2026-06-12 02:48 UTC",
   "counts": {
-    "DOWN": 1,
-    "OK": 50
+    "OK": 51
   },
   "results": [
-    {
-      "domain": "growthdna.pro",
-      "overall": "DOWN",
-      "reason": "read timeout",
-      "on_worker": true,
-      "worker_sub": "growthdna-waitlist-dna",
-      "via_worker": false,
-      "down": true,
-      "ssl_invalid": false,
-      "ssl_expiring": false,
-      "http": {
-        "code": null,
-        "final_url": "https://growthdna.pro",
-        "server": "",
-        "x_proxy": "",
-        "title": "",
-        "time_ms": null,
-        "error": "read timeout"
-      },
-      "ssl": {
-        "ok": true,
-        "days_left": 62,
-        "expires": "2026-08-12",
-        "error": null
-      },
-      "host": "\u2014"
-    },
     {
       "domain": "afaqmena.com",
       "overall": "OK",
@@ -48,7 +20,7 @@
         "server": "cloudflare",
         "x_proxy": "lovable-worker",
         "title": "\u0622\u0641\u0627\u0642 \u0644\u0644\u062a\u0633\u0648\u064a\u0642 \u2014 \u0646\u064f\u0648\u0633\u0651\u0639 \u0622\u0641\u0627\u0642 \u0639\u0645\u0644\u0643\u060c \u0648\u0646\u0632\u064a\u062f \u0645\u0628\u064a\u0639\u0627\u062a\u0643",
-        "time_ms": 1171,
+        "time_ms": 1972,
         "error": null
       },
       "ssl": {
@@ -75,7 +47,7 @@
         "server": "cloudflare",
         "x_proxy": "lovable-worker",
         "title": "\u0627\u0633\u0623\u0644 \u0646\u062c\u0627\u062a\u064a \u00b7 \u0623\u0631\u0634\u064a\u0641 \u0641\u0643\u0631 \u0645\u062d\u0645\u062f \u0623\u0628\u0648 \u0627\u0644\u0646\u062c\u0627",
-        "time_ms": 4466,
+        "time_ms": 1047,
         "error": null
       },
       "ssl": {
@@ -102,7 +74,7 @@
         "server": "cloudflare",
         "x_proxy": "lovable-worker",
         "title": "\u0645\u0627\u0643\u064a\u0646\u0629 \u0627\u0644\u0646\u0645\u0648 | Building Growth Machine by Mahmoud Omar",
-        "time_ms": 750,
+        "time_ms": 1177,
         "error": null
       },
       "ssl": {
@@ -129,7 +101,7 @@
         "server": "cloudflare",
         "x_proxy": "lovable-worker",
         "title": "Build to Lead - \u0645\u0646\u0638\u0648\u0645\u0629 \u0627\u0644\u0634\u0631\u0643\u0627\u062a \u0627\u0644\u0646\u0627\u0634\u0626\u0629 \u0641\u064a MENA",
-        "time_ms": 826,
+        "time_ms": 4050,
         "error": null
       },
       "ssl": {
@@ -156,7 +128,7 @@
         "server": "cloudflare",
         "x_proxy": "lovable-worker",
         "title": "Ahmed Adel | Art Director &amp; Creative Thinking Architect",
-        "time_ms": 928,
+        "time_ms": 1416,
         "error": null
       },
       "ssl": {
@@ -183,7 +155,7 @@
         "server": "cloudflare",
         "x_proxy": "lovable-worker",
         "title": "Digital Product Blueprint \u00e2\u0080\u0094 Make. Market. Monetize.",
-        "time_ms": 717,
+        "time_ms": 1267,
         "error": null
       },
       "ssl": {
@@ -210,7 +182,7 @@
         "server": "cloudflare",
         "x_proxy": "lovable-worker",
         "title": "DuckDoro \u2013 Focus less. Execute deeper.",
-        "time_ms": 801,
+        "time_ms": 2585,
         "error": null
       },
       "ssl": {
@@ -237,12 +209,12 @@
         "server": "cloudflare",
         "x_proxy": "lovable-worker",
         "title": "DuckLancer \u2014 The Freelancer OS | Invoice, CRM, Projects",
-        "time_ms": 753,
+        "time_ms": 1304,
         "error": null
       },
       "ssl": {
         "ok": true,
-        "days_left": 54,
+        "days_left": 53,
         "expires": "2026-08-05",
         "error": null
       },
@@ -264,7 +236,7 @@
         "server": "cloudflare",
         "x_proxy": "lovable-worker",
         "title": "Duckmerce \u2014 Ecommerce OS",
-        "time_ms": 766,
+        "time_ms": 1060,
         "error": null
       },
       "ssl": {
@@ -291,7 +263,7 @@
         "server": "cloudflare",
         "x_proxy": "lovable-worker",
         "title": "DuckVerse.pro",
-        "time_ms": 780,
+        "time_ms": 1195,
         "error": null
       },
       "ssl": {
@@ -318,7 +290,7 @@
         "server": "cloudflare",
         "x_proxy": "lovable-worker",
         "title": "eComHouse.pro - Mahmoud Omar Project",
-        "time_ms": 969,
+        "time_ms": 1152,
         "error": null
       },
       "ssl": {
@@ -345,7 +317,7 @@
         "server": "cloudflare",
         "x_proxy": "",
         "title": "DuckLancer \u2014 The Freelancer OS | Invoice, CRM, Projects",
-        "time_ms": 745,
+        "time_ms": 1274,
         "error": null
       },
       "ssl": {
@@ -372,7 +344,7 @@
         "server": "cloudflare",
         "x_proxy": "",
         "title": "GadZilla.DIY - Smart Gadgets for DIY Lifestyle | Coming Soon",
-        "time_ms": 870,
+        "time_ms": 1205,
         "error": null
       },
       "ssl": {
@@ -399,7 +371,7 @@
         "server": "cloudflare",
         "x_proxy": "",
         "title": "\u0644\u064a\u062f\u0628\u0648\u062f \u00b7 \u0645\u0646 \u0627\u0644\u0643\u062a\u0627\u0628\u060c \u0625\u0644\u0649 \u0645\u0643\u062a\u0628\u0643 \u2014 Read to Lead \u00d7 Duckdoro",
-        "time_ms": 660,
+        "time_ms": 999,
         "error": null
       },
       "ssl": {
@@ -426,7 +398,7 @@
         "server": "cloudflare",
         "x_proxy": "lovable-worker",
         "title": "Green Verse | Mohamed Green - Entrepreneurship Educator & Digital Business Consu",
-        "time_ms": 781,
+        "time_ms": 1285,
         "error": null
       },
       "ssl": {
@@ -453,7 +425,7 @@
         "server": "cloudflare",
         "x_proxy": "lovable-worker",
         "title": "DesignOS \u00e2\u0080\u0094 Run Your Design Business Like a Professional",
-        "time_ms": 942,
+        "time_ms": 1252,
         "error": null
       },
       "ssl": {
@@ -480,16 +452,43 @@
         "server": "cloudflare",
         "x_proxy": "",
         "title": "Mahmoud Omar - Growth Marketing Specialist",
-        "time_ms": 813,
+        "time_ms": 1044,
         "error": null
       },
       "ssl": {
         "ok": true,
-        "days_left": 78,
+        "days_left": 77,
         "expires": "2026-08-28",
         "error": null
       },
       "host": "Cloudflare"
+    },
+    {
+      "domain": "growthdna.pro",
+      "overall": "OK",
+      "reason": null,
+      "on_worker": true,
+      "worker_sub": "growthdna-waitlist-dna",
+      "via_worker": true,
+      "down": false,
+      "ssl_invalid": false,
+      "ssl_expiring": false,
+      "http": {
+        "code": 200,
+        "final_url": "https://growthdna.pro/",
+        "server": "cloudflare",
+        "x_proxy": "lovable-worker",
+        "title": "GrowthDNA \u2014 \u0627\u0643\u062a\u0634\u0641 \u0646\u0645\u0637\u0643 \u0641\u064a \u0627\u0644\u062a\u0633\u0648\u064a\u0642",
+        "time_ms": 1011,
+        "error": null
+      },
+      "ssl": {
+        "ok": true,
+        "days_left": 61,
+        "expires": "2026-08-12",
+        "error": null
+      },
+      "host": "Cloudflare Worker"
     },
     {
       "domain": "growthduckup.com",
@@ -507,7 +506,7 @@
         "server": "cloudflare",
         "x_proxy": "lovable-worker",
         "title": "Growth OS \u2014 Your Growth Marketing Workspace",
-        "time_ms": 696,
+        "time_ms": 1325,
         "error": null
       },
       "ssl": {
@@ -534,7 +533,7 @@
         "server": "cloudflare",
         "x_proxy": "lovable-worker",
         "title": "Growth Hack Stack | Launch Your Growth with Expert Diagnosis",
-        "time_ms": 866,
+        "time_ms": 1253,
         "error": null
       },
       "ssl": {
@@ -561,7 +560,7 @@
         "server": "cloudflare",
         "x_proxy": "lovable-worker",
         "title": "Growth Hack Academy | \u00d8\u00a3\u00d9\u0083\u00d8\u00a8\u00d8\u00b1 \u00d9\u0085\u00d8\u00b5\u00d8\u00af\u00d8\u00b1 \u00d8\u00b9\u00d8\u00b1\u00d8\u00a8\u00d9\u008a \u00d9\u0084\u00d8\u00aa\u00d8\u00b9\u00d9\u0084\u00d9\u0085 \u00d8\u00a7\u00d9\u0084\u00d8\u00ac\u00d8\u00b1\u00d9\u0088\u00d8\u00ab \u00d9\u0087\u00d8\u00a7\u00d9\u0083\u00d9",
-        "time_ms": 968,
+        "time_ms": 1210,
         "error": null
       },
       "ssl": {
@@ -588,7 +587,7 @@
         "server": "cloudflare",
         "x_proxy": "",
         "title": "GrowthHackToolkit \u2013 Discover the Best Growth Tools by Funnel Stage",
-        "time_ms": 852,
+        "time_ms": 988,
         "error": null
       },
       "ssl": {
@@ -615,12 +614,12 @@
         "server": "cloudflare",
         "x_proxy": "lovable-worker",
         "title": "\u0647\u0648 \u0643\u062f\u0647 \u2014 \u0623\u062f\u0648\u0627\u062a \u0630\u0643\u064a\u0629 \u0628\u062f\u0648\u0646 \u0645\u062c\u0627\u0645\u0644\u0627\u062a",
-        "time_ms": 1092,
+        "time_ms": 2089,
         "error": null
       },
       "ssl": {
         "ok": true,
-        "days_left": 86,
+        "days_left": 85,
         "expires": "2026-09-05",
         "error": null
       },
@@ -642,7 +641,7 @@
         "server": "cloudflare",
         "x_proxy": "lovable-worker",
         "title": "I-GEEKY | Enterprise Growth, E-commerce & Corporate Marketing Agency",
-        "time_ms": 742,
+        "time_ms": 986,
         "error": null
       },
       "ssl": {
@@ -669,7 +668,7 @@
         "server": "cloudflare",
         "x_proxy": "lovable-worker",
         "title": "INTerms \u2014 Generate Professional Contracts in Minutes",
-        "time_ms": 870,
+        "time_ms": 1023,
         "error": null
       },
       "ssl": {
@@ -696,7 +695,7 @@
         "server": "cloudflare",
         "x_proxy": "lovable-worker",
         "title": "Kids to Lead \u2014 \u0628\u0648\u0643\u0633 \u0631\u064a\u0627\u062f\u0629 \u0627\u0644\u0623\u0639\u0645\u0627\u0644 + 5 \u0643\u062a\u0628 + \u062a\u0637\u0628\u064a\u0642 Kidify \u0633\u0646\u0629 \u0643\u0627\u0645\u0644\u0629",
-        "time_ms": 853,
+        "time_ms": 1188,
         "error": null
       },
       "ssl": {
@@ -723,7 +722,7 @@
         "server": "cloudflare",
         "x_proxy": "lovable-worker",
         "title": "LeadToolkits - Business Growth, Simplified",
-        "time_ms": 723,
+        "time_ms": 1465,
         "error": null
       },
       "ssl": {
@@ -750,7 +749,7 @@
         "server": "cloudflare",
         "x_proxy": "lovable-worker",
         "title": "Mahmoud Omar | Growth Marketing Specialist",
-        "time_ms": 891,
+        "time_ms": 1382,
         "error": null
       },
       "ssl": {
@@ -777,7 +776,7 @@
         "server": "cloudflare",
         "x_proxy": "lovable-worker",
         "title": "\u0645\u062d\u0645\u0648\u062f \u0639\u0645\u0631 | Founder of Read to Lead \u2014 \u0643\u062a\u0628 \u0648\u0623\u0646\u0638\u0645\u0629 \u0646\u0645\u0648 \u0644\u0644\u0645\u0624\u0633\u0633\u064a\u0646 \u0648\u0627\u0644\u0645\u0633\u0648\u0642\u064a\u0646",
-        "time_ms": 791,
+        "time_ms": 1374,
         "error": null
       },
       "ssl": {
@@ -804,12 +803,12 @@
         "server": "cloudflare",
         "x_proxy": "lovable-worker",
         "title": "Masaai2030 | \u00d9\u0085\u00d9\u0086\u00d8\u00b5\u00d8\u00a9 \u00d8\u00b3\u00d8\u00b9\u00d9\u0088\u00d8\u00af\u00d9\u008a\u00d8\u00a9 \u00d9\u0084\u00d8\u00b5\u00d9\u0086\u00d8\u00a7\u00d8\u00b9 \u00d8\u00a7\u00d9\u0084\u00d9\u0085\u00d8\u00b3\u00d8\u00aa\u00d9\u0082\u00d8\u00a8\u00d9\u0084 \u00d9\u0088\u00d8\u00b1\u00d8\u00a4\u00d9\u008a\u00d8\u00a9 2030",
-        "time_ms": 914,
+        "time_ms": 1350,
         "error": null
       },
       "ssl": {
         "ok": true,
-        "days_left": 83,
+        "days_left": 82,
         "expires": "2026-09-02",
         "error": null
       },
@@ -831,7 +830,7 @@
         "server": "cloudflare",
         "x_proxy": "lovable-worker",
         "title": "M-Empire Angels \u2014 Pre-seed capital for MENA founders",
-        "time_ms": 805,
+        "time_ms": 1060,
         "error": null
       },
       "ssl": {
@@ -858,7 +857,7 @@
         "server": "cloudflare",
         "x_proxy": "lovable-worker",
         "title": "MMAS89 \u2014 Mahmoud Alaa | Art Director",
-        "time_ms": 905,
+        "time_ms": 1248,
         "error": null
       },
       "ssl": {
@@ -885,7 +884,7 @@
         "server": "cloudflare",
         "x_proxy": "lovable-worker",
         "title": "Mujeer Law Firm - Coming Soon | Excellence in Legal Services",
-        "time_ms": 958,
+        "time_ms": 1153,
         "error": null
       },
       "ssl": {
@@ -912,7 +911,7 @@
         "server": "cloudflare",
         "x_proxy": "lovable-worker",
         "title": "Read to Lead \u2014 \u062f\u0627\u0631 \u0646\u0634\u0631 \u0648\u0645\u0646\u0635\u0629 \u0645\u0639\u0631\u0641\u0629 \u0639\u0631\u0628\u064a\u0629 | \u0643\u062a\u0628 \u00b7 \u0645\u0644\u062e\u0635\u0627\u062a \u00b7 \u062d\u0642\u0627\u0626\u0628 \u0623\u0639\u0645\u0627\u0644 \u00b7 \u062a\u0637\u0628\u064a\u0642\u0627\u062a",
-        "time_ms": 662,
+        "time_ms": 1017,
         "error": null
       },
       "ssl": {
@@ -939,7 +938,7 @@
         "server": "cloudflare",
         "x_proxy": "lovable-worker",
         "title": "Pluginz.io \u2014 Small Plugins. Big Leverage.",
-        "time_ms": 1004,
+        "time_ms": 1097,
         "error": null
       },
       "ssl": {
@@ -966,7 +965,7 @@
         "server": "cloudflare",
         "x_proxy": "lovable-worker",
         "title": "Publish to Lead",
-        "time_ms": 1602,
+        "time_ms": 1057,
         "error": null
       },
       "ssl": {
@@ -993,7 +992,7 @@
         "server": "cloudflare",
         "x_proxy": "lovable-worker",
         "title": "\u0631\u0627\u0648\u064a \u0628\u0631\u0633 - Rawi Press",
-        "time_ms": 677,
+        "time_ms": 1242,
         "error": null
       },
       "ssl": {
@@ -1020,7 +1019,7 @@
         "server": "cloudflare",
         "x_proxy": "lovable-worker",
         "title": "ReadCast \u00e2\u0080\u0094 \u00d9\u0083\u00d8\u00aa\u00d8\u00a7\u00d8\u00a8 \u00d8\u00a8\u00d9\u008a\u00d9\u0086 \u00d8\u00a7\u00d9\u0084\u00d8\u00b3\u00d8\u00b7\u00d9\u0088\u00d8\u00b1 | \u00d9\u0085\u00d9\u0084\u00d8\u00ae\u00d8\u00b5\u00d8\u00a7\u00d8\u00aa \u00d8\u00b0\u00d9\u0083\u00d9\u008a\u00d8\u00a9 \u00d9\u0084\u00d8\u00a3\u00d9\u0087\u00d9\u0085 \u00d8\u00a7\u00d9\u0084\u00d9",
-        "time_ms": 795,
+        "time_ms": 2937,
         "error": null
       },
       "ssl": {
@@ -1047,7 +1046,7 @@
         "server": "cloudflare",
         "x_proxy": "lovable-worker",
         "title": "Read to Lead \u2014 \u0627\u0644\u062d\u0642\u0627\u0626\u0628 \u0627\u0644\u0645\u0639\u0631\u0641\u064a\u0629 | \u0643\u062a\u0628 + \u0623\u062f\u0648\u0627\u062a + \u062a\u0637\u0628\u064a\u0642\u0627\u062a SaaS",
-        "time_ms": 735,
+        "time_ms": 1132,
         "error": null
       },
       "ssl": {
@@ -1074,7 +1073,7 @@
         "server": "cloudflare",
         "x_proxy": "lovable-worker",
         "title": "Read to Lead | Enhancing Reading Experience",
-        "time_ms": 750,
+        "time_ms": 1301,
         "error": null
       },
       "ssl": {
@@ -1101,7 +1100,7 @@
         "server": "Vercel",
         "x_proxy": "",
         "title": "StartupKit.pro \u2014 Founder OS for MENA Startups",
-        "time_ms": 99,
+        "time_ms": 287,
         "error": null
       },
       "ssl": {
@@ -1128,7 +1127,7 @@
         "server": "cloudflare",
         "x_proxy": "lovable-worker",
         "title": "\u0633\u062a\u0627\u0631\u062a \u0623\u0628 \u0643\u064a\u062a \u0628\u0631\u0648 \u2014 \u0623\u062f\u0648\u0627\u062a \u0648\u0645\u0642\u0627\u0644\u0627\u062a \u0644\u0644\u0645\u0624\u0633\u0633\u064a\u0646 \u0627\u0644\u0639\u0631\u0628",
-        "time_ms": 2234,
+        "time_ms": 2724,
         "error": null
       },
       "ssl": {
@@ -1155,7 +1154,7 @@
         "server": "cloudflare",
         "x_proxy": "lovable-worker",
         "title": "Steplead - Professional Training & Development Excellence",
-        "time_ms": 862,
+        "time_ms": 903,
         "error": null
       },
       "ssl": {
@@ -1182,12 +1181,12 @@
         "server": "cloudflare",
         "x_proxy": "lovable-worker",
         "title": "Templify - The Ultimate Growth Marketing Library",
-        "time_ms": 877,
+        "time_ms": 1175,
         "error": null
       },
       "ssl": {
         "ok": true,
-        "days_left": 71,
+        "days_left": 70,
         "expires": "2026-08-21",
         "error": null
       },
@@ -1209,12 +1208,12 @@
         "server": "cloudflare",
         "x_proxy": "lovable-worker",
         "title": "TryCopyDuck \u00e2\u0080\u0094 AI Plagiarism Checker, AI Detector & Content Humanizer",
-        "time_ms": 898,
+        "time_ms": 1144,
         "error": null
       },
       "ssl": {
         "ok": true,
-        "days_left": 57,
+        "days_left": 56,
         "expires": "2026-08-08",
         "error": null
       },
@@ -1236,7 +1235,7 @@
         "server": "cloudflare",
         "x_proxy": "lovable-worker",
         "title": "DuckCash \u2014 \u0625\u062f\u0627\u0631\u0629 \u062d\u0633\u0627\u0628\u0627\u062a\u0643 \u0648\u0645\u0635\u0631\u0648\u0641\u0627\u062a\u0643 \u0641\u064a \u0645\u0643\u0627\u0646 \u0648\u0627\u062d\u062f",
-        "time_ms": 1232,
+        "time_ms": 1674,
         "error": null
       },
       "ssl": {
@@ -1263,7 +1262,7 @@
         "server": "cloudflare",
         "x_proxy": "lovable-worker",
         "title": "DuckDash \u2014 Marketing OS for MENA Founders",
-        "time_ms": 745,
+        "time_ms": 1051,
         "error": null
       },
       "ssl": {
@@ -1290,7 +1289,7 @@
         "server": "cloudflare",
         "x_proxy": "lovable-worker",
         "title": "DuckDev \u2014 Business Development OS | 17 BD Tools in One App",
-        "time_ms": 801,
+        "time_ms": 1178,
         "error": null
       },
       "ssl": {
@@ -1317,7 +1316,7 @@
         "server": "cloudflare",
         "x_proxy": "",
         "title": "DNS points to prohibited IP | tryducktank.com | Cloudflare",
-        "time_ms": 703,
+        "time_ms": 328,
         "error": null
       },
       "ssl": {
@@ -1344,7 +1343,7 @@
         "server": "cloudflare",
         "x_proxy": "lovable-worker",
         "title": "Whatzduck Blog - \u00d9\u0085\u00d9\u0082\u00d8\u00a7\u00d9\u0084\u00d8\u00a7\u00d8\u00aa \u00d9\u0084\u00d8\u00a7 \u00d8\u00aa\u00d9\u008f\u00d9\u0086\u00d8\u00b3\u00d9\u0089 \u00d9\u0081\u00d9\u008a \u00d8\u00a7\u00d9\u0084\u00d8\u00ac\u00d8\u00b1\u00d9\u0088\u00d8\u00ab \u00d9\u0088\u00d8\u00a7\u00d9\u0084\u00d8\u00af\u00d9\u008a\u00d8\u00ac\u00d9\u008a\u00d8\u00aa",
-        "time_ms": 743,
+        "time_ms": 1072,
         "error": null
       },
       "ssl": {
@@ -1371,7 +1370,7 @@
         "server": "cloudflare",
         "x_proxy": "",
         "title": "Ahmed Zahran | Mobile App Growth Strategist",
-        "time_ms": 768,
+        "time_ms": 1080,
         "error": null
       },
       "ssl": {
