@@ -13,7 +13,7 @@
   "freeduckter.com": "OK",
   "gadzilla.diy": "OK",
   "getduckdoro.com": "OK",
-  "greenverse.lol": "OK",
+  "greenverse.lol": "DOWN",
   "gristory.com": "OK",
   "growthack.info": "OK",
   "growthdna.pro": "OK",
@@ -36,7 +36,7 @@
   "pluginz.io": "OK",
   "publishtolead.pro": "OK",
   "rawipress.live": "OK",
-  "readcast.live": "OK",
+  "readcast.live": "DOWN",
   "readtolead.online": "OK",
   "readtolead.pro": "OK",
   "startupkit.pro": "OK",
@@ -50,5 +50,5 @@
   "tryducktank.com": "OK",
   "whatzduck.com": "OK",
   "zahranppc.com": "OK",
-  "_pushover_last_date": "2026-06-12"
+  "_pushover_last_date": "2026-06-13"
 }
